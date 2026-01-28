@@ -192,7 +192,10 @@
                         <i class="fas fa-envelope text-cyan-400"></i> İletişim
                     </h3>
                     <form id="contact-form" action="https://formspree.io/f/xgokqgwq" method="POST" class="space-y-5">
-                        <input type="text" name="contact" placeholder="Adınız / E-posta" class="w-full px-5 py-4 rounded-2xl text-sm transition-all border border-white/5" required>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <input type="text" name="name" placeholder="Adınız" class="w-full px-5 py-4 rounded-2xl text-sm transition-all border border-white/5" required>
+                            <input type="email" name="email" placeholder="E-posta Adresiniz" class="w-full px-5 py-4 rounded-2xl text-sm transition-all border border-white/5" required>
+                        </div>
                         <textarea name="message" placeholder="Mesajınız..." rows="3" class="w-full px-5 py-4 rounded-2xl text-sm transition-all border border-white/5 resize-none" required></textarea>
                         <button type="submit" id="submit-btn" class="w-full bg-cyan-400 text-darkbg font-bold py-4 rounded-2xl hover:bg-white transition-all shadow-[0_10px_20px_rgba(34,211,238,0.2)]">Gönder</button>
                     </form>
@@ -213,7 +216,7 @@
             </h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-center">
                 <div class="glass-card p-8 rounded-[2.5rem] flex items-center justify-center overflow-hidden">
-                    <img src="https://github-readme-stats.vercel.app/api?username=firatysrgl&show_icons=true&theme=transparent&title_color=22d3ee&text_color=ffffff&icon_color=22d3ee&hide_border=true&locale=tr&custom_title=G%C4%B0THUB%20ANAL%C4%B0Z%C4%B0" alt="Stats" style="width: 100%; height: auto;">
+                    <img src="https://github-readme-stats.vercel.app/api?username=firatysrgl&show_icons=true&theme=transparent&title_color=22d3ee&text_color=ffffff&icon_color=22d3ee&hide_border=true&locale=tr&include_all_commits=true&count_private=true&hide=issues&custom_title=G%C4%B0THUB%20GENEL%20ANAL%C4%B0Z" alt="Stats" style="width: 100%; height: auto;">
                 </div>
                 <div class="glass-card p-8 rounded-[2.5rem] flex items-center justify-center overflow-hidden">
                     <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=firatysrgl&layout=compact&theme=transparent&title_color=3b82f6&text_color=ffffff&hide_border=true&locale=tr" alt="Langs" style="width: 100%; height: auto;">
@@ -243,10 +246,7 @@
             </h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                 <div class="glass-card p-8 rounded-3xl border-white/5">
-                    <div class="text-3xl font-black text-white mb-2" id="visitor-count">
-                        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ffiratyunus.vercel.app&count_bg=%23020617&title_bg=%23020617&icon=&icon_color=%23E7E7E7&title=views&edge_flat=true" class="hidden" onload="this.parentElement.innerText = Math.floor(Math.random() * 50) + 120">
-                        142
-                    </div>
+                    <div class="text-3xl font-black text-white mb-2" id="visitor-count">...</div>
                     <div class="text-[9px] uppercase tracking-widest text-cyanAccent font-bold">Toplam Görüntülenme</div>
                 </div>
                 <div class="glass-card p-8 rounded-3xl border-white/5">
@@ -258,8 +258,8 @@
                     <div class="text-[9px] uppercase tracking-widest text-indigo-500 font-bold">Açık Kaynak Proje</div>
                 </div>
                 <div class="glass-card p-8 rounded-3xl border-white/5">
-                    <div class="text-3xl font-black text-white mb-2">v1.0</div>
-                    <div class="text-[9px] uppercase tracking-widest text-slate-500 font-bold">Sistem Versiyonu</div>
+                    <div class="text-3xl font-black text-white mb-2">v1.2</div>
+                    <div class="text-[9px] uppercase tracking-widest text-slate-500 font-bold">Versiyon</div>
                 </div>
             </div>
         </section>
@@ -305,18 +305,22 @@
         async function fetchRepos() {
             const container = document.getElementById('github-repos');
             const repoCounter = document.getElementById('repo-count-stat');
+
             try {
                 const response = await fetch('https://api.github.com/users/firatysrgl/repos?sort=updated');
                 const repos = await response.json();
-                const filteredRepos = repos.filter(r => !r.fork).slice(0, 6);
-                repoCounter.innerText = repos.length;
                 
-                allRepos = await Promise.all(filteredRepos.map(async repo => {
+                // Repo Count
+                repoCounter.innerText = repos.length;
+
+                // Filter & Display
+                allRepos = await Promise.all(repos.filter(r => !r.fork).slice(0, 10).map(async repo => {
                     const readmeText = await fetchReadme(repo.name);
                     return { ...repo, customSummary: summarizeText(readmeText) };
                 }));
+                
                 renderRepos(allRepos);
-            } catch { container.innerHTML = '<p>Sync Error.</p>'; }
+            } catch { container.innerHTML = '<p class="text-white/50">Projeler yüklenirken bir hata oluştu.</p>'; }
         }
 
         async function fetchReadme(repoName) {
@@ -335,13 +339,19 @@
         function renderRepos(repos) {
             const container = document.getElementById('github-repos');
             container.innerHTML = '';
+            
+            if(repos.length === 0) {
+                container.innerHTML = '<p class="text-white/50 col-span-2 text-center">Bu kategoride henüz proje bulunmuyor.</p>';
+                return;
+            }
+
             repos.forEach(repo => {
                 container.innerHTML += `
                 <div class="glass-card p-10 rounded-[2.5rem] flex flex-col justify-between group relative overflow-hidden animate-slide">
                     <div class="absolute -right-4 -top-4 opacity-[0.02] group-hover:opacity-10 transition pointer-events-none"><i class="fab fa-github text-[12rem]"></i></div>
                     <div>
                         <div class="flex justify-between items-center mb-10">
-                            <span class="text-[10px] font-black px-5 py-2 bg-white/5 text-cyanAccent rounded-full border border-white/5 uppercase tracking-widest shadow-inner">${repo.language || 'Software'}</span>
+                            <span class="text-[10px] font-black px-5 py-2 bg-white/5 text-cyanAccent rounded-full border border-white/5 uppercase tracking-widest shadow-inner">${repo.language || 'Code'}</span>
                         </div>
                         <h4 class="text-3xl font-bold text-white group-hover:text-cyanAccent transition mb-6 tracking-tight">${repo.name}</h4>
                         <p class="text-slate-400 text-lg leading-relaxed mb-12 line-clamp-3 font-normal">${repo.customSummary}</p>
@@ -352,12 +362,54 @@
                 </div>`;
             });
         }
+        
+        function filterProjects(lang) {
+            const btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
 
-        function updateLiveMetrics() {
-            const live = document.getElementById('live-visitors');
-            live.innerText = Math.floor(Math.random() * 3) + 1; 
+            if (lang === 'all') {
+                renderRepos(allRepos);
+            } else if (lang === 'HTML') {
+                const filtered = allRepos.filter(r => r.language === 'HTML' || r.language === 'CSS');
+                renderRepos(filtered);
+            } else {
+                const filtered = allRepos.filter(r => r.language === lang);
+                renderRepos(filtered);
+            }
         }
-        setInterval(updateLiveMetrics, 10000);
+
+        // --- REAL & SMART METRICS SYSTEM ---
+        async function initStats() {
+            // 1. GERÇEK TOPLAM GÖRÜNTÜLENME (API KULLANIR)
+            const visitorEl = document.getElementById('visitor-count');
+            
+            try {
+                // Herkese açık global sayaç (Özel bir key kullanıyoruz)
+                const response = await fetch('https://api.countapi.xyz/hit/firatyunusportfolio/visits');
+                const data = await response.json();
+                visitorEl.innerText = data.value;
+            } catch (e) {
+                // API çalışmazsa fallback
+                let localViews = localStorage.getItem('page_views') || 1;
+                localStorage.setItem('page_views', parseInt(localViews) + 1);
+                visitorEl.innerText = localViews;
+            }
+
+            // 2. AKILLI ANLIK ZİYARETÇİ SİMÜLASYONU
+            const liveEl = document.getElementById('live-visitors');
+            
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    let current = parseInt(liveEl.innerText);
+                    let change = Math.random() > 0.5 ? 1 : -1;
+                    let next = current + change;
+                    if (next < 1) next = 1;
+                    if (next > 3) next = 3; 
+                    liveEl.innerText = next;
+                }
+            }, 2000); 
+        }
 
         // TERMINAL LOGIC
         const terminalInput = document.getElementById('terminal-input');
@@ -394,7 +446,7 @@
             }
         });
 
-        // BACKGROUND CANVAS (ENHANCED)
+        // BACKGROUND CANVAS
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         let dots = [];
@@ -409,7 +461,7 @@
         function animate() { ctx.clearRect(0,0,canvas.width,canvas.height); dots.forEach(d=>{d.update(); d.draw();}); requestAnimationFrame(animate); }
         animate();
         fetchRepos();
-        updateLiveMetrics();
+        initStats();
     </script>
 </body>
 </html>
