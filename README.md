@@ -1,75 +1,57 @@
-# 👨‍💻 Fırat Yunus Yaşaroğlu | Software Engineering Portfolio
+# 🚀 Fırat Yunus Yaşaroğlu | Personal Portfolio
 
-Modern web teknolojileri, güçlü backend mimarisi vizyonu ve interaktif kullanıcı deneyimi ile tasarlanmış kişisel portfolyo web sitem.
+![Website Status](https://img.shields.io/website?url=https%3A%2F%2Ffiratyunus.com&style=flat-square&label=Status&color=22d3ee)
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
+![Top Language](https://img.shields.io/github/languages/top/firatysrgl/firatysrgl?style=flat-square&color=orange)
 
-> **"Engineering Excellence"** vizyonuyla geliştirildi.
+Modern, yüksek performanslı ve interaktif kişisel portfolyo web sitesi. Yazılım Mühendisliği çalışmalarımı, projelerimi ve yeteneklerimi sergilemek için **Tailwind CSS** ve **Vanilla JS** kullanılarak geliştirilmiştir.
 
----
-
-### 🚀 Canlı Demo
-Projenin yayındaki son halini (v1.4) buradan inceleyebilirsiniz:
-## 👉 [https://firatyunus.vercel.app/](https://firatyunus.vercel.app/)
+🔗 **Canlı Site:** [www.firatyunus.com](https://firatyunus.com)
 
 ---
 
-## 🔥 Öne Çıkan Özellikler
+## ✨ Öne Çıkan Özellikler
 
-* **🎨 Glassmorphism Tasarım:** Modern, şeffaf ve estetik UI bileşenleri.
-* **📱 Tam Mobil Uyum (Responsive):** Masaüstü, tablet ve mobil cihazlarda kusursuz görünüm.
-* **💻 İnteraktif Terminal:** Ziyaretçiler için komut satırı deneyimi (CLI).
-* **🔄 Dinamik GitHub Entegrasyonu:** Projeleri GitHub API üzerinden otomatik çeker ve filtreler.
-* **📊 Gerçek Zamanlı İstatistikler:**
-    * Site Görüntülenme Sayısı (CountAPI ile gerçek veri).
-    * Anlık Ziyaretçi Simülasyonu.
-    * GitHub Commit ve Repo analizleri.
-* **✨ Özel Animasyonlar:** Canvas tabanlı parçacık (particle) arka plan efekti.
-* **📨 İletişim Formu:** Formspree entegrasyonu ile çalışan AJAX tabanlı form.
-
----
+* **🎨 Modern UI/UX:** Glassmorphism tasarımı, özel animasyonlar ve Tailwind CSS ile şık arayüz.
+* **💻 İnteraktif Terminal:** Ziyaretçiler için çalıştırılabilir komut satırı simülasyonu (`sys-bash`).
+* **🔄 GitHub API Entegrasyonu:** `fetch` API ile GitHub repolarını, dil istatistiklerini ve README özetlerini otomatik çeker.
+* **📊 Akıllı İstatistikler:** CountAPI ve LocalStorage tabanlı gerçek zamanlı ziyaretçi sayacı.
+* **📧 Profesyonel İletişim:** Cloudflare Email Routing (`contact@firatyunus.com`) ve Formspree form altyapısı.
+* **🔒 Güvenlik & Performans:** Cloudflare DNS koruması ve Vercel Edge Network üzerinde barındırma.
+* **📱 Tam Responsive:** Mobil, tablet ve masaüstü cihazlarla %100 uyumlu.
 
 ## 🛠️ Kullanılan Teknolojiler
 
-Bu proje herhangi bir framework (React, Vue vb.) kullanılmadan, **Saf (Vanilla) JavaScript** gücüyle geliştirilmiştir.
-
-| Teknoloji | Açıklama |
+| Alan | Teknoloji |
 | :--- | :--- |
-| **HTML5** | Semantik yapı ve SEO uyumlu iskelet. |
-| **Tailwind CSS** | Hızlı ve modern stillendirme (CDN). |
-| **JavaScript (ES6+)** | API yönetimi, DOM manipülasyonu ve mantıksal işlemler. |
-| **GitHub REST API** | Proje ve profil verilerini çekmek için. |
-| **CountAPI** | Sayfa görüntülenme sayısını veritabanında tutmak için. |
-| **Formspree** | Serverless iletişim formu yönetimi. |
-| **FontAwesome** | İkon setleri. |
+| **Frontend** | HTML5, CSS3, JavaScript (ES6+) |
+| **Framework** | Tailwind CSS (CDN & Config) |
+| **Icons** | FontAwesome 6.4 |
+| **API** | GitHub REST API, CountAPI |
+| **Hosting** | Vercel |
+| **DNS / Email** | Cloudflare |
+
+## 🚀 Kurulum (Local)
+
+Projeyi kendi bilgisayarınızda çalıştırmak isterseniz:
+
+1.  Repoyu klonlayın:
+    ```bash
+    git clone [https://github.com/firatysrgl/firatysrgl.git](https://github.com/firatysrgl/firatysrgl.git)
+    ```
+2.  Klasöre gidin:
+    ```bash
+    cd firatysrgl
+    ```
+3.  `index.html` dosyasını tarayıcınızda açın. (Live Server önerilir).
+
+## 📬 İletişim
+
+Projeleriniz veya iş birlikleri için benimle iletişime geçebilirsiniz:
+
+* 🌐 **Web:** [firatyunus.com](https://firatyunus.com)
+* 📧 **Email:** [contact@firatyunus.com](mailto:contact@firatyunus.com)
+* 💼 **LinkedIn:** [Fırat Yunus Yaşaroğlu](https://www.linkedin.com/in/firat-yunus-yasaroglu/)
 
 ---
-
-## 📂 Proje Yapısı
-
-```bash
-📦 firat-portfolio
- ┣ 📜 index.html       # Ana uygulama dosyası (Tüm mantık burada)
- ┣ 📜 README.md        # Proje dokümantasyonu
- ┗ 📜 .gitignore       # Git ayarları
-
-
-🚀 Kurulum & Çalıştırma
-Projeyi yerel bilgisayarınızda çalıştırmak için:
-
-Repoyu klonlayın:
-
-Bash
-git clone [https://github.com/firatysrgl/sitem.git](https://github.com/firatysrgl/sitem.git)
-Klasöre gidin:
-
-Bash
-cd sitem
-index.html dosyasını herhangi bir tarayıcıda açın.
-
-📬 İletişim
-LinkedIn: Fırat Yunus Yaşaroğlu
-
-GitHub: @firatysrgl
-
-E-posta: Sitedeki iletişim formunu kullanabilirsiniz.
-
-© 2026 Fırat Yunus Yaşaroğlu - All Rights Reserved.
+*© 2026 Fırat Yunus Yaşaroğlu - Engineering Excellence*
