@@ -419,13 +419,18 @@
                     try {
                         const langRes = await fetch(`https://api.github.com/repos/firatysrgl/${r.name}/languages`);
                         const langs = await langRes.json();
+                        if (!langs || typeof langs !== 'object' || langs.message) return;
                         Object.entries(langs).forEach(([lang, bytes]) => {
+                            if (typeof bytes !== 'number') return;
+                            const SKIP = ['message', 'documentation_url', 'html_url', 'status'];
+                            if (SKIP.includes(lang.toLowerCase())) return;
                             const key = lang === 'Jupyter Notebook' ? 'Python' : lang;
                             langBytes[key] = (langBytes[key] || 0) + bytes;
                         });
                     } catch {}
                 }));
                 const total = Object.values(langBytes).reduce((a, b) => a + b, 0);
+                if (total === 0) { container.innerHTML = '<p style="color:rgba(255,255,255,0.3); font-size:12px">Veriler yüklenemedi.</p>'; return; }
                 const sorted = Object.entries(langBytes).sort((a, b) => b[1] - a[1]).slice(0, 7);
 
                 container.innerHTML = sorted.map(([lang, bytes]) => {
