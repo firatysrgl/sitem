@@ -6,15 +6,12 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-DN2R4EM658');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Fırat Yunus | SWE Student</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22 x=%2250%%22 text-anchor=%22middle%22>👨‍💻</text></svg>">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -25,59 +22,63 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-        
         * { font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         body { background-color: #020617; overflow-x: hidden; margin: 0; color: #94a3b8; }
-        
         #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: #020617; }
-        
-        .glass-card { 
-            background: rgba(15, 23, 42, 0.6); 
-            backdrop-filter: blur(16px); 
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
-        
-        .glass-card:hover { 
-            border-color: rgba(34, 211, 238, 0.3); 
-            transform: translateY(-8px);
-        }
-        
-        .terminal-container {
-            font-family: 'JetBrains Mono', monospace !important;
-            background: rgba(2, 6, 23, 0.9);
-            border: 1px solid rgba(34, 211, 238, 0.2);
-            cursor: text;
-        }
+        .glass-card { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); }
+        .glass-card:hover { border-color: rgba(34, 211, 238, 0.3); transform: translateY(-8px); }
+        .terminal-container { font-family: 'JetBrains Mono', monospace !important; background: rgba(2, 6, 23, 0.9); border: 1px solid rgba(34, 211, 238, 0.2); cursor: text; }
         .terminal-container * { font-family: 'JetBrains Mono', monospace !important; }
-        
-        .text-gradient { 
-            background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #818cf8 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-        }
-
+        .text-gradient { background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #818cf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .social-link { color: #22d3ee; filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.4)); }
         .social-link:hover { color: #ffffff; transform: scale(1.15); }
-
         .filter-btn.active { background: #22d3ee; color: #020617; border-color: #22d3ee; }
         .content-text { line-height: 2; letter-spacing: 0.01em; }
-
         @keyframes slideIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .animate-slide { animation: slideIn 0.8s ease-out forwards; }
-
         input, textarea { background: rgba(255,255,255,0.03) !important; border: 1px solid rgba(255,255,255,0.08) !important; color: white !important; }
         input:focus, textarea:focus { border-color: #22d3ee !important; outline: none; }
-
         .tech-tag { font-size: 9px; padding: 2px 8px; background: rgba(34, 211, 238, 0.1); color: #22d3ee; border-radius: 4px; border: 1px solid rgba(34, 211, 238, 0.2); white-space: nowrap; }
+        .terminal-line { margin-bottom: 2px; }
+        .t-cyan { color: #22d3ee; }
+        .t-white { color: #ffffff; }
+        .t-muted { color: rgba(255,255,255,0.4); }
+        .t-green { color: #4ade80; }
+        .t-yellow { color: #facc15; }
+        .t-orange { color: #fb923c; }
+        .t-purple { color: #c084fc; }
+        .t-red { color: #f87171; }
+        .terminal-prompt { display: flex; gap: 8px; align-items: center; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+        .terminal-autocomplete { position: absolute; bottom: 100%; left: 0; background: rgba(2,6,23,0.98); border: 1px solid rgba(34,211,238,0.3); border-radius: 8px; padding: 4px; min-width: 180px; z-index: 10; }
+        .terminal-autocomplete div { padding: 4px 10px; font-size: 11px; color: #22d3ee; border-radius: 4px; cursor: pointer; }
+        .terminal-autocomplete div:hover, .terminal-autocomplete div.selected { background: rgba(34,211,238,0.1); }
+        .lang-bar { transition: width 1s cubic-bezier(0.4,0,0.2,1); }
+
+        /* Cursor spotlight */
+        #spotlight { pointer-events: none; position: fixed; z-index: 9999; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(34,211,238,0.06) 0%, transparent 70%); transform: translate(-50%, -50%); transition: opacity 0.4s; opacity: 0; top: 0; left: 0; }
+
+        /* Dil değiştirici */
+        #lang-switcher { position: fixed; top: 1.5rem; right: 1.5rem; z-index: 1000; display: flex; gap: 4px; background: rgba(15,23,42,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 4px; backdrop-filter: blur(12px); }
+        #lang-switcher button { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; padding: 5px 12px; border-radius: 8px; border: none; cursor: pointer; background: transparent; color: rgba(255,255,255,0.35); font-family: 'Plus Jakarta Sans', sans-serif; }
+        #lang-switcher button.active { background: #22d3ee; color: #020617; }
+        #lang-switcher button:hover:not(.active) { color: rgba(255,255,255,0.7); }
     </style>
 </head>
 <body class="antialiased font-medium">
 
+    <div id="spotlight"></div>
+
+    <div id="lang-switcher">
+        <button id="btn-tr" class="active" onclick="setLang('tr')">TR</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+
     <canvas id="bg-canvas"></canvas>
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 lg:py-12">
-        
+
+        <!-- HERO -->
         <div class="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-20 animate-slide mb-12">
             <div class="flex-1 w-full">
                 <div class="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-2 rounded-full mb-8 lg:mb-10 shadow-inner">
@@ -85,88 +86,41 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                     </span>
-                    <span class="text-[10px] font-extrabold text-white uppercase tracking-[0.3em]">Software Engineering Student</span>
+                    <span data-tr="Software Engineering Student" data-en="Software Engineering Student" class="text-[10px] font-extrabold text-white uppercase tracking-[0.3em]">Software Engineering Student</span>
                 </div>
-                
                 <h1 class="text-5xl md:text-6xl lg:text-8xl font-extrabold text-white mb-8 lg:mb-12 tracking-tighter leading-tight">
                     Fırat Yunus <br><span class="text-gradient">Yaşaroğlu</span>
                 </h1>
-                
                 <div class="relative group max-w-2xl">
-                    <p class="text-xl lg:text-2xl content-text text-slate-200 font-semibold mb-6 lg:mb-8">
+                    <p data-tr="Güçlü backend mimarileri ile modern frontend deneyimlerini birleştiriyor, veriyi yapay zeka ile akıllı sistemlere dönüştürüyorum." data-en="Bridging powerful backend architectures with modern frontend experiences — turning data into intelligent systems with AI." class="text-xl lg:text-2xl content-text text-slate-200 font-semibold mb-6 lg:mb-8">
                         Güçlü backend mimarileri ile modern frontend deneyimlerini birleştiriyor, veriyi yapay zeka ile akıllı sistemlere dönüştürüyorum.
                     </p>
-                    <p class="text-base lg:text-lg content-text text-slate-400 font-normal mb-0">
-                        Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisi olarak akademik eğitimime devam ederken; ölçeklenebilir <span class="text-cyan-400 font-bold uppercase tracking-wider">Full Stack Development</span> süreçlerini, <span class="text-blue-500 font-bold uppercase tracking-wider">AI & LLM Entegrasyonları</span> ile bir üst seviyeye taşıyorum. Karmaşık problemleri temiz kod prensipleri ve yenilikçi algoritmalarla çözmek en büyük teknik tutkum.
+                    <p data-tr="Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisi olarak akademik eğitimime devam ederken; ölçeklenebilir Full Stack Development süreçlerini, AI &amp; LLM Entegrasyonları ile bir üst seviyeye taşıyorum. Karmaşık problemleri temiz kod prensipleri ve yenilikçi algoritmalarla çözmek en büyük teknik tutkum." data-en="I'm a 2nd year Software Engineering student at Fırat University. While continuing my academic journey, I'm pushing scalable Full Stack Development further with AI &amp; LLM Integrations. Solving complex problems with clean code principles and innovative algorithms is my greatest technical passion." class="text-base lg:text-lg content-text text-slate-400 font-normal mb-0">
+                        Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisi olarak akademik eğitimime devam ederken; ölçeklenebilir <span class="text-cyan-400 font-bold uppercase tracking-wider">Full Stack Development</span> süreçlerini, <span class="text-blue-500 font-bold uppercase tracking-wider">AI &amp; LLM Entegrasyonları</span> ile bir üst seviyeye taşıyorum. Karmaşık problemleri temiz kod prensipleri ve yenilikçi algoritmalarla çözmek en büyük teknik tutkum.
                     </p>
                 </div>
             </div>
 
+            <!-- GITHUB DİL İSTATİSTİKLERİ KARTI -->
             <div class="w-full lg:w-[420px]">
                 <div class="glass-card p-6 lg:p-10 rounded-[2.5rem] lg:rounded-[3rem] relative overflow-hidden group border-white/5">
-                    <h3 class="text-white font-bold mb-8 lg:mb-10 flex items-center gap-3 uppercase tracking-widest text-xs">
-                        <i class="fas fa-microchip text-cyan-400"></i> Expertise Stack
+                    <h3 class="text-white font-bold mb-8 lg:mb-10 flex items-center justify-between uppercase tracking-widest text-xs">
+                        <span class="flex items-center gap-3">
+                            <i class="fas fa-code text-cyan-400"></i>
+                            <span data-tr="GitHub Dilleri" data-en="GitHub Languages">GitHub Dilleri</span>
+                        </span>
+                        <span id="lang-updated" class="text-white/20 font-normal normal-case tracking-normal" style="font-size:9px"></span>
                     </h3>
-                    <div class="space-y-6 lg:space-y-8">
-                        <div class="group/skill">
-                            <div class="flex justify-between text-xs font-bold text-white/80 uppercase font-mono mb-2">C# / .NET <span class="text-cyan-400">60%</span></div>
-                            <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden border border-white/5 mb-3">
-                                <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full shadow-[0_0_12px_#22d3ee]" style="width: 60%"></div>
-                            </div>
-                            <div class="flex flex-wrap gap-2 opacity-100 lg:opacity-0 lg:group-hover/skill:opacity-100 transition-all transform translate-y-0">
-                                <span class="tech-tag">Entity Framework</span> <span class="tech-tag">LINQ</span> <span class="tech-tag">ASP.NET Core</span>
-                            </div>
-                        </div>
-                        <div class="group/skill">
-                            <div class="flex justify-between text-xs font-bold text-white/80 uppercase font-mono mb-2">JAVA <span class="text-orange-400">50%</span></div>
-                            <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden border border-white/5 mb-3">
-                                <div class="h-full bg-gradient-to-r from-orange-500 to-red-500 rounded-full shadow-[0_0_12px_#f97316]" style="width: 50%"></div>
-                            </div>
-                            <div class="flex flex-wrap gap-2 opacity-100 lg:opacity-0 lg:group-hover/skill:opacity-100 transition-all transform translate-y-0">
-                                <span class="tech-tag" style="color:#f97316; border-color:rgba(249,115,22,0.2)">Spring Boot</span> <span class="tech-tag" style="color:#f97316; border-color:rgba(249,115,22,0.2)">Maven</span>
-                            </div>
-                        </div>
-                        <div class="group/skill">
-                            <div class="flex justify-between text-xs font-bold text-white/80 uppercase font-mono mb-2">HTML / CSS <span class="text-emerald-400">35%</span></div>
-                            <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden border border-white/5 mb-3">
-                                <div class="h-full bg-gradient-to-r from-emerald-400 to-green-600 rounded-full shadow-[0_0_12px_#34d399]" style="width: 35%"></div>
-                            </div>
-                            <div class="flex flex-wrap gap-2 opacity-100 lg:opacity-0 lg:group-hover/skill:opacity-100 transition-all transform translate-y-0">
-                                <span class="tech-tag" style="color:#34d399; border-color:rgba(52,211,153,0.2)">HTML5</span> <span class="tech-tag" style="color:#34d399; border-color:rgba(52,211,153,0.2)">Tailwind</span>
-                            </div>
-                        </div>
-                        <div class="group/skill">
-                            <div class="flex justify-between text-xs font-bold text-white/80 uppercase font-mono mb-2">AI DEVELOPMENT <span class="text-blue-400">30%</span></div>
-                            <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden border border-white/5 mb-3">
-                                <div class="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full shadow-[0_0_12px_#3b82f6]" style="width: 30%"></div>
-                            </div>
-                            <div class="flex flex-wrap gap-2 opacity-100 lg:opacity-0 lg:group-hover/skill:opacity-100 transition-all transform translate-y-0">
-                                <span class="tech-tag" style="color:#3b82f6; border-color:rgba(59,130,246,0.2)">OpenAI API</span> <span class="tech-tag" style="color:#3b82f6; border-color:rgba(59,130,246,0.2)">Prompt Eng.</span>
-                            </div>
-                        </div>
-                        <div class="group/skill">
-                            <div class="flex justify-between text-xs font-bold text-white/80 uppercase font-mono mb-2">PYTHON <span class="text-yellow-400">30%</span></div>
-                            <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden border border-white/5 mb-3">
-                                <div class="h-full bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full shadow-[0_0_12px_#facc15]" style="width: 30%"></div>
-                            </div>
-                            <div class="flex flex-wrap gap-2 opacity-100 lg:opacity-0 lg:group-hover/skill:opacity-100 transition-all transform translate-y-0">
-                                <span class="tech-tag" style="color:#facc15; border-color:rgba(250,204,21,0.2)">NumPy</span> <span class="tech-tag" style="color:#facc15; border-color:rgba(250,204,21,0.2)">Pandas</span>
-                            </div>
-                        </div>
-                        <div class="group/skill">
-                            <div class="flex justify-between text-xs font-bold text-white/80 uppercase font-mono mb-2">SQL / DB <span class="text-purple-400">40%</span></div>
-                            <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden border border-white/5 mb-3">
-                                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-[0_0_12px_#a855f7]" style="width: 40%"></div>
-                            </div>
-                            <div class="flex flex-wrap gap-2 opacity-100 lg:opacity-0 lg:group-hover/skill:opacity-100 transition-all transform translate-y-0">
-                                <span class="tech-tag" style="color:#a855f7; border-color:rgba(168,85,247,0.2)">MSSQL</span> <span class="tech-tag" style="color:#a855f7; border-color:rgba(168,85,247,0.2)">PostgreSQL</span>
-                            </div>
+                    <div id="lang-bars" class="space-y-6 lg:space-y-7">
+                        <div class="flex items-center justify-center h-24">
+                            <i class="fas fa-circle-notch fa-spin text-cyan-400 text-2xl"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- TERMİNAL + BUTONLAR -->
         <div class="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-20 animate-slide mb-16 lg:mb-32">
             <div class="flex-1 w-full flex flex-col justify-between">
                 <div class="terminal-container rounded-2xl overflow-hidden mb-10 w-full" id="terminal-wrapper">
@@ -178,20 +132,21 @@
                         </div>
                         <span class="text-[10px] text-cyanAccent/50 font-bold uppercase tracking-widest ml-2">sys-bash</span>
                     </div>
-                    <div class="p-6 text-sm h-48 overflow-y-auto scrollbar-hide" id="terminal-body">
-                        <div id="terminal-content">
-                            <div class="text-cyanAccent mb-2">Welcome to FıratOS... Type 'help' to explore.</div>
-                        </div>
-                        <div class="flex gap-2 text-white/80" id="input-line">
-                            <span>guest@firat:~$</span>
-                            <input type="text" id="terminal-input" class="bg-transparent border-none outline-none flex-1 text-cyanAccent p-0 m-0 h-auto" autocomplete="off">
+                    <div class="p-6 text-sm overflow-y-auto scrollbar-hide relative" style="height: 280px;" id="terminal-body">
+                        <div id="terminal-content"></div>
+                        <div class="terminal-prompt" id="input-line">
+                            <span class="t-green">guest</span><span class="t-muted">@</span><span class="t-cyan">firat</span><span class="t-muted">:~$</span>
+                            <div class="relative flex-1" id="input-wrapper">
+                                <input type="text" id="terminal-input" class="bg-transparent border-none outline-none w-full text-cyan-400 p-0 m-0 h-auto" autocomplete="off" spellcheck="false">
+                                <div id="autocomplete-box" class="terminal-autocomplete hidden"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex flex-wrap gap-6 lg:gap-10 items-center">
                     <a href="FIRAT%20YUNUS%20CV.docx" download class="group bg-white text-darkbg px-8 lg:px-12 py-4 lg:py-5 rounded-2xl font-bold transition flex items-center gap-3 hover:bg-cyanAccent hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] text-sm lg:text-base">
-                        <i class="fas fa-file-word transition"></i> CV İndir
+                        <i class="fas fa-file-word transition"></i> <span data-tr="CV İndir" data-en="Download CV">CV İndir</span>
                     </a>
                     <div class="flex items-center gap-8 lg:gap-10 px-2">
                         <a href="https://www.linkedin.com/in/firat-yunus-yasaroglu/" target="_blank" class="social-link text-4xl lg:text-5xl transition"><i class="fab fa-linkedin"></i></a>
@@ -200,78 +155,71 @@
                 </div>
             </div>
 
+            <!-- İLETİŞİM FORMU -->
             <div class="w-full lg:w-[420px]">
                 <div class="glass-card p-6 lg:p-10 rounded-[2.5rem] lg:rounded-[3rem] border-white/5 relative" id="contact-container">
                     <div class="mb-8">
                         <h3 class="text-white font-bold flex items-center gap-3 uppercase tracking-widest text-xs">
-                            <i class="fas fa-envelope text-cyan-400"></i> İletişim
+                            <i class="fas fa-envelope text-cyan-400"></i>
+                            <span data-tr="İletişim" data-en="Contact">İletişim</span>
                         </h3>
                     </div>
-
                     <form id="contact-form" action="https://formspree.io/f/xgokqgwq" method="POST" class="space-y-5">
-                        <input type="text" name="name" placeholder="Adınız" class="w-full px-5 py-4 rounded-2xl text-sm transition-all border border-white/5" required>
-                        <input type="email" name="email" placeholder="E-posta Adresiniz" class="w-full px-5 py-4 rounded-2xl text-sm transition-all border border-white/5" required>
-                        <textarea name="message" placeholder="Mesajınızı yazın..." rows="3" class="w-full px-5 py-4 rounded-2xl text-sm transition-all border border-white/5 resize-none" required></textarea>
-                        <button type="submit" id="submit-btn" class="w-full bg-cyan-400 text-darkbg font-bold py-4 rounded-2xl hover:bg-white transition-all shadow-[0_10px_20px_rgba(34,211,238,0.2)]">Gönder</button>
+                        <input type="text" name="name" data-tr-placeholder="Adınız" data-en-placeholder="Your Name" placeholder="Adınız" class="w-full px-5 py-4 rounded-2xl text-sm transition-all border border-white/5" required>
+                        <input type="email" name="email" data-tr-placeholder="E-posta Adresiniz" data-en-placeholder="Your Email" placeholder="E-posta Adresiniz" class="w-full px-5 py-4 rounded-2xl text-sm transition-all border border-white/5" required>
+                        <textarea name="message" data-tr-placeholder="Mesajınızı yazın..." data-en-placeholder="Write your message..." placeholder="Mesajınızı yazın..." rows="3" class="w-full px-5 py-4 rounded-2xl text-sm transition-all border border-white/5 resize-none" required></textarea>
+                        <button type="submit" id="submit-btn" class="w-full bg-cyan-400 text-darkbg font-bold py-4 rounded-2xl hover:bg-white transition-all shadow-[0_10px_20px_rgba(34,211,238,0.2)]">
+                            <span data-tr="Gönder" data-en="Send">Gönder</span>
+                        </button>
                     </form>
-
                     <div id="success-msg" class="hidden flex flex-col items-center justify-center text-center py-10 space-y-4">
                         <div class="w-16 h-16 bg-cyan-400/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-check text-cyanAccent text-2xl"></i>
                         </div>
-                        <h4 class="text-white font-bold uppercase tracking-widest text-sm">Mesajınız Alındı!</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed">En kısa sürede <span class="text-cyanAccent">contact@firatyunus.com</span> üzerinden <br> geri dönüş yapacağım.</p>
+                        <h4 data-tr="Mesajınız Alındı!" data-en="Message Received!" class="text-white font-bold uppercase tracking-widest text-sm">Mesajınız Alındı!</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            <span data-tr="En kısa sürede" data-en="I'll get back to you soon via">En kısa sürede</span>
+                            <span class="text-cyanAccent">contact@firatyunus.com</span>
+                            <span data-tr="üzerinden geri dönüş yapacağım." data-en=".">üzerinden geri dönüş yapacağım.</span>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- GITHUB İSTATİSTİKLER -->
         <section class="mb-16 lg:mb-32">
             <h2 class="text-xs font-black text-cyan-500 uppercase tracking-[0.5em] mb-12 flex items-center gap-5">
-                <span class="h-[1px] w-20 bg-cyan-500/30"></span> GitHub İstatistiklerim
+                <span class="h-[1px] w-20 bg-cyan-500/30"></span>
+                <span data-tr="GitHub İstatistiklerim" data-en="GitHub Stats">GitHub İstatistiklerim</span>
             </h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 text-center">
-                
-                <div class="glass-card p-4 lg:p-8 rounded-[2.5rem] flex flex-col items-center justify-center overflow-hidden relative min-h-[220px]">
-                    <h3 class="text-lg font-bold text-cyan-500 mb-2 uppercase tracking-wider">Mevcut Seri</h3>
-                    <div class="loader absolute inset-0 flex flex-col items-center justify-center text-cyan-500 z-0">
-                        <i class="fas fa-circle-notch fa-spin text-3xl mb-3"></i>
-                        <span class="text-xs font-bold tracking-widest animate-pulse">VERİLER ÇEKİLİYOR...</span>
-                    </div>
-                    <img src="https://streak-stats.demolab.com?user=firatysrgl&theme=transparent&hide_border=true&hide_title=true&title_color=22d3ee&text_color=ffffff&icon_color=22d3ee&locale=tr&date_format=j%20M%5B%20Y%5D&fire=22d3ee&ring=22d3ee&currStreakNum=ffffff" 
-                         alt="GitHub Streak" 
-                         class="opacity-0 transition-opacity duration-700 relative z-10" 
-                         onload="this.classList.remove('opacity-0'); this.parentElement.querySelector('.loader').style.display='none';" 
-                         style="width: 100%; height: auto;">
+            <div class="glass-card p-4 lg:p-8 rounded-[2.5rem] flex flex-col items-center justify-center overflow-hidden relative min-h-[220px]">
+                <h3 data-tr="Mevcut Seri" data-en="Current Streak" class="text-lg font-bold text-cyan-500 mb-2 uppercase tracking-wider">Mevcut Seri</h3>
+                <div class="loader absolute inset-0 flex flex-col items-center justify-center text-cyan-500 z-0">
+                    <i class="fas fa-circle-notch fa-spin text-3xl mb-3"></i>
+                    <span data-tr="VERİLER ÇEKİLİYOR..." data-en="LOADING DATA..." class="text-xs font-bold tracking-widest animate-pulse">VERİLER ÇEKİLİYOR...</span>
                 </div>
-
-                <div class="glass-card p-4 lg:p-8 rounded-[2.5rem] flex flex-col items-center justify-center overflow-hidden relative min-h-[220px]">
-                    <h3 class="text-lg font-bold text-cyan-500 mb-2 uppercase tracking-wider">En Çok Kullanılan Diller</h3>
-                    <div class="loader absolute inset-0 flex flex-col items-center justify-center text-cyan-500 z-0">
-                        <i class="fas fa-circle-notch fa-spin text-3xl mb-3"></i>
-                        <span class="text-xs font-bold tracking-widest animate-pulse">VERİLER ÇEKİLİYOR...</span>
-                    </div>
-                    <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=firatysrgl&layout=compact&hide_border=true&hide_title=true&bg_color=020617&title_color=22d3ee&text_color=ffffff&icon_color=22d3ee&custom_language_names=Jupyter%20Notebook:Python" 
-                         alt="Top Languages" 
-                         class="opacity-0 transition-opacity duration-700 relative z-10" 
-                         onload="this.classList.remove('opacity-0'); this.parentElement.querySelector('.loader').style.display='none';" 
-                         style="width: 100%; height: auto;">
-                </div>
-
+                <img src="https://streak-stats.demolab.com?user=firatysrgl&theme=transparent&hide_border=true&hide_title=true&title_color=22d3ee&text_color=ffffff&icon_color=22d3ee&locale=tr&date_format=j%20M%5B%20Y%5D&fire=22d3ee&ring=22d3ee&currStreakNum=ffffff"
+                     alt="GitHub Streak"
+                     class="opacity-0 transition-opacity duration-700 relative z-10"
+                     onload="this.classList.remove('opacity-0'); this.parentElement.querySelector('.loader').style.display='none';"
+                     style="width: 100%; height: auto;">
             </div>
         </section>
 
+        <!-- PROJELER -->
         <section class="mb-16 lg:mb-32">
             <div class="flex flex-col md:flex-row justify-between items-end mb-10 lg:mb-16 gap-8">
                 <div class="w-full md:w-auto">
-                    <h2 class="text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight">Proje Arşivi</h2>
-                    <p class="text-slate-500 max-w-md text-base lg:text-lg">Gerçek zamanlı GitHub README analizi ile projelerime göz atın.</p>
+                    <h2 data-tr="Proje Arşivi" data-en="Project Archive" class="text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight">Proje Arşivi</h2>
+                    <p data-tr="Gerçek zamanlı GitHub README analizi ile projelerime göz atın." data-en="Browse my projects with real-time GitHub README analysis." class="text-slate-500 max-w-md text-base lg:text-lg">Gerçek zamanlı GitHub README analizi ile projelerime göz atın.</p>
                 </div>
                 <div class="flex flex-wrap gap-2 lg:gap-4 bg-white/5 p-2 rounded-2xl border border-white/5 w-full md:w-auto">
-                    <button onclick="filterProjects('all')" class="filter-btn active flex-1 md:flex-none px-4 lg:px-8 py-3 rounded-xl text-xs font-bold transition text-white uppercase tracking-widest">Hepsi</button>
+                    <button onclick="filterProjects('all')" class="filter-btn active flex-1 md:flex-none px-4 lg:px-8 py-3 rounded-xl text-xs font-bold transition text-white uppercase tracking-widest" data-tr="Hepsi" data-en="All">Hepsi</button>
                     <button onclick="filterProjects('C#')" class="filter-btn flex-1 md:flex-none px-4 lg:px-8 py-3 rounded-xl text-xs font-bold transition uppercase tracking-widest">C#</button>
                     <button onclick="filterProjects('Java')" class="filter-btn flex-1 md:flex-none px-4 lg:px-8 py-3 rounded-xl text-xs font-bold transition uppercase tracking-widest">Java</button>
                     <button onclick="filterProjects('HTML')" class="filter-btn flex-1 md:flex-none px-4 lg:px-8 py-3 rounded-xl text-xs font-bold transition uppercase tracking-widest">HTML</button>
+                    <button onclick="filterProjects('Python')" class="filter-btn flex-1 md:flex-none px-4 lg:px-8 py-3 rounded-xl text-xs font-bold transition uppercase tracking-widest">Python</button>
                 </div>
             </div>
             <div id="github-repos" class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"></div>
@@ -284,84 +232,95 @@
     </div>
 
     <script>
-        // Sayfa yüklendiğinde en üste scroll yap
-        window.onbeforeunload = function () {
-            window.scrollTo(0, 0);
-        }
-        if (history.scrollRestoration) {
-            history.scrollRestoration = 'manual';
+        window.onbeforeunload = function () { window.scrollTo(0, 0); }
+        if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
+
+        // ─── CURSOR SPOTLIGHT ───────────────────────────────────
+        const spotlight = document.getElementById('spotlight');
+        let mouseInPage = false;
+        document.addEventListener('mousemove', (e) => {
+            spotlight.style.left = e.clientX + 'px';
+            spotlight.style.top  = e.clientY + 'px';
+            if (!mouseInPage) { spotlight.style.opacity = '1'; mouseInPage = true; }
+        });
+        document.addEventListener('mouseleave', () => { spotlight.style.opacity = '0'; mouseInPage = false; });
+
+        // ─── DİL DEĞİŞTİRİCİ ────────────────────────────────────
+        let currentLang = 'tr';
+        function setLang(lang) {
+            currentLang = lang;
+            document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+            document.querySelectorAll('[data-tr]').forEach(el => {
+                const text = el.getAttribute('data-' + lang);
+                if (text) el.textContent = text;
+            });
+            document.querySelectorAll('[data-tr-placeholder]').forEach(el => {
+                const ph = el.getAttribute('data-' + lang + '-placeholder');
+                if (ph) el.placeholder = ph;
+            });
+            // Hakkımda paragrafındaki span'lı kısımlar için özel işlem
+            const bioEl = document.querySelector('p[data-tr][data-en]');
+            if (bioEl && bioEl.classList.contains('content-text') && bioEl.classList.contains('text-slate-400')) {
+                if (lang === 'en') {
+                    bioEl.innerHTML = "I'm a 2nd year Software Engineering student at Fırat University. While continuing my academic journey, I'm pushing scalable <span class='text-cyan-400 font-bold uppercase tracking-wider'>Full Stack Development</span> further with <span class='text-blue-500 font-bold uppercase tracking-wider'>AI &amp; LLM Integrations</span>. Solving complex problems with clean code principles and innovative algorithms is my greatest technical passion.";
+                } else {
+                    bioEl.innerHTML = "Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisi olarak akademik eğitimime devam ederken; ölçeklenebilir <span class='text-cyan-400 font-bold uppercase tracking-wider'>Full Stack Development</span> süreçlerini, <span class='text-blue-500 font-bold uppercase tracking-wider'>AI &amp; LLM Entegrasyonları</span> ile bir üst seviyeye taşıyorum. Karmaşık problemleri temiz kod prensipleri ve yenilikçi algoritmalarla çözmek en büyük teknik tutkum.";
+                }
+            }
+            // Filter butonları
+            document.querySelectorAll('.filter-btn[data-tr]').forEach(btn => {
+                btn.textContent = btn.getAttribute('data-' + lang) || btn.textContent;
+            });
         }
 
-        // FORM AJAX
+        // ─── FORM ───────────────────────────────────────────────
         const contactForm = document.getElementById('contact-form');
-        const successMsg = document.getElementById('success-msg');
-        const submitBtn = document.getElementById('submit-btn');
-
+        const successMsg  = document.getElementById('success-msg');
+        const submitBtn   = document.getElementById('submit-btn');
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             submitBtn.disabled = true;
-            submitBtn.innerText = 'Gönderiliyor...';
+            submitBtn.querySelector('span').textContent = currentLang === 'tr' ? 'Gönderiliyor...' : 'Sending...';
             const formData = new FormData(this);
             try {
-                const response = await fetch(this.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    contactForm.classList.add('hidden');
-                    successMsg.classList.remove('hidden');
-                } else {
-                    submitBtn.disabled = false;
-                    submitBtn.innerText = 'Gönder';
-                }
-            } catch {
-                submitBtn.disabled = false;
-                submitBtn.innerText = 'Gönder';
-            }
+                const response = await fetch(this.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+                if (response.ok) { contactForm.classList.add('hidden'); successMsg.classList.remove('hidden'); }
+                else { submitBtn.disabled = false; submitBtn.querySelector('span').textContent = currentLang === 'tr' ? 'Gönder' : 'Send'; }
+            } catch { submitBtn.disabled = false; submitBtn.querySelector('span').textContent = currentLang === 'tr' ? 'Gönder' : 'Send'; }
         });
 
-        // REPO FETCH
+        // ─── REPO FETCH ─────────────────────────────────────────
         let allRepos = [];
-        const HIDDEN_REPOS = ['firatysrgl', 'sitem'];  // ← bunu fetchRepos'tan ÖNCE ekle (herhangi bir yere, global olarak)
+        const HIDDEN_REPOS = ['firatysrgl', 'sitem'];
         async function fetchRepos() {
             const container = document.getElementById('github-repos');
-
             try {
                 const response = await fetch('https://api.github.com/users/firatysrgl/repos?sort=updated');
                 const repos = await response.json();
-
-                allRepos = await Promise.all(repos.filter(r => !r.fork && !HIDDEN_REPOS.includes(r.name)).slice(0, 10).map(async repo => {
+                allRepos = await Promise.all(repos.filter(r => !r.fork && !HIDDEN_REPOS.includes(r.name)).slice(0, 12).map(async repo => {
                     const readmeText = await fetchReadme(repo.name);
                     return { ...repo, customSummary: summarizeText(readmeText) };
                 }));
-                
                 renderRepos(allRepos);
             } catch { container.innerHTML = '<p class="text-white/50">Projeler yüklenirken bir hata oluştu.</p>'; }
         }
-
         async function fetchReadme(repoName) {
             try {
                 const response = await fetch(`https://raw.githubusercontent.com/firatysrgl/${repoName}/main/README.md`);
                 return response.ok ? await response.text() : null;
             } catch { return null; }
         }
-
         function summarizeText(text) {
             if (!text) return "Modern yazılım mimarisiyle kurgulanmış profesyonel mühendislik çalışması.";
             const cleanText = text.replace(/[#*`_\[\]()]/g, '').replace(/\n/g, ' ').trim();
             return cleanText.length > 120 ? cleanText.substring(0, 117) + "..." : cleanText;
         }
-
         function renderRepos(repos) {
             const container = document.getElementById('github-repos');
             container.innerHTML = '';
-            
-            if(repos.length === 0) {
-                container.innerHTML = '<p class="text-white/50 col-span-2 text-center">Bu kategoride henüz proje bulunmuyor.</p>';
-                return;
-            }
-
+            if (repos.length === 0) { container.innerHTML = '<p class="text-white/50 col-span-2 text-center">Bu kategoride henüz proje bulunmuyor.</p>'; return; }
             repos.forEach(repo => {
                 container.innerHTML += `
                 <div class="glass-card p-6 lg:p-10 rounded-[2.5rem] flex flex-col justify-between group relative overflow-hidden animate-slide">
@@ -374,67 +333,225 @@
                         <p class="text-slate-400 text-lg leading-relaxed mb-12 line-clamp-3 font-normal">${repo.customSummary}</p>
                     </div>
                     <div class="flex items-center justify-between mt-auto pt-8 border-t border-white/5">
-                        <a href="${repo.html_url}" target="_blank" class="flex items-center gap-5 text-sm font-bold text-white hover:text-cyanAccent transition-all tracking-[0.2em] uppercase">İNCELE <i class="fas fa-arrow-right-long text-cyanAccent"></i></a>
+                        <a href="${repo.html_url}" target="_blank" class="flex items-center gap-5 text-sm font-bold text-white hover:text-cyanAccent transition-all tracking-[0.2em] uppercase">${currentLang === 'en' ? 'VIEW' : 'İNCELE'} <i class="fas fa-arrow-right-long text-cyanAccent"></i></a>
                     </div>
                 </div>`;
             });
         }
-        
         function filterProjects(lang) {
             const btns = document.querySelectorAll('.filter-btn');
             btns.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
+            if (lang === 'all') { renderRepos(allRepos); }
+            else if (lang === 'HTML') { renderRepos(allRepos.filter(r => r.language === 'HTML' || r.language === 'CSS')); }
+            else if (lang === 'Python') { renderRepos(allRepos.filter(r => r.language === 'Python' || r.language === 'Jupyter Notebook')); }
+            else { renderRepos(allRepos.filter(r => r.language === lang)); }
+        }
 
-            if (lang === 'all') {
-                renderRepos(allRepos);
-            } else if (lang === 'HTML') {
-                const filtered = allRepos.filter(r => r.language === 'HTML' || r.language === 'CSS');
-                renderRepos(filtered);
-            } else {
-                const filtered = allRepos.filter(r => r.language === lang);
-                renderRepos(filtered);
+        // ─── GITHUB DİL İSTATİSTİKLERİ ─────────────────────────
+        const LANG_COLORS = {
+            'C#':               { from: '#22d3ee', to: '#3b82f6', text: '#22d3ee' },
+            'Java':             { from: '#f97316', to: '#ef4444', text: '#fb923c' },
+            'Python':           { from: '#facc15', to: '#ca8a04', text: '#facc15' },
+            'HTML':             { from: '#f87171', to: '#fb923c', text: '#f87171' },
+            'CSS':              { from: '#60a5fa', to: '#818cf8', text: '#60a5fa' },
+            'JavaScript':       { from: '#fde047', to: '#f59e0b', text: '#fde047' },
+            'TypeScript':       { from: '#3b82f6', to: '#22d3ee', text: '#60a5fa' },
+            'Go':               { from: '#2dd4bf', to: '#22d3ee', text: '#2dd4bf' },
+            'Rust':             { from: '#ea580c', to: '#dc2626', text: '#fb923c' },
+            'PHP':              { from: '#c084fc', to: '#818cf8', text: '#c084fc' },
+            'Swift':            { from: '#fb923c', to: '#ef4444', text: '#fb923c' },
+            'Kotlin':           { from: '#a855f7', to: '#ec4899', text: '#c084fc' },
+            'Jupyter Notebook': { from: '#f97316', to: '#facc15', text: '#fb923c' },
+        };
+        const DEFAULT_COLOR = { from: '#94a3b8', to: '#64748b', text: '#94a3b8' };
+
+        async function fetchGithubLanguages() {
+            const container = document.getElementById('lang-bars');
+            const updatedEl = document.getElementById('lang-updated');
+            try {
+                const res = await fetch('https://api.github.com/users/firatysrgl/repos?per_page=100');
+                const repos = await res.json();
+                const langBytes = {};
+                repos.filter(r => !r.fork && !HIDDEN_REPOS.includes(r.name) && r.language)
+                     .forEach(r => { langBytes[r.language] = (langBytes[r.language] || 0) + (r.size || 1); });
+                const total = Object.values(langBytes).reduce((a, b) => a + b, 0);
+                const sorted = Object.entries(langBytes).sort((a, b) => b[1] - a[1]).slice(0, 7);
+
+                container.innerHTML = sorted.map(([lang, bytes]) => {
+                    const pct = ((bytes / total) * 100).toFixed(1);
+                    const c = LANG_COLORS[lang] || DEFAULT_COLOR;
+                    return `
+                    <div>
+                        <div class="flex justify-between text-xs font-bold text-white/80 uppercase font-mono mb-2">
+                            <span>${lang}</span>
+                            <span style="color:${c.text}">${pct}%</span>
+                        </div>
+                        <div class="h-1.5 w-full rounded-full overflow-hidden" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.05)">
+                            <div class="h-full rounded-full lang-bar" style="width:0%; background: linear-gradient(to right, ${c.from}, ${c.to}); box-shadow: 0 0 8px ${c.from}66" data-target="${pct}"></div>
+                        </div>
+                    </div>`;
+                }).join('');
+
+                requestAnimationFrame(() => {
+                    container.querySelectorAll('[data-target]').forEach((bar, i) => {
+                        setTimeout(() => { bar.style.width = bar.dataset.target + '%'; }, i * 150);
+                    });
+                });
+
+                if (updatedEl) updatedEl.textContent = new Date().toLocaleDateString('tr-TR') + ' güncellendi';
+            } catch {
+                container.innerHTML = '<p style="color:rgba(255,255,255,0.3); font-size:12px">Veriler yüklenemedi.</p>';
             }
         }
 
-        // TERMINAL LOGIC
-        const terminalInput = document.getElementById('terminal-input');
-        const terminalContent = document.getElementById('terminal-content');
-        const terminalBody = document.getElementById('terminal-body');
-        const terminalWrapper = document.getElementById('terminal-wrapper');
+        // ─── TERMİNAL ───────────────────────────────────────────
+        const termInput       = document.getElementById('terminal-input');
+        const termContent     = document.getElementById('terminal-content');
+        const termBody        = document.getElementById('terminal-body');
+        const termWrapper     = document.getElementById('terminal-wrapper');
+        const autocompleteBox = document.getElementById('autocomplete-box');
 
-        terminalWrapper.addEventListener('click', () => terminalInput.focus());
+        const ALL_COMMANDS = ['help', 'whoami', 'skills', 'projects', 'experience', 'education', 'contact', 'social', 'clear', 'date', 'echo'];
 
-        const commands = {
-            'help': 'Commands: help, about, skills, education, clear',
-            'about': 'Fırat Yunus - SWE Student.',
-            'skills': 'C#, Java, Python, SQL, AI.',
-            'education': 'Fırat University - 2nd Year SWE.',
-            'clear': ''
+        const COMMANDS = {
+            help: () => [
+                { cls: 't-cyan',  text: '┌─ Kullanılabilir komutlar ──────────────────────┐' },
+                { cls: 't-white', text: '│  whoami      →  Hakkımda                       │' },
+                { cls: 't-white', text: '│  skills      →  Teknik yetenekler              │' },
+                { cls: 't-white', text: '│  projects    →  GitHub projeleri               │' },
+                { cls: 't-white', text: '│  experience  →  Deneyim & staj                │' },
+                { cls: 't-white', text: '│  education   →  Eğitim bilgisi                │' },
+                { cls: 't-white', text: '│  contact     →  İletişim bilgileri             │' },
+                { cls: 't-white', text: '│  social      →  Sosyal medya linkleri         │' },
+                { cls: 't-white', text: '│  date        →  Tarih & saat                  │' },
+                { cls: 't-white', text: '│  clear       →  Terminali temizle             │' },
+                { cls: 't-cyan',  text: '└─────────────────────────────────────────────────┘' },
+            ],
+            whoami: () => [
+                { cls: 't-cyan',   text: '▸ Fırat Yunus Yaşaroğlu' },
+                { cls: 't-muted',  text: '  Yazılım Mühendisliği Öğrencisi @ Fırat Üniversitesi' },
+                { cls: '',         text: '' },
+                { cls: 't-white',  text: '  Full Stack Developer · AI Enthusiast · Backend Focused' },
+                { cls: 't-muted',  text: '  Temiz kod, ölçeklenebilir mimari ve akıllı sistemler.' },
+            ],
+            skills: () => [
+                { cls: 't-cyan',   text: '▸ Teknik Yetenekler' },
+                { cls: 't-green',  text: '  [Backend]   C# / .NET · ASP.NET Core · Entity Framework' },
+                { cls: 't-orange', text: '  [Backend]   Java · Spring Boot · Maven' },
+                { cls: 't-yellow', text: '  [AI/ML]     Python · NumPy · Pandas · OpenAI API' },
+                { cls: 't-purple', text: '  [Database]  MSSQL · PostgreSQL · LINQ' },
+                { cls: 't-cyan',   text: '  [Frontend]  HTML5 · CSS · Tailwind CSS' },
+            ],
+            projects: () => [
+                { cls: 't-cyan',  text: '▸ GitHub Projeleri' },
+                { cls: 't-muted', text: '  Tüm projeler için: github.com/firatysrgl' },
+                { cls: '',        text: '' },
+                { cls: 't-white', text: '  Proje arşivini sayfada aşağı kaydır →' },
+                { cls: 't-muted', text: '  veya: <a href="https://github.com/firatysrgl" target="_blank" style="color:#22d3ee">github.com/firatysrgl</a>' },
+            ],
+            experience: () => [
+                { cls: 't-cyan',  text: '▸ Deneyim' },
+                { cls: 't-muted', text: '  Henüz profesyonel deneyim eklenmedi.' },
+                { cls: '',        text: '' },
+                { cls: 't-white', text: '  Staj ve proje deneyimleri yakında burada!' },
+                { cls: 't-muted', text: '  İletişim için: contact@firatyunus.com' },
+            ],
+            education: () => [
+                { cls: 't-cyan',  text: '▸ Eğitim' },
+                { cls: 't-green', text: '  🎓 Fırat Üniversitesi' },
+                { cls: 't-white', text: '     Yazılım Mühendisliği — 2. Sınıf' },
+                { cls: 't-muted', text: '     2023 → devam ediyor' },
+            ],
+            contact: () => [
+                { cls: 't-cyan',  text: '▸ İletişim' },
+                { cls: 't-white', text: '  📧  contact@firatyunus.com' },
+                { cls: 't-white', text: '  🌐  firatyunus.com' },
+                { cls: 't-muted', text: '  Sayfadaki formu da kullanabilirsin ↓' },
+            ],
+            social: () => [
+                { cls: 't-cyan',  text: '▸ Sosyal Medya' },
+                { cls: 't-white', text: '  LinkedIn →  <a href="https://linkedin.com/in/firat-yunus-yasaroglu/" target="_blank" style="color:#22d3ee">linkedin.com/in/firat-yunus-yasaroglu</a>' },
+                { cls: 't-white', text: '  GitHub   →  <a href="https://github.com/firatysrgl" target="_blank" style="color:#22d3ee">github.com/firatysrgl</a>' },
+            ],
+            date: () => [
+                { cls: 't-cyan', text: '  ' + new Date().toLocaleString('tr-TR', { dateStyle: 'full', timeStyle: 'medium' }) },
+            ],
         };
 
-        terminalInput.addEventListener('keydown', (e) => {
+        function printWelcome() {
+            const lines = [
+                { cls: 't-cyan',  text: '  ███████╗██╗██████╗  █████╗ ████████╗' },
+                { cls: 't-cyan',  text: '  ██╔════╝██║██╔══██╗██╔══██╗╚══██╔══╝' },
+                { cls: 't-cyan',  text: '  █████╗  ██║██████╔╝███████║   ██║   ' },
+                { cls: 't-muted', text: '  ██╔══╝  ██║██╔══██╗██╔══██║   ██║   ' },
+                { cls: 't-muted', text: '  ██║     ██║██║  ██║██║  ██║   ██║   ' },
+                { cls: 't-muted', text: '  ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ' },
+                { cls: '',        text: '' },
+                { cls: 't-white', text: '  FıratOS v1.0 — Yazılım Mühendisliği Portalı' },
+                { cls: 't-muted', text: '  "help" yazarak başlayabilirsin.' },
+                { cls: '',        text: '' },
+            ];
+            lines.forEach(l => appendLine(l.cls, l.text));
+        }
+
+        function appendLine(cls, html) {
+            const div = document.createElement('div');
+            div.className = `terminal-line text-xs ${cls}`;
+            div.style.fontFamily = "'JetBrains Mono', monospace";
+            div.innerHTML = html;
+            termContent.appendChild(div);
+            scrollTerm();
+        }
+        function appendPromptEcho(input) {
+            const div = document.createElement('div');
+            div.className = 'terminal-line text-xs flex gap-2';
+            div.style.fontFamily = "'JetBrains Mono', monospace";
+            div.innerHTML = `<span class="t-green">guest</span><span class="t-muted">@</span><span class="t-cyan">firat</span><span class="t-muted">:~$</span> <span class="t-white">${input}</span>`;
+            termContent.appendChild(div);
+        }
+        function scrollTerm() { setTimeout(() => { termBody.scrollTop = termBody.scrollHeight; }, 10); }
+        function hideAutocomplete() { autocompleteBox.classList.add('hidden'); autocompleteBox.innerHTML = ''; }
+        function showAutocomplete(matches) {
+            if (!matches.length) { hideAutocomplete(); return; }
+            autocompleteBox.innerHTML = matches.map((m, i) => `<div class="${i===0?'selected':''}" data-cmd="${m}">${m}</div>`).join('');
+            autocompleteBox.classList.remove('hidden');
+            autocompleteBox.querySelectorAll('div').forEach(d => {
+                d.addEventListener('click', () => { termInput.value = d.dataset.cmd; hideAutocomplete(); termInput.focus(); });
+            });
+        }
+
+        let historyList = [];
+        let historyIdx  = -1;
+
+        termWrapper.addEventListener('click', () => termInput.focus());
+        termInput.addEventListener('input', () => {
+            const val = termInput.value.trim().toLowerCase();
+            if (!val) { hideAutocomplete(); return; }
+            showAutocomplete(ALL_COMMANDS.filter(c => c.startsWith(val) && c !== val));
+        });
+        termInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') { e.preventDefault(); const val = termInput.value.trim().toLowerCase(); const m = ALL_COMMANDS.filter(c => c.startsWith(val)); if (m.length === 1) { termInput.value = m[0]; hideAutocomplete(); } return; }
+            if (e.key === 'ArrowUp') { e.preventDefault(); if (historyIdx < historyList.length - 1) { historyIdx++; termInput.value = historyList[historyList.length - 1 - historyIdx]; } return; }
+            if (e.key === 'ArrowDown') { e.preventDefault(); if (historyIdx > 0) { historyIdx--; termInput.value = historyList[historyList.length - 1 - historyIdx]; } else { historyIdx = -1; termInput.value = ''; } return; }
             if (e.key === 'Enter') {
-                const input = terminalInput.value.trim();
+                hideAutocomplete();
+                const raw = termInput.value.trim(); const input = raw.toLowerCase();
                 if (!input) return;
-                const lowerInput = input.toLowerCase();
-                if (lowerInput === 'clear') {
-                    terminalContent.innerHTML = `<div class="text-cyanAccent mb-2">Welcome to FıratOS... Type 'help' to explore.</div>`;
-                    terminalInput.value = '';
-                    return;
-                }
-                const output = document.createElement('div');
-                output.className = 'mt-2 text-white/50';
-                output.innerHTML = `<div class="flex gap-2 text-white/80"><span>guest@firat:~$</span><span>${input}</span></div><div class="text-cyanAccent mt-1">${commands[lowerInput] || 'Command not found. Type "help".'}</div>`;
-                terminalContent.appendChild(output);
-                terminalInput.value = '';
-                setTimeout(() => { terminalBody.scrollTop = terminalBody.scrollHeight; }, 10);
+                historyList.push(raw); historyIdx = -1; termInput.value = '';
+                appendPromptEcho(raw);
+                if (input === 'clear') { termContent.innerHTML = ''; printWelcome(); return; }
+                if (input.startsWith('echo ')) { appendLine('t-white', raw.slice(5)); appendLine('', ''); return; }
+                const fn = COMMANDS[input];
+                if (fn) { fn().forEach(l => appendLine(l.cls, l.text)); }
+                else { appendLine('t-red', `  bash: ${raw}: komut bulunamadı`); appendLine('t-muted', '  "help" yazarak komutları görebilirsin.'); }
+                appendLine('', ''); scrollTerm();
             }
         });
 
-        // BACKGROUND CANVAS
+        // ─── BACKGROUND CANVAS ──────────────────────────────────
         const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        let dots = [];
+        const ctx    = canvas.getContext('2d');
         function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
         window.addEventListener('resize', resize); resize();
         class Dot {
@@ -442,10 +559,15 @@
             update() { this.x += this.vx; this.y += this.vy; if(this.x<0||this.x>canvas.width) this.vx*=-1; if(this.y<0||this.y>canvas.height) this.vy*=-1; }
             draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2); ctx.fillStyle = 'rgba(34,211,238,0.45)'; ctx.fill(); }
         }
+        const dots = [];
         for(let i=0; i<130; i++) dots.push(new Dot());
-        function animate() { ctx.clearRect(0,0,canvas.width,canvas.height); dots.forEach(d=>{d.update(); d.draw();}); requestAnimationFrame(animate); }
-        animate();
+        function animateBg() { ctx.clearRect(0,0,canvas.width,canvas.height); dots.forEach(d=>{d.update(); d.draw();}); requestAnimationFrame(animateBg); }
+        animateBg();
+
+        // ─── BAŞLAT ─────────────────────────────────────────────
+        printWelcome();
         fetchRepos();
+        fetchGithubLanguages();
     </script>
 </body>
 </html>
