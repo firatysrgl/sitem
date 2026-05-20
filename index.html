@@ -362,7 +362,6 @@
             'PHP':              { from: '#c084fc', to: '#818cf8', text: '#c084fc' },
             'Swift':            { from: '#fb923c', to: '#ef4444', text: '#fb923c' },
             'Kotlin':           { from: '#a855f7', to: '#ec4899', text: '#c084fc' },
-            'Jupyter Notebook': { from: '#f97316', to: '#facc15', text: '#fb923c' },
         };
         const DEFAULT_COLOR = { from: '#94a3b8', to: '#64748b', text: '#94a3b8' };
 
@@ -374,7 +373,10 @@
                 const repos = await res.json();
                 const langBytes = {};
                 repos.filter(r => !r.fork && !HIDDEN_REPOS.includes(r.name) && r.language)
-                     .forEach(r => { langBytes[r.language] = (langBytes[r.language] || 0) + (r.size || 1); });
+                     .forEach(r => {
+                         const lang = r.language === 'Jupyter Notebook' ? 'Python' : r.language;
+                         langBytes[lang] = (langBytes[lang] || 0) + (r.size || 1);
+                     });
                 const total = Object.values(langBytes).reduce((a, b) => a + b, 0);
                 const sorted = Object.entries(langBytes).sort((a, b) => b[1] - a[1]).slice(0, 7);
 
@@ -481,15 +483,15 @@
 
         function printWelcome() {
             const lines = [
-                { cls: 't-cyan',  text: '  ███████╗██╗██████╗  █████╗ ████████╗' },
-                { cls: 't-cyan',  text: '  ██╔════╝██║██╔══██╗██╔══██╗╚══██╔══╝' },
-                { cls: 't-cyan',  text: '  █████╗  ██║██████╔╝███████║   ██║   ' },
-                { cls: 't-muted', text: '  ██╔══╝  ██║██╔══██╗██╔══██║   ██║   ' },
-                { cls: 't-muted', text: '  ██║     ██║██║  ██║██║  ██║   ██║   ' },
-                { cls: 't-muted', text: '  ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ' },
+                { cls: 't-cyan',  text: '  _______ _           _    ' },
+                { cls: 't-cyan',  text: ' |  ___(_) |         | |   ' },
+                { cls: 't-cyan',  text: ' | |_   _| |_ __ __ _| |_  ' },
+                { cls: 't-cyan',  text: " | _|  | | | '__/ _` | __| " },
+                { cls: 't-muted', text: ' | |   | | | | | (_| | |_  ' },
+                { cls: 't-muted', text: ' \_|   |_|_|_|  \__,_|\__| ' },
                 { cls: '',        text: '' },
-                { cls: 't-white', text: '  FıratOS v1.0 — Yazılım Mühendisliği Portalı' },
-                { cls: 't-muted', text: '  "help" yazarak başlayabilirsin.' },
+                { cls: 't-white', text: '  FiratOS v1.0 — Yazilim Muhendisligi Portali' },
+                { cls: 't-muted', text: '  "help" yazarak baslayabilirsin.' },
                 { cls: '',        text: '' },
             ];
             lines.forEach(l => appendLine(l.cls, l.text));
