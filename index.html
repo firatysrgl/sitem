@@ -107,7 +107,7 @@
                     <h3 class="text-white font-bold mb-8 lg:mb-10 flex items-center justify-between uppercase tracking-widest text-xs">
                         <span class="flex items-center gap-3">
                             <i class="fas fa-code text-cyan-400"></i>
-                            <span data-tr="GitHub Dilleri" data-en="GitHub Languages">GitHub Dilleri</span>
+                            <span data-tr="Kullandığım Diller" data-en="Languages I Use">Kullandığım Diller</span>
                         </span>
                         <span id="lang-updated" class="text-white/20 font-normal normal-case tracking-normal" style="font-size:9px"></span>
                     </h3>
@@ -197,17 +197,43 @@
                 <span class="h-[1px] w-20 bg-cyan-500/30"></span>
                 <span data-tr="GitHub İstatistiklerim" data-en="GitHub Stats">GitHub İstatistiklerim</span>
             </h2>
-            <div class="glass-card p-4 lg:p-8 rounded-[2.5rem] flex flex-col items-center justify-center overflow-hidden relative min-h-[220px]">
-                <h3 data-tr="Mevcut Seri" data-en="Current Streak" class="text-lg font-bold text-cyan-500 mb-2 uppercase tracking-wider">Mevcut Seri</h3>
-                <div class="loader absolute inset-0 flex flex-col items-center justify-center text-cyan-500 z-0">
-                    <i class="fas fa-circle-notch fa-spin text-3xl mb-3"></i>
-                    <span data-tr="VERİLER ÇEKİLİYOR..." data-en="LOADING DATA..." class="text-xs font-bold tracking-widest animate-pulse">VERİLER ÇEKİLİYOR...</span>
+            <div class="flex flex-col lg:flex-row gap-6">
+                <!-- Streak -->
+                <div class="glass-card p-4 lg:p-8 rounded-[2.5rem] flex flex-col items-center justify-center overflow-hidden relative min-h-[200px] flex-1">
+                    <h3 data-tr="Mevcut Seri" data-en="Current Streak" class="text-sm font-bold text-cyan-500 mb-2 uppercase tracking-wider">Mevcut Seri</h3>
+                    <div class="loader absolute inset-0 flex flex-col items-center justify-center text-cyan-500 z-0">
+                        <i class="fas fa-circle-notch fa-spin text-2xl mb-2"></i>
+                        <span class="text-xs font-bold tracking-widest animate-pulse">...</span>
+                    </div>
+                    <img src="https://streak-stats.demolab.com?user=firatysrgl&theme=transparent&hide_border=true&hide_title=true&title_color=22d3ee&text_color=ffffff&icon_color=22d3ee&locale=tr&date_format=j%20M%5B%20Y%5D&fire=22d3ee&ring=22d3ee&currStreakNum=ffffff"
+                         alt="GitHub Streak"
+                         class="opacity-0 transition-opacity duration-700 relative z-10"
+                         onload="this.classList.remove('opacity-0'); this.parentElement.querySelector('.loader').style.display='none';"
+                         style="width: 100%; height: auto;">
                 </div>
-                <img src="https://streak-stats.demolab.com?user=firatysrgl&theme=transparent&hide_border=true&hide_title=true&title_color=22d3ee&text_color=ffffff&icon_color=22d3ee&locale=tr&date_format=j%20M%5B%20Y%5D&fire=22d3ee&ring=22d3ee&currStreakNum=ffffff"
-                     alt="GitHub Streak"
-                     class="opacity-0 transition-opacity duration-700 relative z-10"
-                     onload="this.classList.remove('opacity-0'); this.parentElement.querySelector('.loader').style.display='none';"
-                     style="width: 100%; height: auto;">
+                <!-- İstatistik kartları -->
+                <div class="grid grid-cols-2 gap-4 lg:w-[320px]">
+                    <div class="glass-card p-5 rounded-[1.5rem] flex flex-col items-center justify-center text-center">
+                        <i class="fas fa-code-commit text-cyan-400 text-xl mb-2"></i>
+                        <span id="stat-commits" class="text-3xl font-extrabold text-white">—</span>
+                        <span data-tr="Toplam Commit" data-en="Total Commits" class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Toplam Commit</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-[1.5rem] flex flex-col items-center justify-center text-center">
+                        <i class="fas fa-star text-yellow-400 text-xl mb-2"></i>
+                        <span id="stat-stars" class="text-3xl font-extrabold text-white">—</span>
+                        <span data-tr="Toplam Star" data-en="Total Stars" class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Toplam Star</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-[1.5rem] flex flex-col items-center justify-center text-center">
+                        <i class="fas fa-code-pull-request text-purple-400 text-xl mb-2"></i>
+                        <span id="stat-repos" class="text-3xl font-extrabold text-white">—</span>
+                        <span data-tr="Repo Sayısı" data-en="Repositories" class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Repo Sayısı</span>
+                    </div>
+                    <div class="glass-card p-5 rounded-[1.5rem] flex flex-col items-center justify-center text-center">
+                        <i class="fas fa-users text-green-400 text-xl mb-2"></i>
+                        <span id="stat-followers" class="text-3xl font-extrabold text-white">—</span>
+                        <span data-tr="Takipçi" data-en="Followers" class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Takipçi</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -576,10 +602,53 @@
         function animateBg() { ctx.clearRect(0,0,canvas.width,canvas.height); dots.forEach(d=>{d.update(); d.draw();}); requestAnimationFrame(animateBg); }
         animateBg();
 
+        // ─── GITHUB İSTATİSTİKLER ──────────────────────────────────
+        async function fetchGithubStats() {
+            try {
+                const [userRes, reposRes, eventsRes] = await Promise.all([
+                    fetch('https://api.github.com/users/firatysrgl'),
+                    fetch('https://api.github.com/users/firatysrgl/repos?per_page=100'),
+                    fetch('https://api.github.com/users/firatysrgl/events?per_page=100')
+                ]);
+                const user  = await userRes.json();
+                const repos = await reposRes.json();
+
+                // Toplam star
+                const totalStars = repos.reduce((a, r) => a + (r.stargazers_count || 0), 0);
+
+                // Commit sayısı — events'ten push event'leri say
+                const events = await eventsRes.json();
+                const commitCount = events
+                    .filter(e => e.type === 'PushEvent')
+                    .reduce((a, e) => a + (e.payload?.commits?.length || 0), 0);
+
+                const animate = (el, target) => {
+                    let current = 0;
+                    const step = Math.ceil(target / 30);
+                    const timer = setInterval(() => {
+                        current = Math.min(current + step, target);
+                        el.textContent = current;
+                        if (current >= target) clearInterval(timer);
+                    }, 40);
+                };
+
+                animate(document.getElementById('stat-commits'), commitCount);
+                animate(document.getElementById('stat-stars'),   totalStars);
+                animate(document.getElementById('stat-repos'),   user.public_repos || 0);
+                animate(document.getElementById('stat-followers'), user.followers || 0);
+            } catch(e) {
+                ['stat-commits','stat-stars','stat-repos','stat-followers'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = '?';
+                });
+            }
+        }
+
         // ─── BAŞLAT ─────────────────────────────────────────────
         printWelcome();
         fetchRepos();
         fetchGithubLanguages();
+        fetchGithubStats();
     </script>
 </body>
 </html>
