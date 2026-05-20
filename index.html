@@ -123,24 +123,35 @@
         <!-- TERMİNAL + BUTONLAR -->
         <div class="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-20 animate-slide mb-16 lg:mb-32">
             <div class="flex-1 w-full flex flex-col justify-between">
-                <div class="terminal-container rounded-2xl overflow-hidden mb-10 w-full" id="terminal-wrapper">
-                    <div class="terminal-header px-4 py-2 flex items-center gap-2" style="background: rgba(34, 211, 238, 0.1);">
-                        <div class="flex gap-1.5">
-                            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                <div class="rounded-2xl overflow-hidden mb-10 w-full" id="terminal-wrapper" style="background: rgba(2,6,23,0.95); border: 1px solid rgba(34,211,238,0.25); box-shadow: 0 0 40px rgba(34,211,238,0.08), 0 20px 60px rgba(0,0,0,0.4);">
+                    <!-- Terminal header -->
+                    <div class="px-5 py-3 flex items-center justify-between" style="background: rgba(34,211,238,0.06); border-bottom: 1px solid rgba(34,211,238,0.1);">
+                        <div class="flex items-center gap-3">
+                            <div class="flex gap-1.5">
+                                <div class="w-3 h-3 rounded-full" style="background:#ff5f57"></div>
+                                <div class="w-3 h-3 rounded-full" style="background:#febc2e"></div>
+                                <div class="w-3 h-3 rounded-full" style="background:#28c840"></div>
+                            </div>
+                            <span class="text-[10px] text-cyan-400/60 font-bold uppercase tracking-[0.2em] ml-1">sys-bash — FiratOS v1.0</span>
                         </div>
-                        <span class="text-[10px] text-cyanAccent/50 font-bold uppercase tracking-widest ml-2">sys-bash</span>
+                        <div class="flex items-center gap-2">
+                            <span class="relative flex h-1.5 w-1.5">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+                            </span>
+                            <span class="text-[9px] text-green-400/60 uppercase tracking-widest">online</span>
+                        </div>
                     </div>
+                    <!-- Terminal body -->
                     <div style="height: 340px; display: flex; flex-direction: column;">
                         <div class="p-6 pb-2 text-sm overflow-y-auto flex-1" id="terminal-body">
                             <div id="terminal-content"></div>
                         </div>
-                        <div class="px-6 pb-4 pt-2 border-t border-cyan-400/10">
+                        <div class="px-6 pb-4 pt-2" style="border-top: 1px solid rgba(34,211,238,0.08);">
                             <div class="terminal-prompt" id="input-line">
                                 <span class="t-green">guest</span><span class="t-muted">@</span><span class="t-cyan">firat</span><span class="t-muted">:~$</span>
                                 <div class="relative flex-1" id="input-wrapper">
-                                    <input type="text" id="terminal-input" class="bg-transparent border-none outline-none w-full text-cyan-400 p-0 m-0 h-auto" autocomplete="off" spellcheck="false">
+                                    <input type="text" id="terminal-input" class="bg-transparent border-none outline-none w-full text-cyan-400 p-0 m-0 h-auto" autocomplete="off" spellcheck="false" placeholder="komut gir...">
                                     <div id="autocomplete-box" class="terminal-autocomplete hidden"></div>
                                 </div>
                             </div>
@@ -163,10 +174,11 @@
             <div class="w-full lg:w-[420px]">
                 <div class="glass-card p-6 lg:p-10 rounded-[2.5rem] lg:rounded-[3rem] border-white/5 relative" id="contact-container">
                     <div class="mb-8">
-                        <h3 class="text-white font-bold flex items-center gap-3 uppercase tracking-widest text-xs">
+                        <h3 class="text-white font-bold flex items-center gap-3 uppercase tracking-widest text-xs mb-3">
                             <i class="fas fa-envelope text-cyan-400"></i>
                             <span data-tr="İletişim" data-en="Contact">İletişim</span>
                         </h3>
+                        <p data-tr="Bir proje fikrin mi var, iş birliği mi istiyorsun ya da sadece merhaba mı demek istiyorsun? Mesajını bırak, en kısa sürede dönerim." data-en="Got a project idea, want to collaborate, or just want to say hi? Leave a message and I'll get back to you." class="text-slate-500 text-xs leading-relaxed">Bir proje fikrin mi var, iş birliği mi istiyorsun ya da sadece merhaba mı demek istiyorsun? Mesajını bırak, en kısa sürede dönerim.</p>
                     </div>
                     <form id="contact-form" action="https://formspree.io/f/xgokqgwq" method="POST" class="space-y-5">
                         <input type="text" name="name" data-tr-placeholder="Adınız" data-en-placeholder="Your Name" placeholder="Adınız" class="w-full px-5 py-4 rounded-2xl text-sm transition-all border border-white/5" required>
@@ -605,41 +617,48 @@
         // ─── GITHUB İSTATİSTİKLER ──────────────────────────────────
         async function fetchGithubStats() {
             try {
-                const [userRes, reposRes, eventsRes] = await Promise.all([
+                const [userRes, reposRes] = await Promise.all([
                     fetch('https://api.github.com/users/firatysrgl'),
-                    fetch('https://api.github.com/users/firatysrgl/repos?per_page=100'),
-                    fetch('https://api.github.com/users/firatysrgl/events?per_page=100')
+                    fetch('https://api.github.com/users/firatysrgl/repos?per_page=100')
                 ]);
                 const user  = await userRes.json();
                 const repos = await reposRes.json();
 
-                // Toplam star
                 const totalStars = repos.reduce((a, r) => a + (r.stargazers_count || 0), 0);
 
-                // Commit sayısı — events'ten push event'leri say
-                const events = await eventsRes.json();
-                const commitCount = events
-                    .filter(e => e.type === 'PushEvent')
-                    .reduce((a, e) => a + (e.payload?.commits?.length || 0), 0);
+                // Her repo için commit sayısını contributors API'den çek
+                const filteredRepos = repos.filter(r => !r.fork && !HIDDEN_REPOS.includes(r.name));
+                let totalCommits = 0;
+                await Promise.all(filteredRepos.map(async r => {
+                    try {
+                        const res = await fetch(`https://api.github.com/repos/firatysrgl/${r.name}/contributors`);
+                        if (!res.ok) return;
+                        const contributors = await res.json();
+                        if (!Array.isArray(contributors)) return;
+                        const me = contributors.find(c => c.login === 'firatysrgl');
+                        if (me) totalCommits += me.contributions;
+                    } catch {}
+                }));
 
                 const animate = (el, target) => {
+                    if (!el) return;
                     let current = 0;
-                    const step = Math.ceil(target / 30);
+                    const step = Math.max(1, Math.ceil(target / 40));
                     const timer = setInterval(() => {
                         current = Math.min(current + step, target);
                         el.textContent = current;
                         if (current >= target) clearInterval(timer);
-                    }, 40);
+                    }, 30);
                 };
 
-                animate(document.getElementById('stat-commits'), commitCount);
-                animate(document.getElementById('stat-stars'),   totalStars);
-                animate(document.getElementById('stat-repos'),   user.public_repos || 0);
+                animate(document.getElementById('stat-commits'),   totalCommits);
+                animate(document.getElementById('stat-stars'),     totalStars);
+                animate(document.getElementById('stat-repos'),     user.public_repos || 0);
                 animate(document.getElementById('stat-followers'), user.followers || 0);
             } catch(e) {
                 ['stat-commits','stat-stars','stat-repos','stat-followers'].forEach(id => {
                     const el = document.getElementById(id);
-                    if (el) el.textContent = '?';
+                    if (el) el.textContent = '—';
                 });
             }
         }
