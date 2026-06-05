@@ -10,850 +10,993 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fırat Yunus | SWE Student</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22 x=%2250%%22 text-anchor=%22middle%22>👨‍💻</text></svg>">
+    <title>Fırat Yunus Yaşaroğlu | Software Engineer</title>
+    <meta property="og:title" content="Fırat Yunus Yaşaroğlu | SWE Student & Full Stack Developer">
+    <meta property="og:description" content="Software Engineering student at Fırat University. Building backend systems, web interfaces and NLP-powered AI solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://firatyunus.com">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Fırat Yunus Yaşaroğlu | SWE Student">
+    <meta name="twitter:description" content="Software Engineering student. Full Stack Developer & AI Enthusiast.">
+    <link rel="canonical" href="https://firatyunus.com">
+    <meta name="description" content="Fırat Yunus Yaşaroğlu — Software Engineering student at Fırat University. Full Stack Developer & AI enthusiast building backend systems, web interfaces and NLP solutions.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23000000%22/><text x=%2216%22 y=%2222%22 text-anchor=%22middle%22 font-size=%2216%22 font-weight=%22900%22 font-family=%22Arial,sans-serif%22 fill=%22%2300ff41%22>FY</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: { extend: { colors: { darkbg: '#020617', cyanAccent: '#22d3ee' } } }
+            theme: { extend: { colors: { darkbg: '#000000', neon: '#00ff41' } } }
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-        * { font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        body { background-color: #020617; overflow-x: hidden; margin: 0; color: #94a3b8; }
-        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: #020617; }
-        .glass-card { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); }
-        .glass-card:hover { border-color: rgba(34, 211, 238, 0.3); transform: translateY(-8px); }
-        .text-gradient { background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #818cf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .social-link { color: #22d3ee; filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.4)); }
-        .social-link:hover { color: #ffffff; transform: scale(1.15); }
-        .filter-btn.active { background: #22d3ee; color: #020617; border-color: #22d3ee; }
-        .content-text { line-height: 2; letter-spacing: 0.01em; }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-slide { animation: slideIn 0.8s ease-out forwards; }
-        input, textarea { background: rgba(255,255,255,0.03) !important; border: 1px solid rgba(255,255,255,0.08) !important; color: white !important; }
-        input:focus, textarea:focus { border-color: #22d3ee !important; outline: none; }
-        .tech-tag { font-size: 9px; padding: 2px 8px; background: rgba(34, 211, 238, 0.1); color: #22d3ee; border-radius: 4px; border: 1px solid rgba(34, 211, 238, 0.2); white-space: nowrap; }
-        .terminal-line { margin-bottom: 2px; }
+        :root {
+            --neon: #00ff41;
+            --neon-dim: rgba(0,255,65,0.15);
+            --neon-glow: rgba(0,255,65,0.6);
+            --surface: rgba(255,255,255,0.03);
+            --border: rgba(255,255,255,0.07);
+            --border-neon: rgba(0,255,65,0.25);
+        }
 
-        /* ── Terminal renk sınıfları – kırmızı/ateş paleti ── */
-        .t-red    { color: #ef4444; text-shadow: 0 0 8px rgba(239,68,68,0.65); }
-        .t-orange { color: #fb923c; text-shadow: 0 0 6px rgba(251,146,60,0.45); }
-        .t-rose   { color: #fb7185; }
-        .t-white  { color: #ffffff; }
-        .t-muted  { color: rgba(255,255,255,0.4); }
-        .t-green  { color: #4ade80; }
-        .t-yellow { color: #facc15; }
-        .t-purple { color: #c084fc; }
-        .t-cyan   { color: #22d3ee; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .terminal-prompt { display: flex; gap: 8px; align-items: center; }
-        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+        html { scroll-behavior: smooth; }
 
-        /* autocomplete – kırmızı tema */
-        .terminal-autocomplete { position: absolute; bottom: 100%; left: 0; background: rgba(2,6,23,0.98); border: 1px solid rgba(239,68,68,0.3); border-radius: 8px; padding: 4px; min-width: 180px; z-index: 10; }
-        .terminal-autocomplete div { padding: 4px 10px; font-size: 11px; color: #ef4444; border-radius: 4px; cursor: pointer; }
-        .terminal-autocomplete div:hover, .terminal-autocomplete div.selected { background: rgba(239,68,68,0.1); }
-        .lang-bar { transition: width 1s cubic-bezier(0.4,0,0.2,1); }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-        /* Cursor spotlight */
-        #spotlight { pointer-events: none; position: fixed; z-index: 9999; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(34,211,238,0.06) 0%, transparent 70%); transform: translate(-50%, -50%); transition: opacity 0.4s; opacity: 0; top: 0; left: 0; }
+        /* ── Smooth transitions only where needed ── */
+        a, button { transition: color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s, opacity 0.2s, border-color 0.2s; }
 
-        /* Dil değiştirici */
-        #lang-switcher { position: fixed; top: 1.5rem; right: 1.5rem; z-index: 1000; display: flex; gap: 4px; background: rgba(15,23,42,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 4px; backdrop-filter: blur(12px); }
-        #lang-switcher button { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; padding: 5px 12px; border-radius: 8px; border: none; cursor: pointer; background: transparent; color: rgba(255,255,255,0.35); font-family: 'Plus Jakarta Sans', sans-serif; }
-        #lang-switcher button.active { background: #22d3ee; color: #020617; }
+        /* ── Background canvas ── */
+        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+
+
+        /* ── Noise texture overlay ── */
+        body::before {
+            content: '';
+            position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 180px;
+        }
+
+
+        /* ── Sticky Nav ── */
+        #main-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+            padding: 0;
+            background: rgba(5,5,5,0.97);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+            height: 56px;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 2rem;
+        }
+        .nav-logo {
+            font-size: 15px; font-weight: 800; letter-spacing: -0.02em;
+            color: #fff; text-decoration: none;
+        }
+        .nav-logo span { color: var(--neon); }
+        .nav-links {
+            display: flex; align-items: center; gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
+            text-transform: uppercase; color: rgba(255,255,255,0.45);
+            text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #fff; }
+        .nav-links a.active-section { color: var(--neon); }
+        .nav-cta {
+            font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+            text-transform: uppercase; color: #000 !important;
+            background: var(--neon); padding: 7px 16px; border-radius: 8px;
+            text-decoration: none;
+        }
+        .nav-cta:hover { background: #39ff14 !important; }
+        @media(max-width:700px){
+            .nav-links { display: none; }
+        }
+
+        /* ── Lang switcher ── */
+        #lang-switcher {
+            display: flex; gap: 3px;
+            background: #1a1a1a;
+            border: 1px solid var(--border-neon);
+            border-radius: 8px; padding: 3px;
+        }
+        #lang-switcher button {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+            padding: 5px 14px; border-radius: 7px; border: none; cursor: pointer;
+            background: transparent; color: rgba(255,255,255,0.3);
+        }
+        #lang-switcher button.active { background: var(--neon); color: #000; box-shadow: 0 0 14px var(--neon-glow); }
         #lang-switcher button:hover:not(.active) { color: rgba(255,255,255,0.7); }
+
+        /* ── Layout ── */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+
+        /* ── Hero ── */
+        .hero { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:120px 0 80px; }
+
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: transparent; border: 1px solid rgba(0,255,65,0.4);
+            padding: 9px 22px; border-radius: 100px;
+            font-size: 10px; font-weight: 700; letter-spacing: 0.3em;
+            text-transform: uppercase; color: var(--neon); margin-bottom: 2.5rem;
+        }
+        .hero-eyebrow .dot {
+            width: 6px; height: 6px; border-radius: 50%; background: var(--neon);
+            box-shadow: 0 0 8px var(--neon); animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+
+        .hero-name {
+            font-size: clamp(3.5rem, 9vw, 7.5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            color: #fff;
+            margin-bottom: 0.15em;
+            text-align: center;
+        }
+        .hero-name-green {
+            display: block;
+            color: var(--neon);
+            
+            letter-spacing: -0.03em;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 400;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.7;
+            max-width: 600px;
+            margin-top: 2.5rem;
+            margin-left: auto; margin-right: auto;
+        }
+        .hero-tagline strong { color: #fff; font-weight: 600; }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.85;
+            max-width: 600px;
+            margin-top: 1.5rem;
+            margin-left: auto; margin-right: auto;
+        }
+        .hero-desc .keyword { color: var(--neon); font-weight: 600; }
+
+        /* ── Hero layout ── */
+
+        /* ── Glass card ── */
+        .card {
+            background: #0a0a0a;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+        .card:hover {
+            border-color: var(--border-neon);
+            box-shadow: 0 0 40px rgba(0,255,65,0.06), 0 24px 60px rgba(0,0,0,0.4);
+            transform: translateY(-4px);
+        }
+
+        /* ── Section label ── */
+        .section-label {
+            display: flex; align-items: center; gap: 1rem;
+            font-size: 10px; font-weight: 700; letter-spacing: 0.5em;
+            text-transform: uppercase; color: var(--neon);
+            margin-bottom: 3rem;
+        }
+        .section-label::before {
+            content: ''; display: block; width: 40px; height: 1px;
+            background: var(--neon); opacity: 0.5;
+        }
+
+        /* ── Divider ── */
+        .divider { height: 1px; background: var(--border); margin: 7rem 0; }
+
+        /* ── Buttons ── */
+        .btn-neon {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--neon); color: #000;
+            font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+            padding: 14px 28px; border-radius: 14px; border: none; cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-neon:hover { background: #39ff14; box-shadow: 0 0 30px rgba(0,255,65,0.7), 0 0 60px rgba(0,255,65,0.2); }
+
+        .btn-ghost {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: transparent; color: #fff;
+            font-size: 13px; font-weight: 600;
+            padding: 14px 28px; border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.12); cursor: pointer; text-decoration: none;
+        }
+        .btn-ghost:hover { border-color: var(--neon); color: var(--neon); }
+
+        /* ── Social links ── */
+        .social-link {
+            color: rgba(255,255,255,0.65); font-size: 1.5rem; text-decoration: none;
+        }
+        .social-link:hover { color: var(--neon);  transform: scale(1.1); }
+
+        /* ── Language bars ── */
+        .lang-bar-track {
+            height: 3px; width: 100%; border-radius: 99px;
+            background: rgba(255,255,255,0.06); overflow: hidden;
+        }
+        .lang-bar-fill { height: 100%; border-radius: 99px; width: 0; transition: width 1s cubic-bezier(0.4,0,0.2,1); }
+
+        /* ── Stats grid ── */
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .stat-card {
+            background: #0a0a0a;
+            border: 1px solid var(--border);
+            border-radius: 20px; padding: 1.5rem;
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center; transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .stat-card:hover { border-color: var(--border-neon); box-shadow: 0 0 30px rgba(0,255,65,0.05); }
+        .stat-card .stat-num { font-size: 2rem; font-weight: 800; color: #fff; line-height: 1; }
+        .stat-card .stat-label { font-size: 9px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.15em; margin-top: 6px; }
+
+        /* ── Filter buttons ── */
+        .filter-group { display: flex; flex-wrap: wrap; gap: 8px; background: #0d0d0d; padding: 6px; border-radius: 16px; border: 1px solid var(--border); }
+        .filter-btn {
+            padding: 8px 20px; border-radius: 10px; font-size: 11px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer;
+            color: rgba(255,255,255,0.65); background: transparent; border: none;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover { color: #fff; }
+        .filter-btn.active { background: var(--neon); color: #000; box-shadow: 0 0 16px rgba(0,255,65,0.4); }
+
+        /* ── Repo cards ── */
+        .repo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        @media(max-width:700px){ .repo-grid { grid-template-columns: 1fr; } }
+
+        .repo-card {
+            background: #0a0a0a;
+            border: 1px solid var(--border);
+            border-radius: 24px; padding: 2rem;
+            display: flex; flex-direction: column; justify-content: space-between;
+            position: relative; overflow: hidden;
+            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+        .repo-card:hover { border-color: var(--border-neon); transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(0,255,65,0.05); }
+        .repo-card .bg-icon { position: absolute; right: -1rem; top: -1rem; opacity: 0.025; font-size: 10rem; color: var(--neon); transition: opacity 0.3s; pointer-events: none; }
+        .repo-card:hover .bg-icon { opacity: 0.06; }
+        .repo-lang-tag { display: inline-block; font-size: 9px; font-weight: 700; padding: 4px 12px; background: transparent; color: var(--neon); border: 1px solid var(--border-neon); border-radius: 100px; letter-spacing: 0.1em; text-transform: uppercase; }
+        .repo-name { font-size: 1.4rem; font-weight: 700; color: #fff; margin: 1rem 0 0.5rem; letter-spacing: -0.02em; transition: color 0.2s; }
+        .repo-card:hover .repo-name { color: var(--neon); }
+        .repo-desc { font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+        .repo-footer { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+        .repo-link { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+        .repo-link:hover { color: var(--neon); }
+
+        /* ── Contact form ── */
+        .form-input {
+            width: 100%; padding: 14px 18px; border-radius: 14px;
+            background: #111 !important;
+            border: 1px solid rgba(255,255,255,0.08) !important;
+            color: #fff !important; font-family: 'Inter', sans-serif; font-size: 14px;
+            outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-input:focus { border-color: var(--neon) !important; box-shadow: none !important; }
+        .form-input::placeholder { color: rgba(255,255,255,0.25) !important; }
+        textarea.form-input { resize: none; }
+
+        /* ── Footer ── */
+        footer { padding: 3rem 0; border-top: 1px solid var(--border); display: flex; justify-content: center; align-items: center; text-align: center; width: 100%; }
+        footer p { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45); letter-spacing: 0.15em; text-transform: uppercase; width: 100%; text-align: center; }
+        .footer-accent { color: rgba(255,255,255,0.45) !important; }
+
+        /* ── Animations ── */
+        @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+        .fade-up { animation: fadeUp 0.7s cubic-bezier(0.4,0,0.2,1) both; }
+        .fade-up-1 { animation-delay: 0.1s; }
+        .fade-up-2 { animation-delay: 0.2s; }
+        .fade-up-3 { animation-delay: 0.3s; }
+        .fade-up-4 { animation-delay: 0.4s; }
+
+        /* ── Streak card ── */
+        .streak-card { background: #0a0a0a; border: 1px solid var(--border); border-radius: 24px; padding: 1.5rem; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:220px; position:relative; overflow:hidden; transition: border-color 0.3s; }
+        .streak-card:hover { border-color: var(--border-neon); }
+        .streak-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--neon); margin-bottom: 0.75rem; }
+
+        /* ── GitHub stats row ── */
+        .github-row { display: grid; grid-template-columns: 1fr 300px; gap: 1.5rem; align-items: start; }
+        @media(max-width:900px){ .github-row { grid-template-columns: 1fr; } }
+
+        /* ══════════════════════════════════════
+           MOBİL RESPONSIVE
+        ══════════════════════════════════════ */
+
+        /* Nav */
+        @media(max-width:768px) {
+            .nav-inner { padding: 0 1.25rem; }
+            .nav-links { display: none; }
+            #lang-switcher button { padding: 4px 10px; font-size: 9px; }
+        }
+
+        /* Hero */
+        @media(max-width:768px) {
+            .hero { padding: 100px 0 60px; min-height:100svh; }
+            .hero-name { font-size: clamp(2.8rem, 12vw, 5rem); letter-spacing:-0.03em; }
+            .hero-eyebrow { font-size: 8px; padding: 7px 14px; letter-spacing:0.2em; }
+            .hero-tagline { font-size: 1rem; margin-top: 1.5rem; padding: 0 0.5rem; }
+            .hero-desc { font-size: 0.9rem; padding: 0 0.5rem; }
+        }
+
+        /* Container */
+        @media(max-width:768px) {
+            .container { padding: 0 1.25rem; }
+        }
+
+        /* Divider */
+        @media(max-width:768px) {
+            .divider { margin: 4rem 0; }
+        }
+
+        /* GitHub stats */
+        @media(max-width:768px) {
+            .github-row { grid-template-columns: 1fr !important; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .streak-card { min-height: 160px; }
+        }
+
+        /* Skills */
+        @media(max-width:768px) {
+            .skills-grid { grid-template-columns: 1fr !important; }
+        }
+        @media(min-width:500px) and (max-width:900px) {
+            .skills-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+
+        /* Deneyim */
+        @media(max-width:768px) {
+            .exp-grid { grid-template-columns: 1fr !important; }
+        }
+
+        /* Projeler */
+        @media(max-width:768px) {
+            .repo-grid { grid-template-columns: 1fr !important; border-radius: 16px; }
+            .repo-card { padding: 1.25rem; }
+            .repo-name { font-size: 1rem; }
+        }
+
+        /* Section başlıkları */
+        @media(max-width:768px) {
+            .section-label { margin-bottom: 1.75rem; font-size: 9px; }
+        }
+
+        /* İletişim */
+        @media(max-width:768px) {
+            .contact-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+        }
+
+        /* Filter butonları */
+        @media(max-width:600px) {
+            .filter-group { gap: 6px; }
+            .filter-btn { padding: 6px 12px; font-size: 10px; }
+        }
+
+        /* Proje section header */
+        @media(max-width:600px) {
+            .project-header { flex-direction: column; align-items: flex-start !important; }
+        }
+
+        /* Footer */
+        @media(max-width:600px) {
+            footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 2rem 0; }
+        }
+
+        /* Stat kartları */
+        @media(max-width:400px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .stat-card { padding: 1rem; }
+            .stat-num { font-size: 1.5rem !important; }
+        }
+
+        /* Scroll-to-top */
+        @media(max-width:768px) {
+            #scroll-top { bottom: 1.25rem; right: 1.25rem; width: 40px; height: 40px; }
+        }
     </style>
 </head>
-<body class="antialiased font-medium">
-
-    <div id="spotlight"></div>
-
-    <div id="lang-switcher">
-        <button id="btn-tr" class="active" onclick="setLang('tr')">TR</button>
-        <button id="btn-en" onclick="setLang('en')">EN</button>
-    </div>
+<body>
 
     <canvas id="bg-canvas"></canvas>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 lg:py-12">
-
-        <!-- HERO -->
-        <div class="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-20 animate-slide mb-12">
-            <div class="flex-1 w-full">
-                <div class="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-2 rounded-full mb-8 lg:mb-10 shadow-inner">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-                    </span>
-                    <span data-tr="Full Stack Developer & AI Enthusiast" data-en="Full Stack Developer & AI Enthusiast" class="text-[10px] font-extrabold text-white uppercase tracking-[0.3em]">Full Stack Developer & AI Enthusiast</span>
-                </div>
-                <h1 class="text-5xl md:text-6xl lg:text-8xl font-extrabold text-white mb-8 lg:mb-12 tracking-tighter leading-tight">
-                    Fırat Yunus <br><span class="text-gradient">Yaşaroğlu</span>
-                </h1>
-                <div class="relative group max-w-2xl">
-                    <p data-tr="Backend sistemleri, modern web arayüzleri ve NLP tabanlı yapay zeka çözümleri geliştiriyorum." data-en="Building backend systems, modern web interfaces and NLP-powered AI solutions." class="text-xl lg:text-2xl content-text text-slate-200 font-semibold mb-6 lg:mb-8">
-                        Backend sistemleri, modern web arayüzleri ve NLP tabanlı yapay zeka çözümleri geliştiriyorum.
-                    </p>
-                    <p data-tr="Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisiyim. Full Stack geliştirme ve AI & NLP entegrasyonları üzerine aktif projeler yürütüyor, SiberAy ve FUTURE topluluklarında Core Team üyesi olarak görev alıyorum. Teknofest İHA yarışmasında yazılım ekibinde uçuş yazılımı ve otonom sistem geliştirme süreçlerinde yer almaktayım." data-en="I'm a 2nd year Software Engineering student at Fırat University. I actively work on Full Stack development and AI & NLP integrations, serve as Core Team member in SiberAy and FUTURE communities, and participate in Teknofest UAV competition as a software team member working on flight software and autonomous systems." class="bio-para text-base lg:text-lg content-text text-slate-400 font-normal mb-0">
-                        Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisiyim. <span class="text-cyan-400 font-bold uppercase tracking-wider">Full Stack</span> geliştirme ve <span class="text-blue-500 font-bold uppercase tracking-wider">AI & NLP</span> entegrasyonları üzerine aktif projeler yürütüyor, SiberAy ve FUTURE topluluklarında Core Team üyesi olarak görev alıyorum. Teknofest İHA yarışmasında yazılım ekibinde uçuş yazılımı ve otonom sistem geliştirme süreçlerinde yer almaktayım.
-                    </p>
-                </div>
+    <!-- ════════════════ NAV ════════════════ -->
+    <nav id="main-nav" role="navigation" aria-label="Ana navigasyon">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">FY<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#section-skills" data-tr="Beceriler" data-en="Skills">Beceriler</a></li>
+                <li><a href="#section-exp" data-tr="Deneyim" data-en="Experience">Deneyim</a></li>
+                <li><a href="#section-projects" data-tr="Projeler" data-en="Projects">Projeler</a></li>
+                <li><a href="#section-contact" data-tr="İletişim" data-en="Contact" class="nav-cta">İletişim</a></li>
+            </ul>
+            <div id="lang-switcher" style="display:flex;gap:3px;background:#1a1a1a;border:1px solid var(--border-neon);border-radius:8px;padding:3px;margin-left:1.5rem;">
+                <button id="btn-tr" class="active" onclick="setLang('tr')">TR</button>
+                <button id="btn-en" onclick="setLang('en')">EN</button>
             </div>
+            <ul style="display:none;">
+            </ul>
+        </div>
+    </nav>
 
-            <!-- GITHUB DİL İSTATİSTİKLERİ KARTI -->
-            <div class="w-full lg:w-[420px]">
-                <div class="glass-card p-6 lg:p-10 rounded-[2.5rem] lg:rounded-[3rem] relative overflow-hidden group border-white/5">
-                    <h3 class="text-white font-bold mb-8 lg:mb-10 flex items-center justify-between uppercase tracking-widest text-xs">
-                        <span class="flex items-center gap-3">
-                            <i class="fas fa-code text-cyan-400"></i>
-                            <span data-tr="Kullandığım Diller" data-en="Languages I Use">Kullandığım Diller</span>
-                        </span>
-                        <span id="lang-updated" class="text-white/20 font-normal normal-case tracking-normal" style="font-size:9px"></span>
-                    </h3>
-                    <div id="lang-bars" class="space-y-6 lg:space-y-7">
-                        <div class="flex items-center justify-center h-24">
-                            <i class="fas fa-circle-notch fa-spin text-cyan-400 text-2xl"></i>
+
+    <!-- ════════════════ HERO ════════════════ -->
+    <section class="hero" style="position:relative;">
+        <div class="container">
+            <div style="max-width:680px; margin:0 auto; text-align:center;">
+                <!-- Left -->
+                <div>
+
+                    <h1 class="hero-name fade-up fade-up-1">
+                        Fırat Yunus
+                        <span class="hero-name-green" style="margin-top:0.08em;display:block;">YAŞAROĞLU</span>
+                    </h1>
+
+                    <p data-tr="Backend, Frontend, Full Stack ve AI alanlarında projeler geliştiriyorum." data-en="Building projects in Backend, Frontend, Full Stack and AI." class="hero-tagline fade-up fade-up-2">
+                        <strong>Backend</strong>, <strong>Frontend</strong>, <strong>Full Stack</strong> ve <strong>AI</strong> alanlarında projeler geliştiriyorum.
+                    </p>
+
+                    <div class="bio-para hero-desc fade-up fade-up-3">
+                        <p style="margin-bottom:1rem;">
+                            Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisiyim.
+                            Akademik eğitimimin yanı sıra gerçek dünya problemlerine çözüm üreten
+                            projeler geliştiriyor, kendimi sürekli geliştirmeye çalışıyorum.
+                        </p>
+                        <p>
+                            <strong style="color:rgba(255,255,255,0.8);">SiberAy</strong> ve
+                            <strong style="color:rgba(255,255,255,0.8);">FUTURE</strong> topluluklarında araştırma ve proje geliştirme süreçlerinde,
+                            <strong style="color:rgba(255,255,255,0.8);">Teknofest İHA</strong> yarışmasında yazılım ekibinde görev alıyorum.
+                        </p>
+                    </div>
+
+                    <div style="display:flex;justify-content:center;gap:2.5rem;margin-top:2rem;margin-bottom:0.5rem;" class="fade-up fade-up-3">
+                        <div style="text-align:center;min-width:60px;">
+                            <div style="font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-0.03em;line-height:1;">2+</div>
+                            <div class="stat-label-hero" style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.1em;margin-top:5px;white-space:nowrap;">Yıl Deneyim</div>
                         </div>
+                        <div style="width:1px;background:var(--border);align-self:stretch;"></div>
+                        <div style="text-align:center;min-width:60px;">
+                            <div style="font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-0.03em;line-height:1;">10+</div>
+                            <div class="stat-label-hero" style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.1em;margin-top:5px;white-space:nowrap;">Proje</div>
+                        </div>
+                        <div style="width:1px;background:var(--border);align-self:stretch;"></div>
+                        <div style="text-align:center;min-width:60px;">
+                            <div style="font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-0.03em;line-height:1;">3</div>
+                            <div class="stat-label-hero" style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.1em;margin-top:5px;white-space:nowrap;">Topluluk</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-4 mt-10 fade-up fade-up-4" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem;margin-top:2rem;">
+                        <a href="FIRAT_YUNUS_CV.pdf" download class="btn-neon">
+                            <i class="fas fa-file-pdf"></i>
+                            <span data-tr="CV İndir" data-en="Download CV">CV İndir</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/firat-yunus-yasaroglu/" target="_blank" class="social-link" style="font-size:1.75rem;margin-left:0.5rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/firatysrgl" target="_blank" class="social-link" style="font-size:1.75rem;"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+</div>
+        </div>
+    </section>
+
+        <div class="divider"></div>
+    <span id="section-about" style="display:block;position:relative;top:-80px;"></span>
+    <!-- ════════════════ GITHUB STATS ════════════════ -->
+    <section style="padding:0 0 7rem;">
+        <div class="container">
+            <div class="section-label">
+                <span data-tr="GitHub İstatistiklerim" data-en="GitHub Stats">GitHub İstatistiklerim</span>
+            </div>
+            <div class="github-row">
+                <div class="streak-card">
+                    <div class="streak-label" data-tr="Mevcut Seri" data-en="Current Streak">Mevcut Seri</div>
+                    <div class="loader" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+                        <i class="fas fa-circle-notch fa-spin" style="color:var(--neon);font-size:1.5rem;"></i>
+                    </div>
+                    <img src="https://streak-stats.demolab.com?user=firatysrgl&theme=transparent&hide_border=true&hide_title=true&title_color=00ff41&text_color=ffffff&icon_color=00ff41&locale=tr&date_format=j%20M%5B%20Y%5D&fire=00ff41&ring=00ff41&currStreakNum=ffffff"
+                         alt="GitHub Streak" style="width:100%;height:auto;opacity:0;transition:opacity 0.6s;position:relative;z-index:1;"
+                         onload="this.style.opacity='1';this.parentElement.querySelector('.loader').style.display='none';">
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-code-commit" style="color:var(--neon);font-size:1.25rem;margin-bottom:0.75rem;"></i>
+                        <div id="stat-commits" class="stat-num">—</div>
+                        <div class="stat-label" data-tr="Toplam Commit" data-en="Total Commits">Toplam Commit</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star" style="color:#facc15;font-size:1.25rem;margin-bottom:0.75rem;"></i>
+                        <div id="stat-stars" class="stat-num">—</div>
+                        <div class="stat-label" data-tr="Toplam Star" data-en="Total Stars">Toplam Star</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-code-pull-request" style="color:#a78bfa;font-size:1.25rem;margin-bottom:0.75rem;"></i>
+                        <div id="stat-repos" class="stat-num">—</div>
+                        <div class="stat-label" data-tr="Repo Sayısı" data-en="Repositories">Repo Sayısı</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users" style="color:var(--neon);font-size:1.25rem;margin-bottom:0.75rem;"></i>
+                        <div id="stat-followers" class="stat-num">—</div>
+                        <div class="stat-label" data-tr="Takipçi" data-en="Followers">Takipçi</div>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
+    </section>
 
-        <!-- TERMİNAL + BUTONLAR -->
-        <div class="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-20 animate-slide mb-16 lg:mb-32">
-            <div class="flex-1 w-full flex flex-col justify-between">
+    <div class="divider"></div>
 
-                <!-- Terminal — professional kırmızı tema -->
-                <div class="rounded-2xl overflow-hidden mb-10 w-full" id="terminal-wrapper"
-                     style="background:#030b16; border:1px solid rgba(239,68,68,0.25); box-shadow:0 0 60px rgba(239,68,68,0.06), 0 30px 80px rgba(0,0,0,0.5);">
+    <!-- ════════════════ SKILLS ════════════════ -->
+    <span id="section-skills" style="display:block;position:relative;top:-80px;"></span>
+    <section style="padding:0 0 7rem;">
+        <div class="container">
+            <div class="section-label">
+                <span data-tr="Teknik Beceriler" data-en="Technical Skills">Teknik Beceriler</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;" class="skills-grid">
 
-                    <!-- Title bar -->
-                    <div style="background:rgba(239,68,68,0.05); border-bottom:1px solid rgba(239,68,68,0.1); padding:10px 16px; display:flex; align-items:center; justify-content:space-between;">
-                        <div style="display:flex; align-items:center; gap:10px;">
-                            <div style="display:flex; gap:6px;">
-                                <div style="width:12px;height:12px;border-radius:50%;background:#ff5f57;cursor:pointer;" title="Close"></div>
-                                <div style="width:12px;height:12px;border-radius:50%;background:#febc2e;cursor:pointer;" title="Minimize"></div>
-                                <div style="width:12px;height:12px;border-radius:50%;background:#28c840;cursor:pointer;" title="Maximize"></div>
-                            </div>
-                            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(239,68,68,0.5); letter-spacing:0.15em; margin-left:6px;">
-                                FiratOS v1.0 — bash
-                            </div>
-                        </div>
-                        <div style="display:flex; align-items:center; gap:16px;">
-                            <div style="display:flex; align-items:center; gap:5px;">
-                                <div style="width:5px;height:5px;border-radius:50%;background:#28c840;animation:termPulse 2s infinite;"></div>
-                                <span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:rgba(74,222,128,0.5); letter-spacing:0.1em; text-transform:uppercase;">ssh active</span>
-                            </div>
-                            <span id="term-clock" style="font-family:'JetBrains Mono',monospace; font-size:9px; color:rgba(255,255,255,0.2); letter-spacing:0.05em;"></span>
-                        </div>
+                <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:1.25rem;">
+                        <i class="fas fa-server" style="color:var(--neon);width:16px;"></i>
+                        <span style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);" data-tr="Backend" data-en="Backend">Backend</span>
                     </div>
-
-                    <!-- Tab bar -->
-                    <div style="background:rgba(0,0,0,0.3); border-bottom:1px solid rgba(239,68,68,0.08); display:flex; align-items:stretch; padding:0 12px;">
-                        <div style="font-family:'JetBrains Mono',monospace; font-size:10px; padding:7px 14px; color:#ef4444; border-bottom:2px solid #ef4444; letter-spacing:0.1em; display:flex; align-items:center; gap:6px;">
-                            <span style="width:6px;height:6px;border-radius:50%;background:#ef4444;display:inline-block;"></span>
-                            bash
-                        </div>
-                        <div style="font-family:'JetBrains Mono',monospace; font-size:10px; padding:7px 14px; color:rgba(255,255,255,0.2); border-bottom:2px solid transparent; letter-spacing:0.1em; display:flex; align-items:center; gap:6px;">
-                            <span style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.15);display:inline-block;"></span>
-                            system
-                        </div>
-                        <div style="font-family:'JetBrains Mono',monospace; font-size:10px; padding:7px 14px; color:rgba(255,255,255,0.2); border-bottom:2px solid transparent; letter-spacing:0.1em; display:flex; align-items:center; gap:6px;">
-                            <span style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.15);display:inline-block;"></span>
-                            network
-                        </div>
-                        <div style="margin-left:auto; display:flex; align-items:center; gap:16px; padding-right:4px;">
-                            <span id="term-cmd-count" style="font-family:'JetBrains Mono',monospace; font-size:9px; color:rgba(239,68,68,0.3); letter-spacing:0.05em;">0 cmds</span>
-                        </div>
-                    </div>
-
-                    <!-- Terminal body -->
-                    <div style="height:360px; display:flex; flex-direction:column; position:relative;">
-                        <!-- Scanline overlay -->
-                        <div style="position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);z-index:1;"></div>
-
-                        <div style="flex:1; overflow-y:auto; padding:16px 0 8px; scrollbar-width:thin; scrollbar-color:rgba(239,68,68,0.2) transparent; position:relative; z-index:2;" id="terminal-body">
-                            <div id="terminal-content"></div>
-                        </div>
-
-                        <!-- Input bar -->
-                        <div style="border-top:1px solid rgba(239,68,68,0.07); padding:10px 16px; background:rgba(239,68,68,0.02); position:relative; z-index:2;">
-                            <!-- Path indicator -->
-                            <div style="font-family:'JetBrains Mono',monospace; font-size:9px; color:rgba(255,255,255,0.15); margin-bottom:6px; letter-spacing:0.05em; display:flex; align-items:center; gap:8px;">
-                                <span>~/portfolio</span>
-                                <span style="color:rgba(239,68,68,0.3);">⎇ main</span>
-                                <span style="margin-left:auto; color:rgba(255,255,255,0.1);" id="term-uptime"></span>
-                            </div>
-                            <div id="input-line" style="display:flex; align-items:center; gap:6px;">
-                                <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#4ade80;">guest</span>
-                                <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(255,255,255,0.25);">@</span>
-                                <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#ef4444; font-weight:600;">firat</span>
-                                <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(255,255,255,0.25);">:~$</span>
-                                <div style="position:relative; flex:1;" id="input-wrapper">
-                                    <input type="text" id="terminal-input"
-                                           style="background:transparent; border:none; outline:none; width:100%; color:#ef4444; font-family:'JetBrains Mono',monospace; font-size:12px; padding:0; margin:0; caret-color:#ef4444;"
-                                           autocomplete="off" spellcheck="false" placeholder="komut gir...">
-                                    <div id="autocomplete-box" class="terminal-autocomplete hidden"></div>
-                                </div>
-                                <!-- Cursor blink indicator -->
-                                <span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:rgba(239,68,68,0.25); white-space:nowrap; letter-spacing:0.05em;" id="term-hint">TAB ile tamamla</span>
-                            </div>
-                        </div>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">ASP.NET Core</span>
+                        <span class="skill-tag">Web API</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Entity Framework</span>
+                        <span class="skill-tag">MSSQL</span>
+                        <span class="skill-tag">FastAPI</span>
                     </div>
                 </div>
 
-                <style>
-                @keyframes termPulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-                #terminal-body::-webkit-scrollbar { width:3px; }
-                #terminal-body::-webkit-scrollbar-track { background:transparent; }
-                #terminal-body::-webkit-scrollbar-thumb { background:rgba(239,68,68,0.2); border-radius:99px; }
-                #terminal-body::-webkit-scrollbar-thumb:hover { background:rgba(239,68,68,0.4); }
-                </style>
-
-                <div class="flex flex-wrap gap-6 lg:gap-10 items-center">
-                    <a href="FIRAT_YUNUS_CV.pdf" download class="group bg-cyanAccent text-darkbg px-8 lg:px-12 py-4 lg:py-5 rounded-2xl font-bold transition flex items-center gap-3 hover:bg-white hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] text-sm lg:text-base">
-                        <i class="fas fa-file-pdf transition"></i> <span data-tr="CV İndir" data-en="Download CV">CV İndir</span>
-                    </a>
-                    <div class="flex items-center gap-8 lg:gap-10 px-2">
-                        <a href="https://www.linkedin.com/in/firat-yunus-yasaroglu/" target="_blank" class="social-link text-4xl lg:text-5xl transition"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/firatysrgl" target="_blank" class="social-link text-4xl lg:text-5xl transition"><i class="fab fa-github"></i></a>
+                <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:1.25rem;">
+                        <i class="fas fa-display" style="color:var(--neon);width:16px;"></i>
+                        <span style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);" data-tr="Frontend" data-en="Frontend">Frontend</span>
                     </div>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">Streamlit</span>
+                    </div>
+                </div>
+
+                <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:1.25rem;">
+                        <i class="fas fa-brain" style="color:var(--neon);width:16px;"></i>
+                        <span style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);" data-tr="AI & NLP" data-en="AI & NLP">AI & NLP</span>
+                    </div>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">BERTurk</span>
+                        <span class="skill-tag">Transformers</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Librosa</span>
+                        <span class="skill-tag">Hugging Face</span>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </section>
+    <style>
+        .skill-tag {
+            font-size: 11px; font-weight: 600;
+            padding: 4px 10px; border-radius: 6px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.7);
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .skill-tag:hover { border-color: var(--border-neon); color: var(--neon); }
+        @media(max-width:900px){ .skills-grid { grid-template-columns: 1fr 1fr !important; } }
+        @media(max-width:600px){ .skills-grid { grid-template-columns: 1fr !important; } }
+    </style>
+
+    <div class="divider"></div>
+
+    <!-- DENEYIM & TOPLULUKLAR -->
+    <span id="section-exp" style="display:block;position:relative;top:-80px;"></span>
+    <section style="padding:0 0 7rem;">
+        <div class="container">
+            <div class="section-label">
+                <span data-tr="Deneyim & Topluluklar" data-en="Experience & Communities">Deneyim & Topluluklar</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;" class="exp-grid">
+
+                <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+                        <div style="width:36px;height:36px;border-radius:10px;background:#0d0d0d;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+                            <i class="fas fa-shield-halved" style="color:var(--neon);font-size:14px;"></i>
+                        </div>
+                        <div>
+                            <div style="font-size:13px;font-weight:700;color:#fff;">SiberAy Topluluğu</div>
+                            <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;" data-tr="Core Team Üyesi" data-en="Core Team Member">Core Team Üyesi</div>
+                        </div>
+                    </div>
+                    <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;" data-tr="Siber güvenlik topluluğunda araştırma ve proje geliştirme süreçlerinde aktif olarak görev alıyorum." data-en="Actively involved in research and project development processes in the cybersecurity community.">Siber güvenlik topluluğunda araştırma ve proje geliştirme süreçlerinde aktif olarak görev alıyorum.</p>
+                </div>
+
+                <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+                        <div style="width:36px;height:36px;border-radius:10px;background:#0d0d0d;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+                            <i class="fas fa-rocket" style="color:var(--neon);font-size:14px;"></i>
+                        </div>
+                        <div>
+                            <div style="font-size:13px;font-weight:700;color:#fff;">FUTURE Topluluğu</div>
+                            <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;" data-tr="Core Team Üyesi" data-en="Core Team Member">Core Team Üyesi</div>
+                        </div>
+                    </div>
+                    <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;" data-tr="Teknoloji odaklı toplulukta araştırma ve proje geliştirme süreçlerinde aktif olarak görev alıyorum." data-en="Actively involved in research and project development processes in a technology-focused community.">Teknoloji odaklı toplulukta araştırma ve proje geliştirme süreçlerinde aktif olarak görev alıyorum.</p>
+                </div>
+
+                <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+                        <div style="width:36px;height:36px;border-radius:10px;background:#0d0d0d;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+                            <i class="fas fa-plane" style="color:var(--neon);font-size:14px;"></i>
+                        </div>
+                        <div>
+                            <div style="font-size:13px;font-weight:700;color:#fff;">Teknofest İHA</div>
+                            <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;" data-tr="Yazılım Ekibi" data-en="Software Team">Yazılım Ekibi</div>
+                        </div>
+                    </div>
+                    <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;" data-tr="Uçuş yazılımı ve otonom sistem geliştirme süreçlerinde aktif olarak görev alıyorum." data-en="Actively working on flight software and autonomous system development processes.">Uçuş yazılımı ve otonom sistem geliştirme süreçlerinde aktif olarak görev alıyorum.</p>
+                </div>
+
+                <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+                        <div style="width:36px;height:36px;border-radius:10px;background:#0d0d0d;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+                            <i class="fas fa-graduation-cap" style="color:var(--neon);font-size:14px;"></i>
+                        </div>
+                        <div>
+                            <div style="font-size:13px;font-weight:700;color:#fff;" data-tr="Fırat Üniversitesi" data-en="Fırat University">Fırat Üniversitesi</div>
+                            <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;" data-tr="Yazılım Müh. · 2. Sınıf · 2024→" data-en="Software Eng. · 2nd Year · 2024→">Yazılım Müh. · 2. Sınıf · 2024→</div>
+                        </div>
+                    </div>
+                    <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;" data-tr="Full Stack geliştirme ve AI entegrasyonları üzerine odaklanarak akademik eğitimime devam ediyorum." data-en="Continuing my academic education with a focus on Full Stack development and AI integrations.">Full Stack geliştirme ve AI entegrasyonları üzerine odaklanarak akademik eğitimime devam ediyorum.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <style>@media(max-width:700px){.exp-grid{grid-template-columns:1fr !important;}}</style>
+
+
+    <div class="divider"></div>
+
+    <!-- ════════════════ PROJELER ════════════════ -->
+    <span id="section-projects" style="display:block;position:relative;top:-80px;"></span>
+    <section style="padding:0 0 8rem;">
+        <div class="container">
+            <div class="section-label">
+                <span data-tr="Projeler" data-en="Projects">Projeler</span>
+            </div>
+            <div class="project-header" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1.5rem;">
+                <div>
+                    <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:0.5rem;" data-tr="Proje Arşivi" data-en="Project Archive">Proje Arşivi</h2>
+                    <p data-tr="Gerçek zamanlı GitHub README analizi." data-en="Real-time GitHub README analysis." style="font-size:0.95rem;color:rgba(255,255,255,0.55);">Gerçek zamanlı GitHub README analizi.</p>
+                </div>
+                <div class="filter-group">
+                    <button onclick="filterProjects('all')" class="filter-btn active" data-tr="Hepsi" data-en="All">Hepsi</button>
+                    <button onclick="filterProjects('C#')"     class="filter-btn">C#</button>
+                    <button onclick="filterProjects('Java')"   class="filter-btn">Java</button>
+                    <button onclick="filterProjects('HTML')"   class="filter-btn">HTML</button>
+                    <button onclick="filterProjects('Python')" class="filter-btn">Python</button>
                 </div>
             </div>
+            <div id="github-repos" class="repo-grid"></div>
+        </div>
+    </section>
 
-            <!-- İLETİŞİM FORMU -->
-            <div class="w-full lg:w-[420px]">
-                <div class="glass-card p-6 lg:p-10 rounded-[2.5rem] lg:rounded-[3rem] border-white/5 relative" id="contact-container">
-                    <div class="mb-8">
-                        <h3 class="text-white font-bold flex items-center gap-3 uppercase tracking-widest text-xs mb-3">
-                            <i class="fas fa-envelope text-cyan-400"></i>
-                            <span data-tr="İletişim" data-en="Contact">İletişim</span>
-                        </h3>
-                        <p data-tr="Bir proje fikrin mi var, iş birliği mi istiyorsun ya da sadece merhaba mı demek istiyorsun? Mesajını bırak, en kısa sürede dönerim." data-en="Got a project idea, want to collaborate, or just want to say hi? Leave a message and I'll get back to you as soon as possible." class="text-slate-500 text-xs leading-relaxed">Bir proje fikrin mi var, iş birliği mi istiyorsun ya da sadece merhaba mı demek istiyorsun? Mesajını bırak, en kısa sürede dönerim.</p>
+    <!-- Scroll to top -->
+    <button id="scroll-top" aria-label="Yukarı çık" style="
+        position:fixed; bottom:2rem; right:2rem; z-index:999;
+        width:44px; height:44px; border-radius:12px;
+        background:#0d0d0d; border:1px solid var(--border-neon);
+        color:var(--neon); font-size:1rem; cursor:pointer;
+        display:flex; align-items:center; justify-content:center;
+        opacity:0; pointer-events:none;
+        transition:opacity 0.3s, transform 0.2s, box-shadow 0.2s;
+    " onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 16px rgba(0,255,65,0.3)'"
+       onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="divider"></div>
+
+    <!-- ════════════════ İLETİŞİM ════════════════ -->
+    <span id="section-contact" style="display:block;position:relative;top:-80px;"></span>
+    <section style="padding:0 0 8rem;">
+        <div class="container">
+            <div class="section-label">
+                <span data-tr="İletişim" data-en="Contact">İletişim</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;max-width:960px;margin:0 auto;" class="contact-grid">
+                <!-- Sol: Bilgi -->
+                <div>
+                    <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;" data-tr="Bir şey mi aklında?" data-en="Got something in mind?">Bir şey mi aklında?</h2>
+                    <p style="font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:2rem;" data-tr="Proje fikri, iş birliği teklifi ya da sadece merhaba demek için mesaj bırakabilirsin. En kısa sürede dönerim." data-en="For project ideas, collaboration offers or just to say hi — leave a message and I'll get back to you soon.">Proje fikri, iş birliği teklifi ya da sadece merhaba demek için mesaj bırakabilirsin. En kısa sürede dönerim.</p>
+                    <div style="display:flex;flex-direction:column;gap:1rem;">
+                        <a href="mailto:contact@firatyunus.com" style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;transition:color 0.2s;" onmouseover="this.style.color='var(--neon)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                            <i class="fas fa-envelope" style="color:var(--neon);width:16px;"></i>
+                            contact@firatyunus.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/firat-yunus-yasaroglu/" target="_blank" style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;transition:color 0.2s;" onmouseover="this.style.color='var(--neon)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                            <i class="fab fa-linkedin" style="color:var(--neon);width:16px;"></i>
+                            linkedin.com/in/firat-yunus-yasaroglu
+                        </a>
+                        <a href="https://github.com/firatysrgl" target="_blank" style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;transition:color 0.2s;" onmouseover="this.style.color='var(--neon)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                            <i class="fab fa-github" style="color:var(--neon);width:16px;"></i>
+                            github.com/firatysrgl
+                        </a>
                     </div>
-                    <form id="contact-form" action="https://formspree.io/f/xgokqgwq" method="POST" class="space-y-5">
-                        <input type="text" name="name" data-tr-placeholder="Adınız" data-en-placeholder="Your Name" placeholder="Adınız" class="w-full px-5 py-4 rounded-2xl text-sm transition-all border border-white/5" required>
-                        <input type="email" name="email" data-tr-placeholder="E-posta Adresiniz" data-en-placeholder="Your Email" placeholder="E-posta Adresiniz" class="w-full px-5 py-4 rounded-2xl text-sm transition-all border border-white/5" required>
-                        <textarea name="message" data-tr-placeholder="Mesajınızı yazın..." data-en-placeholder="Write your message..." placeholder="Mesajınızı yazın..." rows="3" class="w-full px-5 py-4 rounded-2xl text-sm transition-all border border-white/5 resize-none" required></textarea>
-                        <button type="submit" id="submit-btn" class="w-full bg-cyan-400 text-darkbg font-bold py-4 rounded-2xl hover:bg-white transition-all shadow-[0_10px_20px_rgba(34,211,238,0.2)]">
+                </div>
+                <!-- Sağ: Form -->
+                <div class="card" style="padding:2rem;background:#0d0d0d;" id="contact-container">
+                    <form id="contact-form" action="https://formspree.io/f/xgokqgwq" method="POST" style="display:flex;flex-direction:column;gap:12px;">
+                        <input type="text" name="name" class="form-input" data-tr-placeholder="Adınız" data-en-placeholder="Your Name" placeholder="Adınız" required>
+                        <input type="email" name="email" class="form-input" data-tr-placeholder="E-posta Adresiniz" data-en-placeholder="Your Email" placeholder="E-posta Adresiniz" required>
+                        <textarea name="message" class="form-input" rows="4" data-tr-placeholder="Mesajınızı yazın..." data-en-placeholder="Write your message..." placeholder="Mesajınızı yazın..." required></textarea>
+                        <button type="submit" id="submit-btn" class="btn-neon" style="justify-content:center;margin-top:4px;">
                             <span data-tr="Gönder" data-en="Send">Gönder</span>
                         </button>
                     </form>
-                    <div id="success-msg" class="hidden flex flex-col items-center justify-center text-center py-10 space-y-4">
-                        <div class="w-16 h-16 bg-cyan-400/20 rounded-full flex items-center justify-center">
-                            <i class="fas fa-check text-cyanAccent text-2xl"></i>
+                    <div id="success-msg" class="hidden" style="text-align:center;padding:2rem 0;">
+                        <div style="width:52px;height:52px;border:1px solid rgba(0,255,65,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+                            <i class="fas fa-check" style="color:var(--neon);"></i>
                         </div>
-                        <h4 data-tr="Mesajınız Alındı!" data-en="Message Received!" class="text-white font-bold uppercase tracking-widest text-sm">Mesajınız Alındı!</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed">
-                            <span data-tr="En kısa sürede" data-en="I'll get back to you soon via">En kısa sürede</span>
-                            <span class="text-cyanAccent">contact@firatyunus.com</span>
-                            <span data-tr="üzerinden geri dönüş yapacağım." data-en=".">üzerinden geri dönüş yapacağım.</span>
-                        </p>
+                        <p style="font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;" data-tr="Mesajınız Alındı!" data-en="Message Received!">Mesajınız Alındı!</p>
+                        <p style="font-size:12px;color:rgba(255,255,255,0.4);" data-tr="En kısa sürede dönerim." data-en="I'll get back to you soon.">En kısa sürede dönerim.</p>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+    <style>@media(max-width:800px){.contact-grid{grid-template-columns:1fr !important;}}</style>
 
-        <!-- GITHUB İSTATİSTİKLER -->
-        <section class="mb-16 lg:mb-32">
-            <h2 class="text-xs font-black text-cyan-500 uppercase tracking-[0.5em] mb-12 flex items-center gap-5">
-                <span class="h-[1px] w-20 bg-cyan-500/30"></span>
-                <span data-tr="GitHub İstatistiklerim" data-en="GitHub Stats">GitHub İstatistiklerim</span>
-            </h2>
-            <div class="flex flex-col lg:flex-row gap-6">
-                <div class="glass-card p-4 lg:p-8 rounded-[2.5rem] flex flex-col items-center justify-center overflow-hidden relative min-h-[200px] flex-1">
-                    <h3 data-tr="Mevcut Seri" data-en="Current Streak" class="text-sm font-bold text-cyan-500 mb-2 uppercase tracking-wider">Mevcut Seri</h3>
-                    <div class="loader absolute inset-0 flex flex-col items-center justify-center text-cyan-500 z-0">
-                        <i class="fas fa-circle-notch fa-spin text-2xl mb-2"></i>
-                        <span class="text-xs font-bold tracking-widest animate-pulse">...</span>
-                    </div>
-                    <img src="https://streak-stats.demolab.com?user=firatysrgl&theme=transparent&hide_border=true&hide_title=true&title_color=22d3ee&text_color=ffffff&icon_color=22d3ee&locale=tr&date_format=j%20M%5B%20Y%5D&fire=22d3ee&ring=22d3ee&currStreakNum=ffffff"
-                         alt="GitHub Streak"
-                         class="opacity-0 transition-opacity duration-700 relative z-10"
-                         onload="this.classList.remove('opacity-0'); this.parentElement.querySelector('.loader').style.display='none';"
-                         style="width: 100%; height: auto;">
-                </div>
-                <div class="grid grid-cols-2 gap-4 lg:w-[320px]">
-                    <div class="glass-card p-5 rounded-[1.5rem] flex flex-col items-center justify-center text-center">
-                        <i class="fas fa-code-commit text-cyan-400 text-xl mb-2"></i>
-                        <span id="stat-commits" class="text-3xl font-extrabold text-white">—</span>
-                        <span data-tr="Toplam Commit" data-en="Total Commits" class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Toplam Commit</span>
-                    </div>
-                    <div class="glass-card p-5 rounded-[1.5rem] flex flex-col items-center justify-center text-center">
-                        <i class="fas fa-star text-yellow-400 text-xl mb-2"></i>
-                        <span id="stat-stars" class="text-3xl font-extrabold text-white">—</span>
-                        <span data-tr="Toplam Star" data-en="Total Stars" class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Toplam Star</span>
-                    </div>
-                    <div class="glass-card p-5 rounded-[1.5rem] flex flex-col items-center justify-center text-center">
-                        <i class="fas fa-code-pull-request text-purple-400 text-xl mb-2"></i>
-                        <span id="stat-repos" class="text-3xl font-extrabold text-white">—</span>
-                        <span data-tr="Repo Sayısı" data-en="Repositories" class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Repo Sayısı</span>
-                    </div>
-                    <div class="glass-card p-5 rounded-[1.5rem] flex flex-col items-center justify-center text-center">
-                        <i class="fas fa-users text-green-400 text-xl mb-2"></i>
-                        <span id="stat-followers" class="text-3xl font-extrabold text-white">—</span>
-                        <span data-tr="Takipçi" data-en="Followers" class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Takipçi</span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- PROJELER -->
-        <section class="mb-16 lg:mb-32">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-10 lg:mb-16 gap-8">
-                <div class="w-full md:w-auto">
-                    <h2 data-tr="Proje Arşivi" data-en="Project Archive" class="text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight">Proje Arşivi</h2>
-                    <p data-tr="Gerçek zamanlı GitHub README analizi ile projelerime göz atın." data-en="Browse my projects with real-time GitHub README analysis." class="text-slate-500 max-w-md text-base lg:text-lg">Gerçek zamanlı GitHub README analizi ile projelerime göz atın.</p>
-                </div>
-                <div class="flex flex-wrap gap-2 lg:gap-4 bg-white/5 p-2 rounded-2xl border border-white/5 w-full md:w-auto">
-                    <button onclick="filterProjects('all')" class="filter-btn active flex-1 md:flex-none px-4 lg:px-8 py-3 rounded-xl text-xs font-bold transition text-white uppercase tracking-widest" data-tr="Hepsi" data-en="All">Hepsi</button>
-                    <button onclick="filterProjects('C#')"     class="filter-btn flex-1 md:flex-none px-4 lg:px-8 py-3 rounded-xl text-xs font-bold transition uppercase tracking-widest">C#</button>
-                    <button onclick="filterProjects('Java')"   class="filter-btn flex-1 md:flex-none px-4 lg:px-8 py-3 rounded-xl text-xs font-bold transition uppercase tracking-widest">Java</button>
-                    <button onclick="filterProjects('HTML')"   class="filter-btn flex-1 md:flex-none px-4 lg:px-8 py-3 rounded-xl text-xs font-bold transition uppercase tracking-widest">HTML</button>
-                    <button onclick="filterProjects('Python')" class="filter-btn flex-1 md:flex-none px-4 lg:px-8 py-3 rounded-xl text-xs font-bold transition uppercase tracking-widest">Python</button>
-                </div>
-            </div>
-            <div id="github-repos" class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"></div>
-        </section>
-
-        <footer class="pt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center opacity-40 text-[10px] font-bold uppercase tracking-[0.5em] gap-4 md:gap-0">
-            <p>© 2026 Fırat Yunus Yaşaroğlu</p>
-            <p class="text-cyanAccent tracking-widest">Engineering Excellence</p>
-        </footer>
-    </div>
+    <!-- ════════════════ FOOTER ════════════════ -->
+    <footer class="container">
+        <p>© <span id="footer-year"></span> Fırat Yunus Yaşaroğlu</p>
+    </footer>
+    <div style="height:2rem;"></div>
 
     <script>
-        window.onbeforeunload = function () { window.scrollTo(0, 0); }
-        if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
 
-        // ─── CURSOR SPOTLIGHT ────────────────────────────────────
-        const spotlight = document.getElementById('spotlight');
-        let mouseInPage = false;
-        document.addEventListener('mousemove', (e) => {
-            spotlight.style.left = e.clientX + 'px';
-            spotlight.style.top  = e.clientY + 'px';
-            if (!mouseInPage) { spotlight.style.opacity = '1'; mouseInPage = true; }
+
+
+        // ── Nav scroll behaviour ──
+        const mainNav = document.getElementById('main-nav');
+        const sections = [
+            { id: 'section-about',    link: 'Hakkımda' },
+            { id: 'section-skills',   link: 'Beceriler' },
+            { id: 'section-exp',      link: 'Deneyim' },
+            { id: 'section-projects', link: 'Projeler' },
+            { id: 'section-contact', link: 'İletişim' },
+        ];
+        window.addEventListener('scroll', () => {
+            const sy = window.scrollY;
+            // Active section highlight
+            sections.forEach(s => {
+                const el = document.getElementById(s.id);
+                if (!el) return;
+                const rect = el.getBoundingClientRect();
+                const link = [...document.querySelectorAll('.nav-links a')].find(a => a.textContent.trim() === s.link || a.getAttribute('data-tr') === s.link);
+                if (link) link.classList.toggle('active-section', rect.top <= 100 && rect.top > -300);
+            });
+        }, { passive: true });
+
+        // ── Footer year ──
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // ── Scroll to top button ──
+        const scrollBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.opacity = window.scrollY > 400 ? '1' : '0';
+            scrollBtn.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
         });
-        document.addEventListener('mouseleave', () => { spotlight.style.opacity = '0'; mouseInPage = false; });
+        scrollBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-        // ─── DİL DEĞİŞTİRİCİ ─────────────────────────────────────
+        // ── Lang ──
         let currentLang = 'tr';
-
         function setLang(lang) {
             currentLang = lang;
-            document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-
-            // data-tr / data-en elementleri
+            document.documentElement.setAttribute('lang', lang);
+            document.getElementById('btn-tr').classList.toggle('active', lang==='tr');
+            document.getElementById('btn-en').classList.toggle('active', lang==='en');
             document.querySelectorAll('[data-tr]').forEach(el => {
-                const text = el.getAttribute('data-' + lang);
-                if (text) el.textContent = text;
+                const t = el.getAttribute('data-'+lang); if(t) el.textContent = t;
             });
-
-            // placeholder çevirileri
             document.querySelectorAll('[data-tr-placeholder]').forEach(el => {
-                const ph = el.getAttribute('data-' + lang + '-placeholder');
-                if (ph) el.placeholder = ph;
+                const p = el.getAttribute('data-'+lang+'-placeholder'); if(p) el.placeholder = p;
             });
-
-            // Bio paragrafı – iç span'larla birlikte özel işlem
-            const bioEl = document.querySelector('.bio-para');
-            if (bioEl) {
-                if (lang === 'en') {
-                    bioEl.innerHTML = "I'm a 2nd year Software Engineering student at Fırat University. While continuing my academic journey, I'm pushing scalable <span class='text-cyan-400 font-bold uppercase tracking-wider'>Full Stack Development</span> further with <span class='text-blue-500 font-bold uppercase tracking-wider'>AI &amp; LLM Integrations</span>. Solving complex problems with clean code principles and innovative algorithms is my greatest technical passion.";
-                } else {
-                    bioEl.innerHTML = "Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisi olarak akademik eğitimime devam ederken; ölçeklenebilir <span class='text-cyan-400 font-bold uppercase tracking-wider'>Full Stack Development</span> süreçlerini, <span class='text-blue-500 font-bold uppercase tracking-wider'>AI &amp; LLM Entegrasyonları</span> ile bir üst seviyeye taşıyorum. Karmaşık problemleri temiz kod prensipleri ve yenilikçi algoritmalarla çözmek en büyük teknik tutkum.";
-                }
+            // Bio
+            const bio = document.querySelector('.bio-para');
+            if(bio) {
+                bio.innerHTML = lang==='en'
+                    ? "<p style='margin-bottom:1rem;'>2nd year Software Engineering student at Fırat University. Alongside my academic studies, I build projects that solve real-world problems and continuously strive to improve myself.</p><p>I contribute to research and project development at <strong style='color:rgba(255,255,255,0.8)'>SiberAy</strong> and <strong style='color:rgba(255,255,255,0.8)'>FUTURE</strong> communities, and participate as a software team member in the <strong style='color:rgba(255,255,255,0.8)'>Teknofest UAV</strong> competition.</p>"
+                    : "Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisiyim (2024→). <span class='keyword'>Full Stack</span> geliştirme ve <span class='keyword'>AI & NLP</span> entegrasyonları üzerine aktif projeler yürütüyor, SiberAy ve FUTURE topluluklarında araştırma ve proje geliştirme süreçlerinde görev alıyorum.";
             }
+            const ti = document.getElementById('terminal-input');
+            if(ti) ti.placeholder = lang==='en' ? 'type a command...' : 'komut gir...';
+    
 
-            // Terminal placeholder
-            const termInp = document.getElementById('terminal-input');
-            if (termInp) termInp.placeholder = lang === 'en' ? 'type a command...' : 'komut gir...';
-
-            // lang-updated metni
-            const updEl = document.getElementById('lang-updated');
-            if (updEl && updEl.textContent) {
-                const now = new Date();
-                updEl.textContent = lang === 'en'
-                    ? 'Updated ' + now.toLocaleDateString('en-US')
-                    : now.toLocaleDateString('tr-TR') + ' güncellendi';
-            }
-
-            // Filter butonları
-            document.querySelectorAll('.filter-btn[data-tr]').forEach(btn => {
-                const val = btn.getAttribute('data-' + lang);
-                if (val) btn.textContent = val;
-            });
-
-            // Repo kartlarındaki bağlantı metinleri
-            document.querySelectorAll('[data-repo-link]').forEach(el => {
-                el.textContent = lang === 'en' ? 'VIEW' : 'İNCELE';
-            });
-
-            // Terminal hint metni
-            updateTermHint(lang);
-
-            // Terminal komutlarını güncelle
+            document.querySelectorAll('[data-repo-link]').forEach(el => el.textContent = lang==='en' ? 'VIEW' : 'İNCELE');
             COMMANDS = buildCommands(lang);
+            // Nav link çevirileri
+            document.querySelectorAll('.nav-links a[data-tr]').forEach(el => {
+                const t = el.getAttribute('data-'+lang); if(t) el.textContent = t;
+            });
+            // Hero stats çevirisi
+            const statLabels = document.querySelectorAll('.stat-label-hero');
+            const trLabels = ['Yıl Deneyim','Proje','Topluluk'];
+            const enLabels = ['Years Exp.','Projects','Communities'];
+            statLabels.forEach((el,i) => { el.textContent = lang==='en' ? enLabels[i] : trLabels[i]; });
+            // Scroll indicator
+            const scrollTxt = document.querySelector('[data-scroll-label]');
+            if(scrollTxt) scrollTxt.textContent = lang==='en' ? 'SCROLL' : 'KAYDIR';
         }
 
-        // ─── FORM ────────────────────────────────────────────────
+        // ── Form ──
         const contactForm = document.getElementById('contact-form');
         const successMsg  = document.getElementById('success-msg');
         const submitBtn   = document.getElementById('submit-btn');
-        contactForm.addEventListener('submit', async function(e) {
+        contactForm.addEventListener('submit', async e => {
             e.preventDefault();
             submitBtn.disabled = true;
-            submitBtn.querySelector('span').textContent = currentLang === 'tr' ? 'Gönderiliyor...' : 'Sending...';
+            submitBtn.querySelector('span').textContent = currentLang==='tr' ? 'Gönderiliyor...' : 'Sending...';
             try {
-                const response = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
-                if (response.ok) { contactForm.classList.add('hidden'); successMsg.classList.remove('hidden'); }
-                else { submitBtn.disabled = false; submitBtn.querySelector('span').textContent = currentLang === 'tr' ? 'Gönder' : 'Send'; }
-            } catch { submitBtn.disabled = false; submitBtn.querySelector('span').textContent = currentLang === 'tr' ? 'Gönder' : 'Send'; }
+                const r = await fetch(contactForm.action, { method:'POST', body: new FormData(contactForm), headers:{'Accept':'application/json'} });
+                if(r.ok) { contactForm.style.display='none'; successMsg.classList.remove('hidden'); }
+                else { submitBtn.disabled=false; submitBtn.querySelector('span').textContent = currentLang==='tr'?'Gönder':'Send'; }
+            } catch { submitBtn.disabled=false; submitBtn.querySelector('span').textContent = currentLang==='tr'?'Gönder':'Send'; }
         });
 
-        // ─── REPO FETCH ──────────────────────────────────────────
+        // ── Repos ──
         let allRepos = [];
-        const HIDDEN_REPOS = ['firatysrgl', 'sitem'];
+        const HIDDEN = ['firatysrgl','sitem'];
 
         async function fetchRepos() {
-            const container = document.getElementById('github-repos');
+            const c = document.getElementById('github-repos');
             try {
-                const response = await fetch('https://api.github.com/users/firatysrgl/repos?sort=updated');
-                const repos = await response.json();
+                const res = await fetch('https://api.github.com/users/firatysrgl/repos?sort=updated');
+                const repos = await res.json();
                 allRepos = await Promise.all(
-                    repos.filter(r => !r.fork && !HIDDEN_REPOS.includes(r.name)).slice(0, 12).map(async repo => {
-                        const readmeText = await fetchReadme(repo.name);
-                        return { ...repo, customSummary: summarizeText(readmeText) };
+                    repos.filter(r => !r.fork && !HIDDEN.includes(r.name)).slice(0,12).map(async repo => {
+                        const txt = await fetchReadme(repo.name);
+                        return { ...repo, summary: summarize(txt) };
                     })
                 );
                 renderRepos(allRepos);
-            } catch {
-                container.innerHTML = '<p class="text-white/50">' + (currentLang === 'en' ? 'An error occurred while loading projects.' : 'Projeler yüklenirken bir hata oluştu.') + '</p>';
-            }
+            } catch { c.innerHTML = '<p style="color:rgba(255,255,255,0.3)">Yüklenemedi.</p>'; }
         }
-
-        async function fetchReadme(repoName) {
-            try {
-                const res = await fetch(`https://raw.githubusercontent.com/firatysrgl/${repoName}/main/README.md`);
-                return res.ok ? await res.text() : null;
-            } catch { return null; }
+        async function fetchReadme(name) {
+            try { const r = await fetch(`https://raw.githubusercontent.com/firatysrgl/${name}/main/README.md`); return r.ok ? r.text() : null; } catch { return null; }
         }
-
-        function summarizeText(text) {
-            if (!text) return currentLang === 'en'
-                ? 'A professional engineering project built with modern software architecture.'
-                : 'Modern yazılım mimarisiyle kurgulanmış profesyonel mühendislik çalışması.';
-            const clean = text.replace(/[#*`_\[\]()]/g, '').replace(/\n/g, ' ').trim();
-            return clean.length > 120 ? clean.substring(0, 117) + '...' : clean;
+        function summarize(txt) {
+            if(!txt) return currentLang==='en' ? 'A professional engineering project.' : 'Modern yazılım mimarisiyle kurgulanmış proje.';
+            const c = txt.replace(/[#*`_\[\]()]/g,'').replace(/\n/g,' ').trim();
+            return c.length>130 ? c.slice(0,127)+'...' : c;
         }
+        // Manuel featured proje listesi - bunlar her zaman üstte gösterilir
+        const FEATURED = ['NLP-Sentiment-Analyzer', 'AspNet-Eticaret', 'JavaSpring-Blog'];
 
         function renderRepos(repos) {
-            const container = document.getElementById('github-repos');
-            container.innerHTML = '';
-            if (repos.length === 0) {
-                container.innerHTML = '<p class="text-white/50 col-span-2 text-center">' +
-                    (currentLang === 'en' ? 'No projects found in this category yet.' : 'Bu kategoride henüz proje bulunmuyor.') + '</p>';
-                return;
-            }
-            const viewLabel = currentLang === 'en' ? 'VIEW' : 'İNCELE';
-            repos.forEach(repo => {
-                container.innerHTML += `
-                <div class="glass-card p-6 lg:p-10 rounded-[2.5rem] flex flex-col justify-between group relative overflow-hidden animate-slide">
-                    <div class="absolute -right-4 -top-4 opacity-[0.02] group-hover:opacity-10 transition pointer-events-none"><i class="fab fa-github text-[12rem]"></i></div>
+            const c = document.getElementById('github-repos');
+            c.innerHTML = '';
+            if(!repos.length) { c.innerHTML='<p style="color:rgba(255,255,255,0.3);grid-column:1/-1;text-align:center">Bu kategoride proje yok.</p>'; return; }
+            // Featured projeleri üste taşı
+            repos = [...repos].sort((a,b) => {
+                const ai = FEATURED.indexOf(a.name), bi = FEATURED.indexOf(b.name);
+                if(ai>=0 && bi<0) return -1;
+                if(ai<0 && bi>=0) return 1;
+                if(ai>=0 && bi>=0) return ai-bi;
+                return 0;
+            });
+            const lbl = currentLang==='en'?'VIEW':'İNCELE';
+            repos.forEach(r => {
+                const div = document.createElement('div');
+                div.className = 'repo-card';
+                const isFeatured = FEATURED.includes(r.name);
+                const featuredBadge = isFeatured ? `<span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:4px;background:rgba(0,255,65,0.1);color:var(--neon);border:1px solid var(--border-neon);letter-spacing:0.1em;text-transform:uppercase;">${currentLang==='en'?'★ Featured':'★ Öne Çıkan'}</span>` : '';
+                const stars = r.stargazers_count > 0 ? `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.35);"><i class="fas fa-star" style="color:#facc15;font-size:10px;"></i>${r.stargazers_count}</span>` : '';
+                const forks = r.forks_count > 0 ? `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.35);"><i class="fas fa-code-branch" style="font-size:10px;"></i>${r.forks_count}</span>` : '';
+                div.innerHTML = `
+                    <div class="bg-icon"><i class="fab fa-github"></i></div>
                     <div>
-                        <div class="flex justify-between items-center mb-10">
-                            <span class="text-[10px] font-black px-5 py-2 bg-white/5 text-cyanAccent rounded-full border border-white/5 uppercase tracking-widest shadow-inner">${repo.language || 'Code'}</span>
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
+                            <div style="display:flex;gap:6px;align-items:center;"><span class="repo-lang-tag">${r.language||'Code'}</span>${featuredBadge}</div>
+                            <div style="display:flex;gap:10px;">${stars}${forks}</div>
                         </div>
-                        <h4 class="text-3xl font-bold text-white group-hover:text-cyanAccent transition mb-6 tracking-tight">${repo.name}</h4>
-                        <p class="text-slate-400 text-lg leading-relaxed mb-12 line-clamp-3 font-normal">${repo.customSummary}</p>
+                        <div class="repo-name">${r.name}</div>
+                        <p class="repo-desc">${r.summary}</p>
                     </div>
-                    <div class="flex items-center justify-between mt-auto pt-8 border-t border-white/5">
-                        <a href="${repo.html_url}" target="_blank" data-repo-link class="flex items-center gap-5 text-sm font-bold text-white hover:text-cyanAccent transition-all tracking-[0.2em] uppercase">${viewLabel} <i class="fas fa-arrow-right-long text-cyanAccent"></i></a>
-                    </div>
-                </div>`;
-            });
-        }
-
-        function filterProjects(lang) {
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            if (lang === 'all')       renderRepos(allRepos);
-            else if (lang === 'HTML') renderRepos(allRepos.filter(r => r.language === 'HTML' || r.language === 'CSS'));
-            else if (lang === 'Python') renderRepos(allRepos.filter(r => r.language === 'Python' || r.language === 'Jupyter Notebook'));
-            else                      renderRepos(allRepos.filter(r => r.language === lang));
-        }
-
-        // ─── GITHUB DİL İSTATİSTİKLERİ ──────────────────────────
-        const LANG_COLORS = {
-            'C#':         { from: '#22d3ee', to: '#3b82f6', text: '#22d3ee' },
-            'Java':       { from: '#f97316', to: '#ef4444', text: '#fb923c' },
-            'Python':     { from: '#facc15', to: '#ca8a04', text: '#facc15' },
-            'HTML':       { from: '#f87171', to: '#fb923c', text: '#f87171' },
-            'CSS':        { from: '#60a5fa', to: '#818cf8', text: '#60a5fa' },
-            'JavaScript': { from: '#fde047', to: '#f59e0b', text: '#fde047' },
-            'TypeScript': { from: '#3b82f6', to: '#22d3ee', text: '#60a5fa' },
-            'Go':         { from: '#2dd4bf', to: '#22d3ee', text: '#2dd4bf' },
-            'Rust':       { from: '#ea580c', to: '#dc2626', text: '#fb923c' },
-            'PHP':        { from: '#c084fc', to: '#818cf8', text: '#c084fc' },
-            'Swift':      { from: '#fb923c', to: '#ef4444', text: '#fb923c' },
-            'Kotlin':     { from: '#a855f7', to: '#ec4899', text: '#c084fc' },
-        };
-        const DEFAULT_COLOR = { from: '#94a3b8', to: '#64748b', text: '#94a3b8' };
-
-        async function fetchGithubLanguages() {
-            const container = document.getElementById('lang-bars');
-            const updatedEl = document.getElementById('lang-updated');
-            try {
-                const res = await fetch('https://api.github.com/users/firatysrgl/repos?per_page=100');
-                const repos = await res.json();
-                const langBytes = {};
-                const filtered = repos.filter(r => !r.fork && !HIDDEN_REPOS.includes(r.name));
-                await Promise.all(filtered.map(async r => {
-                    try {
-                        const lr = await fetch(`https://api.github.com/repos/firatysrgl/${r.name}/languages`);
-                        const langs = await lr.json();
-                        if (!langs || typeof langs !== 'object' || langs.message) return;
-                        Object.entries(langs).forEach(([lang, bytes]) => {
-                            if (typeof bytes !== 'number') return;
-                            const SKIP = ['message','documentation_url','html_url','status'];
-                            if (SKIP.includes(lang.toLowerCase())) return;
-                            const key = lang === 'Jupyter Notebook' ? 'Python' : lang;
-                            langBytes[key] = (langBytes[key] || 0) + bytes;
-                        });
-                    } catch {}
-                }));
-                const total = Object.values(langBytes).reduce((a, b) => a + b, 0);
-                if (total === 0) { container.innerHTML = '<p style="color:rgba(255,255,255,0.3);font-size:12px">' + (currentLang === 'en' ? 'Could not load data.' : 'Veriler yüklenemedi.') + '</p>'; return; }
-                const sorted = Object.entries(langBytes).sort((a, b) => b[1] - a[1]).slice(0, 7);
-                container.innerHTML = sorted.map(([lang, bytes]) => {
-                    const pct = ((bytes / total) * 100).toFixed(1);
-                    const c = LANG_COLORS[lang] || DEFAULT_COLOR;
-                    return `<div>
-                        <div class="flex justify-between text-xs font-bold text-white/80 uppercase font-mono mb-2">
-                            <span>${lang}</span><span style="color:${c.text}">${pct}%</span>
-                        </div>
-                        <div class="h-1.5 w-full rounded-full overflow-hidden" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.05)">
-                            <div class="h-full rounded-full lang-bar" style="width:0%;background:linear-gradient(to right,${c.from},${c.to});box-shadow:0 0 8px ${c.from}66" data-target="${pct}"></div>
-                        </div>
+                    <div class="repo-footer">
+                        <a href="${r.html_url}" target="_blank" data-repo-link class="repo-link">${lbl} <i class="fas fa-arrow-right-long" style="color:var(--neon)"></i></a>
+                        <span style="font-size:10px;color:rgba(255,255,255,0.2);">${r.updated_at ? new Date(r.updated_at).toLocaleDateString('tr-TR',{month:'short',year:'numeric'}) : ''}</span>
                     </div>`;
-                }).join('');
-                requestAnimationFrame(() => {
-                    container.querySelectorAll('[data-target]').forEach((bar, i) => {
-                        setTimeout(() => { bar.style.width = bar.dataset.target + '%'; }, i * 150);
-                    });
-                });
-                if (updatedEl) {
-                    const now = new Date();
-                    updatedEl.textContent = currentLang === 'en'
-                        ? 'Updated ' + now.toLocaleDateString('en-US')
-                        : now.toLocaleDateString('tr-TR') + ' güncellendi';
-                }
-            } catch {
-                container.innerHTML = '<p style="color:rgba(255,255,255,0.3);font-size:12px">' + (currentLang === 'en' ? 'Could not load data.' : 'Veriler yüklenemedi.') + '</p>';
-            }
-        }
-
-        // ─── TERMİNAL ────────────────────────────────────────────
-        const termInput       = document.getElementById('terminal-input');
-        const termContent     = document.getElementById('terminal-content');
-        const termBody        = document.getElementById('terminal-body');
-        const termWrapper     = document.getElementById('terminal-wrapper');
-        const autocompleteBox = document.getElementById('autocomplete-box');
-
-        const ALL_COMMANDS = ['help','whoami','skills','projects','experience','education','contact','social','clear','date','echo'];
-
-        function buildCommands(lang) {
-            const tr = lang === 'tr';
-            return {
-                help: () => [
-                    { cls:'t-red',   text: tr ? '┌─ Kullanılabilir komutlar ──────────────────────┐'
-                                              : '┌─ Available commands ────────────────────────────┐' },
-                    { cls:'t-white', text: tr ? '│  whoami      →  Hakkımda                       │'
-                                              : '│  whoami      →  About me                        │' },
-                    { cls:'t-white', text: tr ? '│  skills      →  Teknik yetenekler              │'
-                                              : '│  skills      →  Technical skills                │' },
-                    { cls:'t-white', text: tr ? '│  projects    →  GitHub projeleri               │'
-                                              : '│  projects    →  GitHub projects                 │' },
-                    { cls:'t-white', text: tr ? '│  experience  →  Deneyim & staj                │'
-                                              : '│  experience  →  Experience & internship         │' },
-                    { cls:'t-white', text: tr ? '│  education   →  Eğitim bilgisi                │'
-                                              : '│  education   →  Education info                  │' },
-                    { cls:'t-white', text: tr ? '│  contact     →  İletişim bilgileri             │'
-                                              : '│  contact     →  Contact details                 │' },
-                    { cls:'t-white', text: tr ? '│  social      →  Sosyal medya linkleri         │'
-                                              : '│  social      →  Social media links              │' },
-                    { cls:'t-white', text: tr ? '│  date        →  Tarih & saat                  │'
-                                              : '│  date        →  Date & time                     │' },
-                    { cls:'t-white', text: tr ? '│  clear       →  Terminali temizle             │'
-                                              : '│  clear       →  Clear the terminal              │' },
-                    { cls:'t-red',   text: '└─────────────────────────────────────────────────┘' },
-                ],
-                whoami: () => [
-                    { cls:'t-red',   text: '▸ Fırat Yunus Yaşaroğlu' },
-                    { cls:'t-muted', text: tr ? '  Full Stack Developer & AI Enthusiast @ Fırat Üniversitesi'
-                                              : '  Full Stack Developer & AI Enthusiast @ Fırat University' },
-                    { cls:'t-white', text: '  Backend · Frontend · NLP · Siber Güvenlik' },
-                    { cls:'t-muted', text: tr ? '  SiberAy & FUTURE Core Team · Teknofest İHA Yazılım Ekibi'
-                                              : '  SiberAy & FUTURE Core Team · Teknofest UAV Software Team' },
-                ],
-                skills: () => [
-                    { cls:'t-red',    text: tr ? '▸ Teknik Yetenekler' : '▸ Technical Skills' },
-                    { cls:'t-green',  text: '  [Backend]   C#, ASP.NET Core MVC & Web API, Java, Spring Boot' },
-                    { cls:'t-cyan',   text: '  [Frontend]  HTML, CSS, JavaScript, Streamlit, Tailwind CSS' },
-                    { cls:'t-yellow', text: '  [AI & NLP]  Python, BERTurk, Transformers, Scikit-learn, Librosa' },
-                    { cls:'t-purple', text: '  [Database]  MSSQL, Entity Framework Core, FastAPI, LINQ' },
-                    { cls:'t-orange', text: '  [DevOps]    Git, GitHub, Agile/Scrum, Decoupled Architecture' },
-                ],
-                projects: () => [
-                    { cls:'t-red',   text: tr ? '▸ GitHub Projeleri' : '▸ GitHub Projects' },
-                    { cls:'t-white', text: tr ? '  Proje arşivini sayfada aşağı kaydır →'
-                                              : '  Scroll down to see the project archive →' },
-                    { cls:'t-muted', text: '  <a href="https://github.com/firatysrgl" target="_blank" style="color:#ef4444">github.com/firatysrgl</a>' },
-                ],
-                experience: () => [
-                    { cls:'t-red',   text: tr ? '▸ Deneyim' : '▸ Experience' },
-                    { cls:'t-muted', text: tr ? '  Henüz profesyonel deneyim eklenmedi.'
-                                              : '  No professional experience added yet.' },
-                    { cls:'t-white', text: tr ? '  Staj ve proje deneyimleri yakında burada!'
-                                              : '  Internship and project experience coming soon!' },
-                    { cls:'t-muted', text: '  contact@firatyunus.com' },
-                ],
-                education: () => [
-                    { cls:'t-red',   text: tr ? '▸ Eğitim' : '▸ Education' },
-                    { cls:'t-green', text: '  🎓 Fırat Üniversitesi / Fırat University' },
-                    { cls:'t-white', text: tr ? '     Yazılım Mühendisliği — 2. Sınıf'
-                                              : '     Software Engineering — 2nd Year' },
-                    { cls:'t-muted', text: tr ? '     2023 → devam ediyor' : '     2023 → ongoing' },
-                ],
-                contact: () => [
-                    { cls:'t-red',   text: tr ? '▸ İletişim' : '▸ Contact' },
-                    { cls:'t-white', text: '  📧  contact@firatyunus.com' },
-                    { cls:'t-white', text: '  🌐  firatyunus.com' },
-                    { cls:'t-muted', text: tr ? '  Sayfadaki formu da kullanabilirsin ↓'
-                                              : '  You can also use the contact form below ↓' },
-                ],
-                social: () => [
-                    { cls:'t-red',   text: tr ? '▸ Sosyal Medya' : '▸ Social Media' },
-                    { cls:'t-white', text: '  LinkedIn →  <a href="https://linkedin.com/in/firat-yunus-yasaroglu/" target="_blank" style="color:#ef4444">linkedin.com/in/firat-yunus-yasaroglu</a>' },
-                    { cls:'t-white', text: '  GitHub   →  <a href="https://github.com/firatysrgl" target="_blank" style="color:#ef4444">github.com/firatysrgl</a>' },
-                ],
-                date: () => [
-                    { cls:'t-red', text: '  ' + new Date().toLocaleString(tr ? 'tr-TR' : 'en-US', { dateStyle:'full', timeStyle:'medium' }) },
-                ],
-            };
-        }
-
-        let COMMANDS = buildCommands('tr');
-
-        // ─── TERMINAL CLOCK + UPTIME + CMD COUNTER ───────────────
-        let termStartTime = Date.now();
-        let termCmdCount  = 0;
-
-        function updateTermClock() {
-            const el = document.getElementById('term-clock');
-            if (el) el.textContent = new Date().toLocaleTimeString('tr-TR', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
-        }
-        function updateTermUptime() {
-            const el = document.getElementById('term-uptime');
-            if (!el) return;
-            const s = Math.floor((Date.now() - termStartTime) / 1000);
-            const m = Math.floor(s / 60), sec = s % 60;
-            el.textContent = `uptime ${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
-        }
-        function updateCmdCount() {
-            const el = document.getElementById('term-cmd-count');
-            if (el) el.textContent = `${termCmdCount} cmd${termCmdCount !== 1 ? 's' : ''}`;
-        }
-        setInterval(() => { updateTermClock(); updateTermUptime(); }, 1000);
-        updateTermClock();
-
-        // Hint metni dil değişiminde güncellenir
-        function updateTermHint(lang) {
-            const el = document.getElementById('term-hint');
-            if (el) el.textContent = lang === 'en' ? 'TAB autocomplete' : 'TAB ile tamamla';
-        }
-
-        function printWelcome() {
-            const tr = currentLang === 'tr';
-            const timestamp = new Date().toLocaleString(tr ? 'tr-TR' : 'en-US', { dateStyle:'medium', timeStyle:'short' });
-
-            const bannerLines = [
-                ' _______ _______ ______ _______ _______ ',
-                '|    ___|_     _|   __ \\   _   |_     _|',
-                '|    ___|_|   |_|      <       | |   |  ',
-                '|___|   |_______|___|__|___|___| |___|  ',
-            ];
-
-            const infoLines = [
-                { cls:'t-muted', text:`  FiratOS v1.0  ·  ${timestamp}` },
-                { cls:'t-red',   text: tr ? '  → başlamak için "help" yazın' : '  → type "help" to get started' },
-            ];
-
-            bannerLines.forEach((l, i) => setTimeout(() => appendBannerLine(l), i * 40));
-            const delay = bannerLines.length * 40 + 60;
-            infoLines.forEach((l, i) => setTimeout(() => appendLine(l.cls, l.text), delay + i * 35));
-            scrollTerm();
-        }
-
-        function appendBannerLine(text) {
-            const div = document.createElement('div');
-            div.style.cssText = 'font-family:"JetBrains Mono",monospace; font-size:13px; line-height:1.45; color:#ef4444; text-shadow:0 0 12px rgba(239,68,68,0.5); padding-left:14px; white-space:pre;';
-            div.textContent = text;
-            termContent.appendChild(div);
-            scrollTerm();
-        }
-
-        function appendLine(cls, html) {
-            const lineNum = termContent.children.length + 1;
-            const div = document.createElement('div');
-            div.className = `terminal-line ${cls}`;
-            div.style.cssText = 'font-family:"JetBrains Mono",monospace; font-size:11.5px; display:flex; align-items:baseline; gap:0; line-height:1.6;';
-
-            // satır numarası
-            const numSpan = document.createElement('span');
-            numSpan.style.cssText = 'color:rgba(239,68,68,0.15); min-width:28px; text-align:right; padding-right:10px; user-select:none; font-size:10px; flex-shrink:0;';
-            numSpan.textContent = String(lineNum).padStart(3,' ');
-
-            const contentSpan = document.createElement('span');
-            contentSpan.style.cssText = 'flex:1;';
-            contentSpan.innerHTML = html;
-
-            div.appendChild(numSpan);
-            div.appendChild(contentSpan);
-            termContent.appendChild(div);
-            scrollTerm();
-        }
-
-        function appendPromptEcho(input) {
-            const lineNum = termContent.children.length + 1;
-            const div = document.createElement('div');
-            div.className = 'terminal-line';
-            div.style.cssText = 'font-family:"JetBrains Mono",monospace; font-size:11.5px; display:flex; align-items:baseline; gap:0; line-height:1.6;';
-
-            const numSpan = document.createElement('span');
-            numSpan.style.cssText = 'color:rgba(239,68,68,0.15); min-width:28px; text-align:right; padding-right:10px; user-select:none; font-size:10px; flex-shrink:0;';
-            numSpan.textContent = String(lineNum).padStart(3,' ');
-
-            const contentSpan = document.createElement('span');
-            contentSpan.style.cssText = 'flex:1; display:flex; gap:6px; align-items:baseline;';
-            contentSpan.innerHTML = `<span class="t-green">guest</span><span class="t-muted">@</span><span class="t-red" style="font-weight:600;">firat</span><span class="t-muted">:~/portfolio⎇main$</span> <span class="t-white">${input}</span>`;
-
-            div.appendChild(numSpan);
-            div.appendChild(contentSpan);
-            termContent.appendChild(div);
-        }
-        function scrollTerm() { setTimeout(() => { termBody.scrollTop = termBody.scrollHeight; }, 10); }
-        function hideAutocomplete() { autocompleteBox.classList.add('hidden'); autocompleteBox.innerHTML = ''; }
-        function showAutocomplete(matches) {
-            if (!matches.length) { hideAutocomplete(); return; }
-            autocompleteBox.innerHTML = matches.map((m, i) => `<div class="${i===0?'selected':''}" data-cmd="${m}">${m}</div>`).join('');
-            autocompleteBox.classList.remove('hidden');
-            autocompleteBox.querySelectorAll('div').forEach(d => {
-                d.addEventListener('click', () => { termInput.value = d.dataset.cmd; hideAutocomplete(); termInput.focus(); });
+                c.appendChild(div);
             });
         }
-
-        let historyList = [], historyIdx = -1;
-
-        termWrapper.addEventListener('click', () => termInput.focus());
-        termInput.addEventListener('input', () => {
-            const val = termInput.value.trim().toLowerCase();
-            if (!val) { hideAutocomplete(); return; }
-            showAutocomplete(ALL_COMMANDS.filter(c => c.startsWith(val) && c !== val));
-        });
-        termInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Tab') {
-                e.preventDefault();
-                const val = termInput.value.trim().toLowerCase();
-                const m = ALL_COMMANDS.filter(c => c.startsWith(val));
-                if (m.length === 1) { termInput.value = m[0]; hideAutocomplete(); }
-                return;
-            }
-            if (e.key === 'ArrowUp') { e.preventDefault(); if (historyIdx < historyList.length - 1) { historyIdx++; termInput.value = historyList[historyList.length - 1 - historyIdx]; } return; }
-            if (e.key === 'ArrowDown') { e.preventDefault(); if (historyIdx > 0) { historyIdx--; termInput.value = historyList[historyList.length - 1 - historyIdx]; } else { historyIdx = -1; termInput.value = ''; } return; }
-            if (e.key === 'Enter') {
-                hideAutocomplete();
-                const raw = termInput.value.trim(); const input = raw.toLowerCase();
-                if (!input) return;
-                historyList.push(raw); historyIdx = -1; termInput.value = '';
-                termCmdCount++; updateCmdCount();
-                appendPromptEcho(raw);
-                if (input === 'clear') { termContent.innerHTML = ''; printWelcome(); return; }
-                if (input.startsWith('echo ')) { appendLine('t-white', raw.slice(5)); return; }
-                const fn = COMMANDS[input];
-                if (fn) { fn().forEach(l => appendLine(l.cls, l.text)); }
-                else {
-                    appendLine('t-red',   currentLang === 'tr' ? `  bash: ${raw}: komut bulunamadı` : `  bash: ${raw}: command not found`);
-                    appendLine('t-muted', currentLang === 'tr' ? '  "help" yazarak komutları görebilirsin.' : '  Type "help" to see available commands.');
-                }
-                scrollTerm();
-            }
-        });
-
-        // ─── BACKGROUND CANVAS ───────────────────────────────────
-        const canvas = document.getElementById('bg-canvas');
-        const ctx    = canvas.getContext('2d');
-        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-        window.addEventListener('resize', resize); resize();
-        class Dot {
-            constructor() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.vx = (Math.random()-0.5)*0.35; this.vy = (Math.random()-0.5)*0.35; this.radius = Math.random()*1.5+0.5; }
-            update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1; }
-            draw()   { ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle='rgba(34,211,238,0.45)'; ctx.fill(); }
+        function filterProjects(lang) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            if(lang==='all') renderRepos(allRepos);
+            else if(lang==='HTML') renderRepos(allRepos.filter(r=>r.language==='HTML'||r.language==='CSS'));
+            else if(lang==='Python') renderRepos(allRepos.filter(r=>r.language==='Python'||r.language==='Jupyter Notebook'));
+            else renderRepos(allRepos.filter(r=>r.language===lang));
         }
-        const dots = [];
-        for (let i=0; i<130; i++) dots.push(new Dot());
-        function animateBg() { ctx.clearRect(0,0,canvas.width,canvas.height); dots.forEach(d=>{d.update();d.draw();}); requestAnimationFrame(animateBg); }
-        animateBg();
 
-        // ─── GITHUB İSTATİSTİKLER ────────────────────────────────
-        async function fetchGithubStats() {
+        // ── Language bars ──
+        const LANG_COLORS = {
+            'C#':         { from:'#00ff41', to:'#39ff14', text:'#00ff41' },
+            'Java':       { from:'#f97316', to:'#ef4444', text:'#fb923c' },
+            'Python':     { from:'#facc15', to:'#ca8a04', text:'#facc15' },
+            'HTML':       { from:'#f87171', to:'#fb923c', text:'#f87171' },
+            'CSS':        { from:'#60a5fa', to:'#818cf8', text:'#60a5fa' },
+            'JavaScript': { from:'#fde047', to:'#f59e0b', text:'#fde047' },
+            'TypeScript': { from:'#00ff41', to:'#39ff14', text:'#86efac' },
+        };
+        const DEF_COL = { from:'#94a3b8', to:'#64748b', text:'#94a3b8' };
+
+        // ── GitHub stats ──
+        async function fetchGithubStats(){
             try {
-                const [userRes, reposRes] = await Promise.all([
-                    fetch('https://api.github.com/users/firatysrgl'),
-                    fetch('https://api.github.com/users/firatysrgl/repos?per_page=100')
-                ]);
-                const user  = await userRes.json();
-                const repos = await reposRes.json();
-                const totalStars = repos.reduce((a, r) => a + (r.stargazers_count || 0), 0);
-                const filtered   = repos.filter(r => !r.fork && !HIDDEN_REPOS.includes(r.name));
-                let totalCommits = 0;
-                await Promise.all(filtered.map(async r => {
-                    try {
-                        const res = await fetch(`https://api.github.com/repos/firatysrgl/${r.name}/contributors`);
-                        if (!res.ok) return;
-                        const contributors = await res.json();
-                        if (!Array.isArray(contributors)) return;
-                        const me = contributors.find(c => c.login === 'firatysrgl');
-                        if (me) totalCommits += me.contributions;
-                    } catch {}
+                const [ur,rr]=await Promise.all([fetch('https://api.github.com/users/firatysrgl'),fetch('https://api.github.com/users/firatysrgl/repos?per_page=100')]);
+                const user=await ur.json(), repos=await rr.json();
+                const stars=repos.reduce((a,r)=>a+(r.stargazers_count||0),0);
+                const filtered=repos.filter(r=>!r.fork&&!HIDDEN.includes(r.name));
+                let commits=0;
+                await Promise.all(filtered.map(async r=>{
+                    try{const res=await fetch(`https://api.github.com/repos/firatysrgl/${r.name}/contributors`);if(!res.ok)return;const c=await res.json();if(!Array.isArray(c))return;const me=c.find(x=>x.login==='firatysrgl');if(me)commits+=me.contributions;}catch{}
                 }));
-                const animate = (el, target) => {
-                    if (!el) return;
-                    let cur = 0;
-                    const step = Math.max(1, Math.ceil(target / 40));
-                    const t = setInterval(() => { cur = Math.min(cur+step, target); el.textContent = cur; if (cur >= target) clearInterval(t); }, 30);
-                };
-                animate(document.getElementById('stat-commits'),   totalCommits);
-                animate(document.getElementById('stat-stars'),     totalStars);
-                animate(document.getElementById('stat-repos'),     user.public_repos || 0);
-                animate(document.getElementById('stat-followers'), user.followers || 0);
+                const anim=(el,t)=>{if(!el)return;let c=0;const s=Math.max(1,Math.ceil(t/40));const i=setInterval(()=>{c=Math.min(c+s,t);el.textContent=c;if(c>=t)clearInterval(i);},30);};
+                anim(document.getElementById('stat-commits'),commits);
+                anim(document.getElementById('stat-stars'),stars);
+                anim(document.getElementById('stat-repos'),user.public_repos||0);
+                anim(document.getElementById('stat-followers'),user.followers||0);
             } catch {
-                ['stat-commits','stat-stars','stat-repos','stat-followers'].forEach(id => {
-                    const el = document.getElementById(id); if (el) el.textContent = '—';
-                });
+                ['stat-commits','stat-stars','stat-repos','stat-followers'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent='—';});
             }
         }
 
-        // ─── BAŞLAT ──────────────────────────────────────────────
+        // ── Init ──
         printWelcome();
         fetchRepos();
-        fetchGithubLanguages();
         fetchGithubStats();
     </script>
 </body>
