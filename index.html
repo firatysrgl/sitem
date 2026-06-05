@@ -43,9 +43,7 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Inter', sans-serif;
             background: #000;
@@ -55,14 +53,10 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* ── Smooth transitions only where needed ── */
         a, button { transition: color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s, opacity 0.2s, border-color 0.2s; }
 
-        /* ── Background canvas ── */
         #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
-
-        /* ── Noise texture overlay ── */
         body::before {
             content: '';
             position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -71,8 +65,6 @@
             background-size: 180px;
         }
 
-
-        /* ── Sticky Nav ── */
         #main-nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 500;
             padding: 0;
@@ -85,15 +77,9 @@
             display: flex; align-items: center; justify-content: space-between;
             gap: 2rem;
         }
-        .nav-logo {
-            font-size: 15px; font-weight: 800; letter-spacing: -0.02em;
-            color: #fff; text-decoration: none;
-        }
+        .nav-logo { font-size: 15px; font-weight: 800; letter-spacing: -0.02em; color: #fff; text-decoration: none; }
         .nav-logo span { color: var(--neon); }
-        .nav-links {
-            display: flex; align-items: center; gap: 2rem;
-            list-style: none;
-        }
+        .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
         .nav-links a {
             font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
             text-transform: uppercase; color: rgba(255,255,255,0.45);
@@ -108,11 +94,8 @@
             text-decoration: none; box-shadow: 0 0 16px rgba(0,255,65,0.35);
         }
         .nav-cta:hover { background: #39ff14 !important; box-shadow: 0 0 24px rgba(0,255,65,0.6); }
-        @media(max-width:700px){
-            .nav-links { display: none; }
-        }
+        @media(max-width:700px){ .nav-links { display: none; } }
 
-        /* ── Lang switcher ── */
         #lang-switcher {
             display: flex; gap: 3px;
             background: #1a1a1a;
@@ -128,69 +111,31 @@
         #lang-switcher button.active { background: var(--neon); color: #000; box-shadow: 0 0 14px var(--neon-glow); }
         #lang-switcher button:hover:not(.active) { color: rgba(255,255,255,0.7); }
 
-        /* ── Layout ── */
         .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
 
-        /* ── Hero ── */
         .hero { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:120px 0 80px; }
-
-        .hero-eyebrow {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: transparent; border: 1px solid rgba(0,255,65,0.4);
-            padding: 9px 22px; border-radius: 100px;
-            font-size: 10px; font-weight: 700; letter-spacing: 0.3em;
-            text-transform: uppercase; color: var(--neon); margin-bottom: 2.5rem;
-        }
-        .hero-eyebrow .dot {
-            width: 6px; height: 6px; border-radius: 50%; background: var(--neon);
-            box-shadow: 0 0 8px var(--neon); animation: pulse 2s infinite;
-        }
-        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
 
         .hero-name {
             font-size: clamp(3.5rem, 9vw, 7.5rem);
-            font-weight: 900;
-            line-height: 1.05;
-            letter-spacing: -0.04em;
-            color: #fff;
-            margin-bottom: 0.15em;
-            text-align: center;
+            font-weight: 900; line-height: 1.05; letter-spacing: -0.04em;
+            color: #fff; margin-bottom: 0.15em; text-align: center;
         }
-        .hero-name-green {
-            display: block;
-            color: var(--neon);
-            
-            letter-spacing: -0.03em;
-        }
+        .hero-name-green { display: block; color: var(--neon); letter-spacing: -0.03em; }
 
         .hero-tagline {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            font-weight: 400;
-            color: rgba(255,255,255,0.75);
-            line-height: 1.7;
-            max-width: 600px;
-            margin-top: 2.5rem;
-            margin-left: auto; margin-right: auto;
+            font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 400;
+            color: rgba(255,255,255,0.75); line-height: 1.7; max-width: 600px;
+            margin-top: 2.5rem; margin-left: auto; margin-right: auto;
         }
         .hero-tagline strong { color: #fff; font-weight: 600; }
 
         .hero-desc {
-            font-size: 1rem;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.85;
-            max-width: 600px;
-            margin-top: 1.5rem;
-            margin-left: auto; margin-right: auto;
+            font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.85;
+            max-width: 600px; margin-top: 1.5rem; margin-left: auto; margin-right: auto;
         }
-        .hero-desc .keyword { color: var(--neon); font-weight: 600; }
 
-        /* ── Hero layout ── */
-
-        /* ── Glass card ── */
         .card {
-            background: #0a0a0a;
-            border: 1px solid var(--border);
-            border-radius: 24px;
+            background: #0a0a0a; border: 1px solid var(--border); border-radius: 24px;
             transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
         }
         .card:hover {
@@ -199,59 +144,29 @@
             transform: translateY(-4px);
         }
 
-        /* ── Section label ── */
         .section-label {
             display: flex; align-items: center; gap: 1rem;
             font-size: 10px; font-weight: 700; letter-spacing: 0.5em;
-            text-transform: uppercase; color: var(--neon);
-            margin-bottom: 3rem;
+            text-transform: uppercase; color: var(--neon); margin-bottom: 3rem;
         }
-        .section-label::before {
-            content: ''; display: block; width: 40px; height: 1px;
-            background: var(--neon); opacity: 0.5;
-        }
+        .section-label::before { content: ''; display: block; width: 40px; height: 1px; background: var(--neon); opacity: 0.5; }
 
-        /* ── Divider ── */
         .divider { height: 1px; background: var(--border); margin: 7rem 0; }
 
-        /* ── Buttons ── */
         .btn-neon {
             display: inline-flex; align-items: center; gap: 10px;
             background: var(--neon); color: #000;
             font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
-            padding: 14px 28px; border-radius: 14px; border: none; cursor: pointer;
-            text-decoration: none;
+            padding: 14px 28px; border-radius: 14px; border: none; cursor: pointer; text-decoration: none;
         }
         .btn-neon:hover { background: #39ff14; box-shadow: 0 0 20px rgba(0,255,65,0.8); }
 
-        .btn-ghost {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: transparent; color: #fff;
-            font-size: 13px; font-weight: 600;
-            padding: 14px 28px; border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.12); cursor: pointer; text-decoration: none;
-        }
-        .btn-ghost:hover { border-color: var(--neon); color: var(--neon); }
+        .social-link { color: rgba(255,255,255,0.65); font-size: 1.5rem; text-decoration: none; }
+        .social-link:hover { color: var(--neon); transform: scale(1.1); }
 
-        /* ── Social links ── */
-        .social-link {
-            color: rgba(255,255,255,0.65); font-size: 1.5rem; text-decoration: none;
-        }
-        .social-link:hover { color: var(--neon);  transform: scale(1.1); }
-
-        /* ── Language bars ── */
-        .lang-bar-track {
-            height: 3px; width: 100%; border-radius: 99px;
-            background: rgba(255,255,255,0.06); overflow: hidden;
-        }
-        .lang-bar-fill { height: 100%; border-radius: 99px; width: 0; transition: width 1s cubic-bezier(0.4,0,0.2,1); }
-
-        /* ── Stats grid ── */
         .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .stat-card {
-            background: #0a0a0a;
-            border: 1px solid var(--border);
-            border-radius: 20px; padding: 1.5rem;
+            background: #0a0a0a; border: 1px solid var(--border); border-radius: 20px; padding: 1.5rem;
             display: flex; flex-direction: column; align-items: center;
             text-align: center; transition: border-color 0.3s, box-shadow 0.3s;
         }
@@ -259,25 +174,11 @@
         .stat-card .stat-num { font-size: 1.6rem; font-weight: 800; color: #fff; line-height: 1; }
         .stat-card .stat-label { font-size: 9px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.15em; margin-top: 6px; }
 
-        /* ── Filter buttons ── */
-        .filter-group { display: flex; flex-wrap: wrap; gap: 8px; background: #0d0d0d; padding: 6px; border-radius: 16px; border: 1px solid var(--border); }
-        .filter-btn {
-            padding: 8px 20px; border-radius: 10px; font-size: 11px; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer;
-            color: rgba(255,255,255,0.65); background: transparent; border: none;
-            transition: all 0.2s;
-        }
-        .filter-btn:hover { color: #fff; }
-        .filter-btn.active { background: var(--neon); color: #000; box-shadow: 0 0 20px rgba(0,255,65,0.5); }
-
-        /* ── Repo cards ── */
         .repo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         @media(max-width:700px){ .repo-grid { grid-template-columns: 1fr; } }
 
         .repo-card {
-            background: #0a0a0a;
-            border: 1px solid var(--border);
-            border-radius: 24px; padding: 2rem;
+            background: #0a0a0a; border: 1px solid var(--border); border-radius: 24px; padding: 2rem;
             display: flex; flex-direction: column; justify-content: space-between;
             position: relative; overflow: hidden;
             transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
@@ -293,11 +194,9 @@
         .repo-link { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
         .repo-link:hover { color: var(--neon); }
 
-        /* ── Contact form ── */
         .form-input {
             width: 100%; padding: 14px 18px; border-radius: 14px;
-            background: #111 !important;
-            border: 1px solid rgba(255,255,255,0.08) !important;
+            background: #111 !important; border: 1px solid rgba(255,255,255,0.08) !important;
             color: #fff !important; font-family: 'Inter', sans-serif; font-size: 14px;
             outline: none; transition: border-color 0.2s, box-shadow 0.2s;
         }
@@ -305,12 +204,9 @@
         .form-input::placeholder { color: rgba(255,255,255,0.25) !important; }
         textarea.form-input { resize: none; }
 
-        /* ── Footer ── */
         footer { padding: 4rem 0 3rem; border-top: 1px solid var(--border); display: flex; justify-content: center; align-items: center; text-align: center; width: 100%; }
         footer p { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45); letter-spacing: 0.15em; text-transform: uppercase; width: 100%; text-align: center; }
-        .footer-accent { color: rgba(255,255,255,0.45) !important; }
 
-        /* ── Animations ── */
         @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
         .fade-up { animation: fadeUp 0.7s cubic-bezier(0.4,0,0.2,1) both; }
         .fade-up-1 { animation-delay: 0.1s; }
@@ -318,717 +214,620 @@
         .fade-up-3 { animation-delay: 0.3s; }
         .fade-up-4 { animation-delay: 0.4s; }
 
-        /* ── Streak card ── */
+        @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+
         .streak-card { background: #0a0a0a; border: 1px solid var(--border); border-radius: 24px; padding: 1.5rem; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:220px; position:relative; overflow:hidden; transition: border-color 0.3s; }
         .streak-card:hover { border-color: var(--border-neon); }
         .streak-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--neon); margin-bottom: 0.75rem; }
 
-        /* ── GitHub stats row ── */
         .github-row { display: grid; grid-template-columns: 1fr 280px; gap: 1.25rem; align-items: start; }
         @media(max-width:900px){ .github-row { grid-template-columns: 1fr; } }
 
-
-        @media(max-width:768px) {
-            #hamburger { display:flex !important; }
-            .nav-cta-desktop { display:none !important; }
-        }
-        /* ══════════════════════════════════════
-           MOBİL RESPONSIVE
-        ══════════════════════════════════════ */
-
-        /* Nav */
+        /* Responsive */
         @media(max-width:768px) {
             .nav-inner { padding: 0 1.25rem; }
             .nav-links { display: none; }
             #lang-switcher button { padding: 4px 10px; font-size: 9px; }
-        }
-
-        /* Hero */
-        @media(max-width:768px) {
             .hero { padding: 100px 0 60px; min-height:100svh; }
             .hero-name { font-size: clamp(2.8rem, 12vw, 5rem); letter-spacing:-0.03em; }
-            .hero-eyebrow { font-size: 8px; padding: 7px 14px; letter-spacing:0.2em; }
             .hero-tagline { font-size: 1rem; margin-top: 1.5rem; padding: 0 0.5rem; }
             .hero-desc { font-size: 0.9rem; padding: 0 0.5rem; }
-        }
-
-        /* Container */
-        @media(max-width:768px) {
             .container { padding: 0 1.25rem; }
-        }
-
-        /* Divider */
-        @media(max-width:768px) {
             .divider { margin: 4rem 0; }
-        }
-
-        /* GitHub stats */
-        @media(max-width:768px) {
             .github-row { grid-template-columns: 1fr !important; }
             .stats-grid { grid-template-columns: 1fr 1fr; }
             .streak-card { min-height: 160px; }
-        }
-
-        /* Skills */
-        @media(max-width:768px) {
             .skills-grid { grid-template-columns: 1fr !important; }
+            .exp-grid { grid-template-columns: 1fr !important; }
+            .repo-grid { grid-template-columns: 1fr !important; border-radius: 16px; }
+            .repo-card { padding: 1.25rem; }
+            .repo-name { font-size: 1rem; }
+            .section-label { margin-bottom: 1.75rem; font-size: 9px; }
+            .contact-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+            #scroll-top { bottom: 1.25rem; right: 1.25rem; width: 40px; height: 40px; }
         }
         @media(min-width:500px) and (max-width:900px) {
             .skills-grid { grid-template-columns: 1fr 1fr !important; }
         }
-
-        /* Deneyim */
-        @media(max-width:768px) {
-            .exp-grid { grid-template-columns: 1fr !important; }
-        }
-
-        /* Projeler */
-        @media(max-width:768px) {
-            .repo-grid { grid-template-columns: 1fr !important; border-radius: 16px; }
-            .repo-card { padding: 1.25rem; }
-            .repo-name { font-size: 1rem; }
-        }
-
-        /* Section başlıkları */
-        @media(max-width:768px) {
-            .section-label { margin-bottom: 1.75rem; font-size: 9px; }
-        }
-
-        /* İletişim */
-        @media(max-width:768px) {
-            .contact-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
-        }
-
-        /* Filter butonları */
-        @media(max-width:600px) {
-            .filter-group { gap: 6px; }
-            .filter-btn { padding: 6px 12px; font-size: 10px; }
-        }
-
-        /* Proje section header */
-        @media(max-width:600px) {
-            .project-header { flex-direction: column; align-items: flex-start !important; }
-        }
-
-        /* Footer */
         @media(max-width:600px) {
             footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 2rem 0; }
         }
-
-        /* Stat kartları */
         @media(max-width:400px) {
             .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
             .stat-card { padding: 1rem; }
             .stat-num { font-size: 1.5rem !important; }
         }
-
-        /* Scroll-to-top */
-        @media(max-width:768px) {
-            #scroll-top { bottom: 1.25rem; right: 1.25rem; width: 40px; height: 40px; }
-        }
     </style>
 </head>
 <body>
 
-    <canvas id="bg-canvas"></canvas>
+<canvas id="bg-canvas"></canvas>
 
-    <!-- ════════════════ NAV ════════════════ -->
-    <nav id="main-nav" role="navigation" aria-label="Ana navigasyon">
-        <div class="nav-inner">
-            <a href="#" class="nav-logo">FY<span>.</span></a>
-            <ul class="nav-links">
-                <li><a href="#section-skills" data-tr="Beceriler" data-en="Skills">Beceriler</a></li>
-                <li><a href="#section-exp" data-tr="Deneyim" data-en="Experience">Deneyim</a></li>
-                <li><a href="#section-projects" data-tr="Projeler" data-en="Projects">Projeler</a></li>
-                <li><a href="#section-contact" data-tr="İletişim" data-en="Contact" class="nav-cta">İletişim</a></li>
-            </ul>
-            <div id="lang-switcher" style="display:flex;gap:3px;background:#1a1a1a;border:1px solid var(--border-neon);border-radius:8px;padding:3px;margin-left:1.5rem;">
-                <button id="btn-tr" class="active" onclick="setLang('tr')">TR</button>
-                <button id="btn-en" onclick="setLang('en')">EN</button>
-            </div>
-            <ul style="display:none;">
-            </ul>
+<!-- NAV -->
+<nav id="main-nav" role="navigation" aria-label="Ana navigasyon">
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">FY<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="#section-skills" data-tr="Beceriler" data-en="Skills">Beceriler</a></li>
+            <li><a href="#section-exp" data-tr="Deneyim" data-en="Experience">Deneyim</a></li>
+            <li><a href="#section-projects" data-tr="Projeler" data-en="Projects">Projeler</a></li>
+            <li><a href="#section-contact" data-tr="İletişim" data-en="Contact" class="nav-cta">İletişim</a></li>
+        </ul>
+        <div id="lang-switcher" style="margin-left:1.5rem;">
+            <button id="btn-tr" class="active" onclick="setLang('tr')">TR</button>
+            <button id="btn-en" onclick="setLang('en')">EN</button>
         </div>
-    </nav>
+    </div>
+</nav>
 
-
-    <!-- ════════════════ HERO ════════════════ -->
-    <section class="hero" style="position:relative;">
-        <div class="container">
-            <div style="max-width:680px; margin:0 auto; text-align:center;">
-                <!-- Left -->
-                <div>
-
-                    <h1 class="hero-name fade-up fade-up-1">
-                        Fırat Yunus
-                        <span class="hero-name-green" style="margin-top:0.08em;display:block;">YAŞAROĞLU</span>
-                    </h1>
-
-                    <p id="hero-tagline" class="hero-tagline fade-up fade-up-2">
-                        <strong>Backend</strong>, <strong>Frontend</strong>, <strong>Full Stack</strong> ve <strong>AI</strong> alanlarında projeler geliştiriyorum.
-                    </p>
-
-                    <div class="bio-para hero-desc fade-up fade-up-3">
-                        <p style="margin-bottom:1rem;">
-                            Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisiyim.
-                            Akademik eğitimimin yanı sıra gerçek dünya problemlerine çözüm üreten
-                            projeler geliştiriyor, kendimi sürekli geliştirmeye çalışıyorum.
-                        </p>
-                        <p>
-                            <strong style="color:rgba(255,255,255,0.8);">SiberAy</strong> ve
-                            <strong style="color:rgba(255,255,255,0.8);">FUTURE</strong> topluluklarında araştırma ve proje geliştirme süreçlerinde,
-                            <strong style="color:rgba(255,255,255,0.8);">Teknofest İHA</strong> yarışmasında yazılım ekibinde görev alıyorum.
-                        </p>
-                    </div>
-
-                    <div class="flex flex-wrap items-center gap-4 mt-10 fade-up fade-up-4" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem;margin-top:2rem;">
-                        <a href="FIRAT_YUNUS_CV.pdf" download class="btn-neon">
-                            <i class="fas fa-file-pdf"></i>
-                            <span data-tr="CV İndir" data-en="Download CV">CV İndir</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/firat-yunus-yasaroglu/" target="_blank" class="social-link" style="font-size:1.75rem;margin-left:0.5rem;"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/firatysrgl" target="_blank" class="social-link" style="font-size:1.75rem;"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-</div>
-        </div>
-    </section>
-
-        <div class="divider"></div>
-    <span id="section-about" style="display:block;position:relative;top:-80px;"></span>
-    <!-- ════════════════ GITHUB STATS ════════════════ -->
-    <section style="padding:0 0 7rem;">
-        <div class="container">
-            <div class="section-label">
-                <span data-tr="GitHub İstatistiklerim" data-en="GitHub Stats">GitHub İstatistiklerim</span>
+<!-- HERO -->
+<section class="hero" style="position:relative;">
+    <div class="container">
+        <div style="max-width:680px; margin:0 auto; text-align:center;">
+            <h1 class="hero-name fade-up fade-up-1">
+                Fırat Yunus
+                <span class="hero-name-green" style="margin-top:0.08em;display:block;">YAŞAROĞLU</span>
+            </h1>
+            <p id="hero-tagline" class="hero-tagline fade-up fade-up-2">
+                <strong>Backend</strong>, <strong>Frontend</strong>, <strong>Full Stack</strong> ve <strong>AI</strong> alanlarında projeler geliştiriyorum.
+            </p>
+            <div class="bio-para hero-desc fade-up fade-up-3">
+                <p style="margin-bottom:1rem;">
+                    Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisiyim.
+                    Akademik eğitimimin yanı sıra gerçek dünya problemlerine çözüm üreten
+                    projeler geliştiriyor, kendimi sürekli geliştirmeye çalışıyorum.
+                </p>
+                <p>
+                    <strong style="color:rgba(255,255,255,0.8);">SiberAy</strong> ve
+                    <strong style="color:rgba(255,255,255,0.8);">FUTURE</strong> topluluklarında araştırma ve proje geliştirme süreçlerinde,
+                    <strong style="color:rgba(255,255,255,0.8);">Teknofest İHA</strong> yarışmasında yazılım ekibinde görev alıyorum.
+                </p>
             </div>
-            <div class="github-row">
-                <div class="streak-card">
-                    <div class="streak-label" data-tr="Mevcut Seri" data-en="Current Streak">Mevcut Seri</div>
-                    <div class="loader" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
-                        <i class="fas fa-circle-notch fa-spin" style="color:var(--neon);font-size:1.5rem;"></i>
-                    </div>
-                    <img src="https://streak-stats.demolab.com?user=firatysrgl&theme=transparent&hide_border=true&hide_title=true&title_color=00ff41&text_color=ffffff&icon_color=00ff41&locale=tr&date_format=j%20M%5B%20Y%5D&fire=00ff41&ring=00ff41&currStreakNum=ffffff"
-                         alt="GitHub Streak" style="width:100%;height:auto;opacity:0;transition:opacity 0.6s;position:relative;z-index:1;"
-                         onload="this.style.opacity='1';this.parentElement.querySelector('.loader').style.display='none';">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem;margin-top:2rem;" class="fade-up fade-up-4">
+                <a href="FIRAT_YUNUS_CV.pdf" download class="btn-neon">
+                    <i class="fas fa-file-pdf"></i>
+                    <span data-tr="CV İndir" data-en="Download CV">CV İndir</span>
+                </a>
+                <a href="https://www.linkedin.com/in/firat-yunus-yasaroglu/" target="_blank" class="social-link" style="font-size:1.75rem;margin-left:0.5rem;"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/firatysrgl" target="_blank" class="social-link" style="font-size:1.75rem;"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+<span id="section-about" style="display:block;position:relative;top:-80px;"></span>
+
+<!-- GITHUB STATS -->
+<section style="padding:0 0 7rem;">
+    <div class="container">
+        <div class="section-label">
+            <span data-tr="GitHub İstatistiklerim" data-en="GitHub Stats">GitHub İstatistiklerim</span>
+        </div>
+        <div class="github-row">
+            <div class="streak-card">
+                <div class="streak-label" data-tr="Mevcut Seri" data-en="Current Streak">Mevcut Seri</div>
+                <div class="loader" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+                    <i class="fas fa-circle-notch fa-spin" style="color:var(--neon);font-size:1.5rem;"></i>
                 </div>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <i class="fas fa-code-commit" style="color:var(--neon);font-size:1.25rem;margin-bottom:0.75rem;"></i>
-                        <div id="stat-commits" class="stat-num">—</div>
-                        <div class="stat-label" data-tr="Toplam Commit" data-en="Total Commits">Toplam Commit</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-star" style="color:#facc15;font-size:1.25rem;margin-bottom:0.75rem;"></i>
-                        <div id="stat-stars" class="stat-num">—</div>
-                        <div class="stat-label" data-tr="Toplam Star" data-en="Total Stars">Toplam Star</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-code-pull-request" style="color:#a78bfa;font-size:1.25rem;margin-bottom:0.75rem;"></i>
-                        <div id="stat-repos" class="stat-num">—</div>
-                        <div class="stat-label" data-tr="Repo Sayısı" data-en="Repositories">Repo Sayısı</div>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-users" style="color:var(--neon);font-size:1.25rem;margin-bottom:0.75rem;"></i>
-                        <div id="stat-followers" class="stat-num">—</div>
-                        <div class="stat-label" data-tr="Takipçi" data-en="Followers">Takipçi</div>
-                    </div>
+                <img id="streak-img"
+                     src="https://streak-stats.demolab.com?user=firatysrgl&theme=transparent&hide_border=true&hide_title=true&title_color=00ff41&text_color=ffffff&icon_color=00ff41&locale=tr&date_format=j%20M%5B%20Y%5D&fire=00ff41&ring=00ff41&currStreakNum=ffffff"
+                     alt="GitHub Streak"
+                     style="width:100%;height:auto;opacity:0;transition:opacity 0.6s;position:relative;z-index:1;"
+                     onload="this.style.opacity='1';this.parentElement.querySelector('.loader').style.display='none';">
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-code-commit" style="color:var(--neon);font-size:1.25rem;margin-bottom:0.75rem;"></i>
+                    <div id="stat-commits" class="stat-num">—</div>
+                    <div class="stat-label" data-tr="Toplam Commit" data-en="Total Commits">Toplam Commit</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star" style="color:#facc15;font-size:1.25rem;margin-bottom:0.75rem;"></i>
+                    <div id="stat-stars" class="stat-num">—</div>
+                    <div class="stat-label" data-tr="Toplam Star" data-en="Total Stars">Toplam Star</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-code-pull-request" style="color:#a78bfa;font-size:1.25rem;margin-bottom:0.75rem;"></i>
+                    <div id="stat-repos" class="stat-num">—</div>
+                    <div class="stat-label" data-tr="Repo Sayısı" data-en="Repositories">Repo Sayısı</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users" style="color:var(--neon);font-size:1.25rem;margin-bottom:0.75rem;"></i>
+                    <div id="stat-followers" class="stat-num">—</div>
+                    <div class="stat-label" data-tr="Takipçi" data-en="Followers">Takipçi</div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<span id="section-skills" style="display:block;position:relative;top:-80px;"></span>
+<section style="padding:0 0 7rem;">
+    <div class="container">
+        <div class="section-label">
+            <span data-tr="Teknik Beceriler" data-en="Technical Skills">Teknik Beceriler</span>
         </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- ════════════════ SKILLS ════════════════ -->
-    <span id="section-skills" style="display:block;position:relative;top:-80px;"></span>
-    <section style="padding:0 0 7rem;">
-        <div class="container">
-            <div class="section-label">
-                <span data-tr="Teknik Beceriler" data-en="Technical Skills">Teknik Beceriler</span>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;" class="skills-grid">
+            <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:1.25rem;">
+                    <i class="fas fa-server" style="color:var(--neon);width:16px;"></i>
+                    <span style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);">Backend</span>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                    <span class="skill-tag">C#</span>
+                    <span class="skill-tag">ASP.NET Core</span>
+                    <span class="skill-tag">Web API</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Spring Boot</span>
+                    <span class="skill-tag">Entity Framework</span>
+                    <span class="skill-tag">MSSQL</span>
+                    <span class="skill-tag">FastAPI</span>
+                </div>
             </div>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;" class="skills-grid">
-
-                <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
-                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:1.25rem;">
-                        <i class="fas fa-server" style="color:var(--neon);width:16px;"></i>
-                        <span style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);" data-tr="Backend" data-en="Backend">Backend</span>
-                    </div>
-                    <div style="display:flex;flex-wrap:wrap;gap:6px;">
-                        <span class="skill-tag">C#</span>
-                        <span class="skill-tag">ASP.NET Core</span>
-                        <span class="skill-tag">Web API</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Spring Boot</span>
-                        <span class="skill-tag">Entity Framework</span>
-                        <span class="skill-tag">MSSQL</span>
-                        <span class="skill-tag">FastAPI</span>
-                    </div>
+            <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:1.25rem;">
+                    <i class="fas fa-display" style="color:var(--neon);width:16px;"></i>
+                    <span style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);">Frontend</span>
                 </div>
-
-                <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
-                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:1.25rem;">
-                        <i class="fas fa-display" style="color:var(--neon);width:16px;"></i>
-                        <span style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);" data-tr="Frontend" data-en="Frontend">Frontend</span>
-                    </div>
-                    <div style="display:flex;flex-wrap:wrap;gap:6px;">
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Tailwind CSS</span>
-                        <span class="skill-tag">Streamlit</span>
-                    </div>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Tailwind CSS</span>
+                    <span class="skill-tag">Streamlit</span>
                 </div>
-
-                <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
-                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:1.25rem;">
-                        <i class="fas fa-brain" style="color:var(--neon);width:16px;"></i>
-                        <span style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);" data-tr="AI & NLP" data-en="AI & NLP">AI & NLP</span>
-                    </div>
-                    <div style="display:flex;flex-wrap:wrap;gap:6px;">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">BERTurk</span>
-                        <span class="skill-tag">Transformers</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">Librosa</span>
-                        <span class="skill-tag">Hugging Face</span>
-                    </div>
-                </div>
-
-
-
-
             </div>
-        </div>
-    </section>
-    <style>
-        .skill-tag {
-            font-size: 11px; font-weight: 600;
-            padding: 4px 10px; border-radius: 6px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            color: rgba(255,255,255,0.7);
-            transition: border-color 0.2s, color 0.2s;
-        }
-        .skill-tag:hover { border-color: var(--border-neon); color: var(--neon); }
-        @media(max-width:900px){ .skills-grid { grid-template-columns: 1fr 1fr !important; } }
-        @media(max-width:600px){ .skills-grid { grid-template-columns: 1fr !important; } }
-    </style>
-
-    <div class="divider"></div>
-
-    <!-- DENEYIM & TOPLULUKLAR -->
-    <span id="section-exp" style="display:block;position:relative;top:-80px;"></span>
-    <section style="padding:0 0 7rem;">
-        <div class="container">
-            <div class="section-label">
-                <span data-tr="Deneyim & Topluluklar" data-en="Experience & Communities">Deneyim & Topluluklar</span>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;" class="exp-grid">
-
-                <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
-                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
-                        <div style="width:36px;height:36px;border-radius:10px;background:#0d0d0d;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
-                            <i class="fas fa-shield-halved" style="color:var(--neon);font-size:14px;"></i>
-                        </div>
-                        <div>
-                            <div style="font-size:13px;font-weight:700;color:#fff;">SiberAy Topluluğu</div>
-                            <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;" data-tr="Core Team Üyesi" data-en="Core Team Member">Core Team Üyesi</div>
-                        </div>
-                    </div>
-                    <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;" data-tr="Siber güvenlik topluluğunda araştırma ve proje geliştirme süreçlerinde aktif olarak görev alıyorum." data-en="Actively involved in research and project development processes in the cybersecurity community.">Siber güvenlik topluluğunda araştırma ve proje geliştirme süreçlerinde aktif olarak görev alıyorum.</p>
+            <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:1.25rem;">
+                    <i class="fas fa-brain" style="color:var(--neon);width:16px;"></i>
+                    <span style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);">AI & NLP</span>
                 </div>
-
-                <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
-                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
-                        <div style="width:36px;height:36px;border-radius:10px;background:#0d0d0d;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
-                            <i class="fas fa-rocket" style="color:var(--neon);font-size:14px;"></i>
-                        </div>
-                        <div>
-                            <div style="font-size:13px;font-weight:700;color:#fff;">FUTURE Topluluğu</div>
-                            <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;" data-tr="Core Team Üyesi" data-en="Core Team Member">Core Team Üyesi</div>
-                        </div>
-                    </div>
-                    <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;" data-tr="Teknoloji odaklı toplulukta araştırma ve proje geliştirme süreçlerinde aktif olarak görev alıyorum." data-en="Actively involved in research and project development processes in a technology-focused community.">Teknoloji odaklı toplulukta araştırma ve proje geliştirme süreçlerinde aktif olarak görev alıyorum.</p>
-                </div>
-
-                <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
-                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
-                        <div style="width:36px;height:36px;border-radius:10px;background:#0d0d0d;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
-                            <i class="fas fa-plane" style="color:var(--neon);font-size:14px;"></i>
-                        </div>
-                        <div>
-                            <div style="font-size:13px;font-weight:700;color:#fff;">Teknofest İHA</div>
-                            <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;" data-tr="Yazılım Ekibi" data-en="Software Team">Yazılım Ekibi</div>
-                        </div>
-                    </div>
-                    <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;" data-tr="Uçuş yazılımı ve otonom sistem geliştirme süreçlerinde aktif olarak görev alıyorum." data-en="Actively working on flight software and autonomous system development processes.">Uçuş yazılımı ve otonom sistem geliştirme süreçlerinde aktif olarak görev alıyorum.</p>
-                </div>
-
-                <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
-                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
-                        <div style="width:36px;height:36px;border-radius:10px;background:#0d0d0d;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
-                            <i class="fas fa-graduation-cap" style="color:var(--neon);font-size:14px;"></i>
-                        </div>
-                        <div>
-                            <div style="font-size:13px;font-weight:700;color:#fff;" data-tr="Fırat Üniversitesi" data-en="Fırat University">Fırat Üniversitesi</div>
-                            <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;" data-tr="Yazılım Müh. · 2. Sınıf · 2024→" data-en="Software Eng. · 2nd Year · 2024→">Yazılım Müh. · 2. Sınıf · 2024→</div>
-                        </div>
-                    </div>
-                    <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;" data-tr="Full Stack geliştirme ve AI entegrasyonları üzerine odaklanarak akademik eğitimime devam ediyorum." data-en="Continuing my academic education with a focus on Full Stack development and AI integrations.">Full Stack geliştirme ve AI entegrasyonları üzerine odaklanarak akademik eğitimime devam ediyorum.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <style>@media(max-width:700px){.exp-grid{grid-template-columns:1fr !important;}}</style>
-
-
-    <div class="divider"></div>
-
-    <!-- ════════════════ PROJELER ════════════════ -->
-    <span id="section-projects" style="display:block;position:relative;top:-80px;"></span>
-    <section style="padding:0 0 8rem;">
-        <div class="container">
-            <div class="section-label">
-                <span data-tr="Projeler" data-en="Projects">Projeler</span>
-            </div>
-            <div style="margin-bottom:2.5rem;">
-                <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:0.4rem;" data-tr="Projeler" data-en="Projects">Projeler</h2>
-                <p style="font-size:0.9rem;color:rgba(255,255,255,0.4);" data-tr="Seçili GitHub projelerim." data-en="Selected GitHub projects.">Seçili GitHub projelerim.</p>
-            </div>
-            <div id="github-repos" class="repo-grid"></div>
-        </div>
-    </section>
-
-    <!-- Scroll to top -->
-    <button id="scroll-top" aria-label="Yukarı çık" style="
-        position:fixed; bottom:2rem; right:2rem; z-index:999;
-        width:44px; height:44px; border-radius:12px;
-        background:#0d0d0d; border:1px solid var(--border-neon);
-        color:var(--neon); font-size:1rem; cursor:pointer;
-        display:flex; align-items:center; justify-content:center;
-        opacity:0; pointer-events:none;
-        transition:opacity 0.3s, transform 0.2s, box-shadow 0.2s;
-    " onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 16px rgba(0,255,65,0.3)'"
-       onmouseout="this.style.transform='none';this.style.boxShadow='none'">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <div class="divider"></div>
-
-    <!-- ════════════════ İLETİŞİM ════════════════ -->
-    <span id="section-contact" style="display:block;position:relative;top:-80px;"></span>
-    <section style="padding:0 0 8rem;">
-        <div class="container">
-            <div class="section-label">
-                <span data-tr="İletişim" data-en="Contact">İletişim</span>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;max-width:960px;margin:0 auto;" class="contact-grid">
-                <!-- Sol: Bilgi -->
-                <div>
-                    <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;" data-tr="Bir şey mi aklında?" data-en="Got something in mind?">Bir şey mi aklında?</h2>
-                    <p style="font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:2rem;" data-tr="Proje fikri, iş birliği teklifi ya da sadece merhaba demek için mesaj bırakabilirsin. En kısa sürede dönerim." data-en="For project ideas, collaboration offers or just to say hi — leave a message and I'll get back to you soon.">Proje fikri, iş birliği teklifi ya da sadece merhaba demek için mesaj bırakabilirsin. En kısa sürede dönerim.</p>
-                    <div style="display:flex;flex-direction:column;gap:1rem;">
-                        <a href="mailto:contact@firatyunus.com" style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;transition:color 0.2s;" onmouseover="this.style.color='var(--neon)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
-                            <i class="fas fa-envelope" style="color:var(--neon);width:16px;"></i>
-                            contact@firatyunus.com
-                        </a>
-                        <a href="https://www.linkedin.com/in/firat-yunus-yasaroglu/" target="_blank" style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;transition:color 0.2s;" onmouseover="this.style.color='var(--neon)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
-                            <i class="fab fa-linkedin" style="color:var(--neon);width:16px;"></i>
-                            linkedin.com/in/firat-yunus-yasaroglu
-                        </a>
-                        <a href="https://github.com/firatysrgl" target="_blank" style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;transition:color 0.2s;" onmouseover="this.style.color='var(--neon)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
-                            <i class="fab fa-github" style="color:var(--neon);width:16px;"></i>
-                            github.com/firatysrgl
-                        </a>
-                    </div>
-                </div>
-                <!-- Sağ: Form -->
-                <div class="card" style="padding:2rem;background:#0d0d0d;" id="contact-container">
-                    <form id="contact-form" action="https://formspree.io/f/xgokqgwq" method="POST" style="display:flex;flex-direction:column;gap:12px;">
-                        <input type="text" name="name" class="form-input" data-tr-placeholder="Adınız" data-en-placeholder="Your Name" placeholder="Adınız" required>
-                        <input type="email" name="email" class="form-input" data-tr-placeholder="E-posta Adresiniz" data-en-placeholder="Your Email" placeholder="E-posta Adresiniz" required>
-                        <textarea name="message" class="form-input" rows="4" data-tr-placeholder="Mesajınızı yazın..." data-en-placeholder="Write your message..." placeholder="Mesajınızı yazın..." required></textarea>
-                        <button type="submit" id="submit-btn" class="btn-neon" style="justify-content:center;margin-top:4px;">
-                            <span data-tr="Gönder" data-en="Send">Gönder</span>
-                        </button>
-                    </form>
-                    <div id="success-msg" class="hidden" style="text-align:center;padding:2rem 0;">
-                        <div style="width:52px;height:52px;border:1px solid rgba(0,255,65,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
-                            <i class="fas fa-check" style="color:var(--neon);"></i>
-                        </div>
-                        <p style="font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;" data-tr="Mesajınız Alındı!" data-en="Message Received!">Mesajınız Alındı!</p>
-                        <p style="font-size:12px;color:rgba(255,255,255,0.4);" data-tr="En kısa sürede dönerim." data-en="I'll get back to you soon.">En kısa sürede dönerim.</p>
-                    </div>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">BERTurk</span>
+                    <span class="skill-tag">Transformers</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">Librosa</span>
+                    <span class="skill-tag">Hugging Face</span>
                 </div>
             </div>
         </div>
-    </section>
-    <style>@media(max-width:800px){.contact-grid{grid-template-columns:1fr !important;}}</style>
+    </div>
+</section>
+<style>
+    .skill-tag {
+        font-size: 11px; font-weight: 600;
+        padding: 4px 10px; border-radius: 6px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: rgba(255,255,255,0.7);
+        transition: border-color 0.2s, color 0.2s;
+    }
+    .skill-tag:hover { border-color: var(--border-neon); color: var(--neon); }
+</style>
 
+<div class="divider"></div>
 
-    <!-- ════════════════ FOOTER ════════════════ -->
-    <footer class="container">
-        <p>© <span id="footer-year"></span> Fırat Yunus Yaşaroğlu</p>
-    </footer>
-    <div style="height:2rem;"></div>
-
-    <script>
-
-
-
-        // ── Nav scroll behaviour ──
-        const mainNav = document.getElementById('main-nav');
-        const sections = [
-            { id: 'section-about',    link: 'Hakkımda' },
-            { id: 'section-skills',   link: 'Beceriler' },
-            { id: 'section-exp',      link: 'Deneyim' },
-            { id: 'section-projects', link: 'Projeler' },
-            { id: 'section-contact', link: 'İletişim' },
-        ];
-        window.addEventListener('scroll', () => {
-            const sy = window.scrollY;
-            // Active section highlight
-            sections.forEach(s => {
-                const el = document.getElementById(s.id);
-                if (!el) return;
-                const rect = el.getBoundingClientRect();
-                const link = [...document.querySelectorAll('.nav-links a')].find(a => a.textContent.trim() === s.link || a.getAttribute('data-tr') === s.link);
-                if (link) link.classList.toggle('active-section', rect.top <= 100 && rect.top > -300);
-            });
-        }, { passive: true });
-
-
-        // ── Mobil menü ──
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('hamburger-icon');
-            const open = menu.style.display === 'block';
-            menu.style.display = open ? 'none' : 'block';
-            icon.className = open ? 'fas fa-bars' : 'fas fa-times';
-        }
-        function closeMobileMenu() {
-            document.getElementById('mobile-menu').style.display = 'none';
-            document.getElementById('hamburger-icon').className = 'fas fa-bars';
-        }
-        // setLang içinde mobil menü çevirisi
-        // ── Footer year ──
-        document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-        // ── Scroll to top button ──
-        const scrollBtn = document.getElementById('scroll-top');
-        window.addEventListener('scroll', () => {
-            scrollBtn.style.opacity = window.scrollY > 400 ? '1' : '0';
-            scrollBtn.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
-        });
-        scrollBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
-
-        // ── Lang ──
-        let currentLang = 'tr';
-        function setLang(lang) {
-            currentLang = lang;
-            document.documentElement.setAttribute('lang', lang);
-            document.getElementById('btn-tr').classList.toggle('active', lang==='tr');
-            document.getElementById('btn-en').classList.toggle('active', lang==='en');
-            document.querySelectorAll('[data-tr]').forEach(el => {
-                const t = el.getAttribute('data-'+lang); if(t) el.textContent = t;
-            });
-            // Tagline - innerHTML ile güncelle (strong tagları korumak için)
-            const taglineEl = document.getElementById('hero-tagline');
-            if(taglineEl) {
-                taglineEl.innerHTML = lang==='en'
-                    ? '<strong>Backend</strong>, <strong>Frontend</strong>, <strong>Full Stack</strong> and <strong>AI</strong> projects.'
-                    : '<strong>Backend</strong>, <strong>Frontend</strong>, <strong>Full Stack</strong> ve <strong>AI</strong> alanlarında projeler geliştiriyorum.';
-            }
-            document.querySelectorAll('[data-tr-placeholder]').forEach(el => {
-                const p = el.getAttribute('data-'+lang+'-placeholder'); if(p) el.placeholder = p;
-            });
-            // Bio
-            const bio = document.querySelector('.bio-para');
-            if(bio) {
-                bio.innerHTML = lang==='en'
-                    ? `<p style='margin-bottom:1rem;'>2nd year Software Engineering student at Fırat University. Alongside my academic education, I build projects that solve real-world problems and continuously strive to improve myself.</p><p>I contribute to research and project development at <strong style='color:rgba(255,255,255,0.8);'>SiberAy</strong> and <strong style='color:rgba(255,255,255,0.8);'>FUTURE</strong> communities, and serve as a software team member in the <strong style='color:rgba(255,255,255,0.8);'>Teknofest UAV</strong> competition.</p>`
-                    : `<p style='margin-bottom:1rem;'>Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisiyim. Akademik eğitimimin yanı sıra gerçek dünya problemlerine çözüm üreten projeler geliştiriyor, kendimi sürekli geliştirmeye çalışıyorum.</p><p><strong style='color:rgba(255,255,255,0.8);'>SiberAy</strong> ve <strong style='color:rgba(255,255,255,0.8);'>FUTURE</strong> topluluklarında araştırma ve proje geliştirme süreçlerinde, <strong style='color:rgba(255,255,255,0.8);'>Teknofest İHA</strong> yarışmasında yazılım ekibinde görev alıyorum.</p>`;
-            }
-            const ti = document.getElementById('terminal-input');
-            if(ti) ti.placeholder = lang==='en' ? 'type a command...' : 'komut gir...';
-    
-
-            document.querySelectorAll('[data-repo-link]').forEach(el => el.textContent = lang==='en' ? 'VIEW' : 'İNCELE');
-            COMMANDS = buildCommands(lang);
-            // Nav link çevirileri
-            document.querySelectorAll('.nav-links a[data-tr]').forEach(el => {
-                const t = el.getAttribute('data-'+lang); if(t) el.textContent = t;
-            });
-            // Mobil menü çevirisi
-            document.querySelectorAll('[data-mob-tr]').forEach(el => {
-                const t = el.getAttribute('data-mob-'+lang); if(t) el.textContent = t;
-            });
-            // Hero stats çevirisi
-            const statLabels = document.querySelectorAll('.stat-label-hero');
-            const trLabels = ['Yıl Deneyim','Proje','Topluluk'];
-            const enLabels = ['Years Exp.','Projects','Communities'];
-            statLabels.forEach((el,i) => { el.textContent = lang==='en' ? enLabels[i] : trLabels[i]; });
-            // Scroll indicator
-            const scrollTxt = document.querySelector('[data-scroll-label]');
-            if(scrollTxt) scrollTxt.textContent = lang==='en' ? 'SCROLL' : 'KAYDIR';
-        }
-
-        // ── Form ──
-        const contactForm = document.getElementById('contact-form');
-        const successMsg  = document.getElementById('success-msg');
-        const submitBtn   = document.getElementById('submit-btn');
-        contactForm.addEventListener('submit', async e => {
-            e.preventDefault();
-            submitBtn.disabled = true;
-            submitBtn.querySelector('span').textContent = currentLang==='tr' ? 'Gönderiliyor...' : 'Sending...';
-            try {
-                const r = await fetch(contactForm.action, { method:'POST', body: new FormData(contactForm), headers:{'Accept':'application/json'} });
-                if(r.ok) { contactForm.style.display='none'; successMsg.classList.remove('hidden'); }
-                else { submitBtn.disabled=false; submitBtn.querySelector('span').textContent = currentLang==='tr'?'Gönder':'Send'; }
-            } catch { submitBtn.disabled=false; submitBtn.querySelector('span').textContent = currentLang==='tr'?'Gönder':'Send'; }
-        });
-
-        // ── Repos ──
-        let allRepos = [];
-        const HIDDEN = ['firatysrgl','sitem'];
-        const SHOW_ONLY = ['TeknikServisOtomasyonu','TeknikServisOtomasyonu-Web','elazig-tanitim','NLP-ile-Yargitay-karar-tahmini'];
-
-        async function fetchRepos() {
-            const c = document.getElementById('github-repos');
-            try {
-                const res = await fetch('https://api.github.com/users/firatysrgl/repos?sort=updated');
-                const repos = await res.json();
-                allRepos = await Promise.all(
-                    repos.filter(r => !r.fork && !HIDDEN.includes(r.name) && SHOW_ONLY.includes(r.name)).map(async repo => {
-                        const txt = await fetchReadme(repo.name);
-                        return { ...repo, summary: summarize(txt) };
-                    })
-                );
-                renderRepos(allRepos);
-            } catch { c.innerHTML = '<p style="color:rgba(255,255,255,0.3)">Yüklenemedi.</p>'; }
-        }
-        async function fetchReadme(name) {
-            try { const r = await fetch(`https://raw.githubusercontent.com/firatysrgl/${name}/main/README.md`); return r.ok ? r.text() : null; } catch { return null; }
-        }
-        function summarize(txt) {
-            if(!txt) return currentLang==='en' ? 'A professional engineering project.' : 'Modern yazılım mimarisiyle kurgulanmış proje.';
-            const c = txt.replace(/[#*`_\[\]()]/g,'').replace(/\n/g,' ').trim();
-            return c.length>130 ? c.slice(0,127)+'...' : c;
-        }
-
-        function repoDisplayName(name) {
-            const names = {
-                'TeknikServisOtomasyonu':     'Teknik Servis Otomasyonu',
-                'TeknikServisOtomasyonu-Web': 'Teknik Servis Otomasyonu — Web',
-                'elazig-tanitim':             'Elazığ Tanıtım Sitesi',
-                'NLP-ile-Yargitay-karar-tahmini': 'NLP ile Yargıtay Karar Tahmini',
-            };
-            return names[name] || name;
-        }
-
-        function repoDescription(name, lang) {
-            const desc = {
-                'TeknikServisOtomasyonu': {
-                    tr: 'C# ve ASP.NET Core ile geliştirilmiş teknik servis yönetim sistemi. Müşteri, cihaz ve servis süreçlerini uçtan uca yönetir.',
-                    en: 'Technical service management system built with C# and ASP.NET Core. Manages customer, device and service processes end-to-end.'
-                },
-                'TeknikServisOtomasyonu-Web': {
-                    tr: 'Teknik Servis Otomasyonu projesinin web arayüzü. Modern ve kullanıcı dostu bir panel ile servis takibini kolaylaştırır.',
-                    en: 'Web interface for the Technical Service Automation project. Simplifies service tracking with a modern and user-friendly panel.'
-                },
-                'elazig-tanitim': {
-                    tr: 'Elazığ iline ait tarihi, kültürel ve turistik yerleri tanıtan modern bir web sitesi.',
-                    en: 'A modern website showcasing the historical, cultural and tourist attractions of Elazığ province.'
-                },
-                'NLP-ile-Yargitay-karar-tahmini': {
-                    tr: 'Python ve NLP teknikleri kullanılarak Yargıtay kararlarını analiz eden ve sonuç tahmini yapan yapay zeka projesi.',
-                    en: 'An AI project that analyzes Court of Cassation decisions and predicts outcomes using Python and NLP techniques.'
-                },
-            };
-            return desc[name] ? desc[name][lang] || desc[name]['tr'] : (lang==='en' ? 'A professional engineering project.' : 'Modern yazılım mimarisiyle kurgulanmış proje.');
-        }
-
-        // Manuel featured proje listesi - bunlar her zaman üstte gösterilir
-        const FEATURED = ['TeknikServisOtomasyonu','TeknikServisOtomasyonu-Web','elazig-tanitim','NLP-ile-Yargitay-karar-tahmini'];
-
-        function renderRepos(repos) {
-            const c = document.getElementById('github-repos');
-            c.innerHTML = '';
-            if(!repos.length) { c.innerHTML='<p style="color:rgba(255,255,255,0.3);grid-column:1/-1;text-align:center">Bu kategoride proje yok.</p>'; return; }
-            // Featured projeleri üste taşı
-            repos = [...repos].sort((a,b) => {
-                const ai = FEATURED.indexOf(a.name), bi = FEATURED.indexOf(b.name);
-                if(ai>=0 && bi<0) return -1;
-                if(ai<0 && bi>=0) return 1;
-                if(ai>=0 && bi>=0) return ai-bi;
-                return 0;
-            });
-            const lbl = currentLang==='en'?'VIEW':'İNCELE';
-            repos.forEach(r => {
-                const div = document.createElement('div');
-                div.className = 'repo-card';
-                const isFeatured = FEATURED.includes(r.name);
-                                const stars = r.stargazers_count > 0 ? `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.35);"><i class="fas fa-star" style="color:#facc15;font-size:10px;"></i>${r.stargazers_count}</span>` : '';
-                const forks = r.forks_count > 0 ? `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.35);"><i class="fas fa-code-branch" style="font-size:10px;"></i>${r.forks_count}</span>` : '';
-                div.innerHTML = `
-                    <div class="bg-icon"><i class="fab fa-github"></i></div>
+<!-- DENEYIM & TOPLULUKLAR -->
+<span id="section-exp" style="display:block;position:relative;top:-80px;"></span>
+<section style="padding:0 0 7rem;">
+    <div class="container">
+        <div class="section-label">
+            <span data-tr="Deneyim & Topluluklar" data-en="Experience & Communities">Deneyim & Topluluklar</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;" class="exp-grid">
+            <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+                    <div style="width:36px;height:36px;border-radius:10px;background:#0d0d0d;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+                        <i class="fas fa-shield-halved" style="color:var(--neon);font-size:14px;"></i>
+                    </div>
                     <div>
-                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
-                            <div style="display:flex;gap:6px;align-items:center;"><span class="repo-lang-tag">${r.language||'Code'}</span></div>
-                            <div style="display:flex;gap:10px;">${stars}${forks}</div>
-                        </div>
-                        <div class="repo-name">${repoDisplayName(r.name)}</div>
-                        <p class="repo-desc">${repoDescription(r.name, currentLang)}</p>
+                        <div style="font-size:13px;font-weight:700;color:#fff;">SiberAy Topluluğu</div>
+                        <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;" data-tr="Core Team Üyesi" data-en="Core Team Member">Core Team Üyesi</div>
                     </div>
-                    <div class="repo-footer">
-                        <a href="${r.html_url}" target="_blank" data-repo-link class="repo-link">${lbl} <i class="fas fa-arrow-right-long" style="color:var(--neon)"></i></a>
-                        <span style="font-size:10px;color:rgba(255,255,255,0.2);">${r.updated_at ? new Date(r.updated_at).toLocaleDateString(currentLang==='en'?'en-US':'tr-TR',{month:'short',year:'numeric'}) : ''}</span>
-                    </div>`;
-                c.appendChild(div);
+                </div>
+                <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;" data-tr="Siber güvenlik topluluğunda araştırma ve proje geliştirme süreçlerinde aktif olarak görev alıyorum." data-en="Actively involved in research and project development processes in the cybersecurity community.">Siber güvenlik topluluğunda araştırma ve proje geliştirme süreçlerinde aktif olarak görev alıyorum.</p>
+            </div>
+            <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+                    <div style="width:36px;height:36px;border-radius:10px;background:#0d0d0d;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+                        <i class="fas fa-rocket" style="color:var(--neon);font-size:14px;"></i>
+                    </div>
+                    <div>
+                        <div style="font-size:13px;font-weight:700;color:#fff;">FUTURE Topluluğu</div>
+                        <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;" data-tr="Core Team Üyesi" data-en="Core Team Member">Core Team Üyesi</div>
+                    </div>
+                </div>
+                <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;" data-tr="Teknoloji odaklı toplulukta araştırma ve proje geliştirme süreçlerinde aktif olarak görev alıyorum." data-en="Actively involved in research and project development processes in a technology-focused community.">Teknoloji odaklı toplulukta araştırma ve proje geliştirme süreçlerinde aktif olarak görev alıyorum.</p>
+            </div>
+            <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+                    <div style="width:36px;height:36px;border-radius:10px;background:#0d0d0d;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+                        <i class="fas fa-plane" style="color:var(--neon);font-size:14px;"></i>
+                    </div>
+                    <div>
+                        <div style="font-size:13px;font-weight:700;color:#fff;">Teknofest İHA</div>
+                        <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;" data-tr="Yazılım Ekibi" data-en="Software Team">Yazılım Ekibi</div>
+                    </div>
+                </div>
+                <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;" data-tr="Uçuş yazılımı ve otonom sistem geliştirme süreçlerinde aktif olarak görev alıyorum." data-en="Actively working on flight software and autonomous system development processes.">Uçuş yazılımı ve otonom sistem geliştirme süreçlerinde aktif olarak görev alıyorum.</p>
+            </div>
+            <div class="stat-card" style="align-items:flex-start;text-align:left;padding:1.75rem;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+                    <div style="width:36px;height:36px;border-radius:10px;background:#0d0d0d;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+                        <i class="fas fa-graduation-cap" style="color:var(--neon);font-size:14px;"></i>
+                    </div>
+                    <div>
+                        <div style="font-size:13px;font-weight:700;color:#fff;" data-tr="Fırat Üniversitesi" data-en="Fırat University">Fırat Üniversitesi</div>
+                        <div style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-transform:uppercase;" data-tr="Yazılım Müh. · 2. Sınıf · 2024→" data-en="Software Eng. · 2nd Year · 2024→">Yazılım Müh. · 2. Sınıf · 2024→</div>
+                    </div>
+                </div>
+                <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;" data-tr="Full Stack geliştirme ve AI entegrasyonları üzerine odaklanarak akademik eğitimime devam ediyorum." data-en="Continuing my academic education with a focus on Full Stack development and AI integrations.">Full Stack geliştirme ve AI entegrasyonları üzerine odaklanarak akademik eğitimime devam ediyorum.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJELER -->
+<span id="section-projects" style="display:block;position:relative;top:-80px;"></span>
+<section style="padding:0 0 8rem;">
+    <div class="container">
+        <div class="section-label">
+            <span data-tr="Projeler" data-en="Projects">Projeler</span>
+        </div>
+        <div style="margin-bottom:2.5rem;">
+            <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:0.4rem;" data-tr="Projeler" data-en="Projects">Projeler</h2>
+            <p style="font-size:0.9rem;color:rgba(255,255,255,0.4);" data-tr="Seçili GitHub projelerim." data-en="Selected GitHub projects.">Seçili GitHub projelerim.</p>
+        </div>
+        <div id="github-repos" class="repo-grid"></div>
+    </div>
+</section>
+
+<!-- Scroll to top -->
+<button id="scroll-top" aria-label="Yukarı çık" style="
+    position:fixed; bottom:2rem; right:2rem; z-index:999;
+    width:44px; height:44px; border-radius:12px;
+    background:#0d0d0d; border:1px solid var(--border-neon);
+    color:var(--neon); font-size:1rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; pointer-events:none;
+    transition:opacity 0.3s, transform 0.2s, box-shadow 0.2s;
+" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 0 16px rgba(0,255,65,0.3)'"
+   onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<div class="divider"></div>
+
+<!-- İLETİŞİM -->
+<span id="section-contact" style="display:block;position:relative;top:-80px;"></span>
+<section style="padding:0 0 8rem;">
+    <div class="container">
+        <div class="section-label">
+            <span data-tr="İletişim" data-en="Contact">İletişim</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;max-width:960px;margin:0 auto;" class="contact-grid">
+            <div>
+                <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;" data-tr="Bir şey mi aklında?" data-en="Got something in mind?">Bir şey mi aklında?</h2>
+                <p style="font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:2rem;" data-tr="Proje fikri, iş birliği teklifi ya da sadece merhaba demek için mesaj bırakabilirsin. En kısa sürede dönerim." data-en="For project ideas, collaboration offers or just to say hi — leave a message and I'll get back to you soon.">Proje fikri, iş birliği teklifi ya da sadece merhaba demek için mesaj bırakabilirsin. En kısa sürede dönerim.</p>
+                <div style="display:flex;flex-direction:column;gap:1rem;">
+                    <a href="mailto:contact@firatyunus.com" style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;transition:color 0.2s;" onmouseover="this.style.color='var(--neon)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                        <i class="fas fa-envelope" style="color:var(--neon);width:16px;"></i>
+                        contact@firatyunus.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/firat-yunus-yasaroglu/" target="_blank" style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;transition:color 0.2s;" onmouseover="this.style.color='var(--neon)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                        <i class="fab fa-linkedin" style="color:var(--neon);width:16px;"></i>
+                        linkedin.com/in/firat-yunus-yasaroglu
+                    </a>
+                    <a href="https://github.com/firatysrgl" target="_blank" style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;transition:color 0.2s;" onmouseover="this.style.color='var(--neon)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                        <i class="fab fa-github" style="color:var(--neon);width:16px;"></i>
+                        github.com/firatysrgl
+                    </a>
+                </div>
+            </div>
+            <div class="card" style="padding:2rem;background:#0d0d0d;">
+                <form id="contact-form" action="https://formspree.io/f/xgokqgwq" method="POST" style="display:flex;flex-direction:column;gap:12px;">
+                    <input type="text" name="name" class="form-input" data-tr-placeholder="Adınız" data-en-placeholder="Your Name" placeholder="Adınız" required>
+                    <input type="email" name="email" class="form-input" data-tr-placeholder="E-posta Adresiniz" data-en-placeholder="Your Email" placeholder="E-posta Adresiniz" required>
+                    <textarea name="message" class="form-input" rows="4" data-tr-placeholder="Mesajınızı yazın..." data-en-placeholder="Write your message..." placeholder="Mesajınızı yazın..." required></textarea>
+                    <button type="submit" id="submit-btn" class="btn-neon" style="justify-content:center;margin-top:4px;">
+                        <span data-tr="Gönder" data-en="Send">Gönder</span>
+                    </button>
+                </form>
+                <div id="success-msg" class="hidden" style="text-align:center;padding:2rem 0;">
+                    <div style="width:52px;height:52px;border:1px solid rgba(0,255,65,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+                        <i class="fas fa-check" style="color:var(--neon);"></i>
+                    </div>
+                    <p style="font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;" data-tr="Mesajınız Alındı!" data-en="Message Received!">Mesajınız Alındı!</p>
+                    <p style="font-size:12px;color:rgba(255,255,255,0.4);" data-tr="En kısa sürede dönerim." data-en="I'll get back to you soon.">En kısa sürede dönerim.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="container">
+    <p>© <span id="footer-year"></span> Fırat Yunus Yaşaroğlu</p>
+</footer>
+<div style="height:2rem;"></div>
+
+<script>
+    // ── Nav scroll / active section ──
+    const sections = [
+        { id: 'section-skills',   tr: 'Beceriler' },
+        { id: 'section-exp',      tr: 'Deneyim' },
+        { id: 'section-projects', tr: 'Projeler' },
+        { id: 'section-contact',  tr: 'İletişim' },
+    ];
+    window.addEventListener('scroll', () => {
+        sections.forEach(s => {
+            const el = document.getElementById(s.id);
+            if (!el) return;
+            const rect = el.getBoundingClientRect();
+            const link = [...document.querySelectorAll('.nav-links a')]
+                .find(a => a.getAttribute('data-tr') === s.tr);
+            if (link) link.classList.toggle('active-section', rect.top <= 100 && rect.top > -300);
+        });
+    }, { passive: true });
+
+    // ── Footer year ──
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ── Scroll to top ──
+    const scrollBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+        scrollBtn.style.opacity      = window.scrollY > 400 ? '1' : '0';
+        scrollBtn.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ── Lang ──
+    let currentLang = 'tr';
+
+    function setLang(lang) {
+        currentLang = lang;
+        document.documentElement.setAttribute('lang', lang);
+        document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+        // data-tr / data-en attribute'larını güncelle
+        document.querySelectorAll('[data-tr]').forEach(el => {
+            const t = el.getAttribute('data-' + lang);
+            if (t) el.textContent = t;
+        });
+
+        // Tagline (strong tag'ları korumak için innerHTML)
+        const taglineEl = document.getElementById('hero-tagline');
+        if (taglineEl) {
+            taglineEl.innerHTML = lang === 'en'
+                ? '<strong>Backend</strong>, <strong>Frontend</strong>, <strong>Full Stack</strong> and <strong>AI</strong> projects.'
+                : '<strong>Backend</strong>, <strong>Frontend</strong>, <strong>Full Stack</strong> ve <strong>AI</strong> alanlarında projeler geliştiriyorum.';
+        }
+
+        // Placeholder'lar
+        document.querySelectorAll('[data-tr-placeholder]').forEach(el => {
+            const p = el.getAttribute('data-' + lang + '-placeholder');
+            if (p) el.placeholder = p;
+        });
+
+        // Bio paragrafı
+        const bio = document.querySelector('.bio-para');
+        if (bio) {
+            bio.innerHTML = lang === 'en'
+                ? `<p style='margin-bottom:1rem;'>2nd year Software Engineering student at Fırat University. Alongside my academic education, I build projects that solve real-world problems and continuously strive to improve myself.</p>
+                   <p>I contribute to research and project development at <strong style='color:rgba(255,255,255,0.8);'>SiberAy</strong> and <strong style='color:rgba(255,255,255,0.8);'>FUTURE</strong> communities, and serve as a software team member in the <strong style='color:rgba(255,255,255,0.8);'>Teknofest UAV</strong> competition.</p>`
+                : `<p style='margin-bottom:1rem;'>Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisiyim. Akademik eğitimimin yanı sıra gerçek dünya problemlerine çözüm üreten projeler geliştiriyor, kendimi sürekli geliştirmeye çalışıyorum.</p>
+                   <p><strong style='color:rgba(255,255,255,0.8);'>SiberAy</strong> ve <strong style='color:rgba(255,255,255,0.8);'>FUTURE</strong> topluluklarında araştırma ve proje geliştirme süreçlerinde, <strong style='color:rgba(255,255,255,0.8);'>Teknofest İHA</strong> yarışmasında yazılım ekibinde görev alıyorum.</p>`;
+        }
+
+        // FIX #1 — Dil değişiminde repo kartlarını yeniden render et (açıklamalar + link metni)
+        if (allRepos.length) renderRepos(allRepos);
+
+        // FIX #2 — Streak görselinin locale parametresini güncelle
+        const streakImg = document.getElementById('streak-img');
+        if (streakImg) {
+            streakImg.src = `https://streak-stats.demolab.com?user=firatysrgl&theme=transparent&hide_border=true&hide_title=true&title_color=00ff41&text_color=ffffff&icon_color=00ff41&locale=${lang}&date_format=j%20M%5B%20Y%5D&fire=00ff41&ring=00ff41&currStreakNum=ffffff`;
+        }
+    }
+
+    // ── Form ──
+    const contactForm = document.getElementById('contact-form');
+    const successMsg  = document.getElementById('success-msg');
+    const submitBtn   = document.getElementById('submit-btn');
+    contactForm.addEventListener('submit', async e => {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.querySelector('span').textContent = currentLang === 'tr' ? 'Gönderiliyor...' : 'Sending...';
+        try {
+            const r = await fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (r.ok) {
+                contactForm.style.display = 'none';
+                successMsg.classList.remove('hidden');
+            } else {
+                submitBtn.disabled = false;
+                submitBtn.querySelector('span').textContent = currentLang === 'tr' ? 'Gönder' : 'Send';
+            }
+        } catch {
+            submitBtn.disabled = false;
+            submitBtn.querySelector('span').textContent = currentLang === 'tr' ? 'Gönder' : 'Send';
+        }
+    });
+
+    // ── Repos ──
+    let allRepos = [];
+    const HIDDEN    = ['firatysrgl', 'sitem'];
+    const SHOW_ONLY = ['TeknikServisOtomasyonu', 'TeknikServisOtomasyonu-Web', 'elazig-tanitim', 'NLP-ile-Yargitay-karar-tahmini'];
+    const FEATURED  = ['TeknikServisOtomasyonu', 'TeknikServisOtomasyonu-Web', 'elazig-tanitim', 'NLP-ile-Yargitay-karar-tahmini'];
+
+    async function fetchRepos() {
+        const c = document.getElementById('github-repos');
+        try {
+            const res   = await fetch('https://api.github.com/users/firatysrgl/repos?sort=updated');
+            const repos = await res.json();
+            // FIX: Gereksiz README fetch kaldırıldı — repoDescription() zaten
+            // manuel tanımlı açıklamaları kullanıyor, performans artışı sağlandı.
+            allRepos = repos.filter(r => !r.fork && !HIDDEN.includes(r.name) && SHOW_ONLY.includes(r.name));
+            renderRepos(allRepos);
+        } catch {
+            c.innerHTML = '<p style="color:rgba(255,255,255,0.3)">Yüklenemedi.</p>';
+        }
+    }
+
+    function repoDisplayName(name) {
+        const names = {
+            'TeknikServisOtomasyonu':         'Teknik Servis Otomasyonu',
+            'TeknikServisOtomasyonu-Web':      'Teknik Servis Otomasyonu — Web',
+            'elazig-tanitim':                  'Elazığ Tanıtım Sitesi',
+            'NLP-ile-Yargitay-karar-tahmini':  'NLP ile Yargıtay Karar Tahmini',
+        };
+        return names[name] || name;
+    }
+
+    function repoDescription(name, lang) {
+        const desc = {
+            'TeknikServisOtomasyonu': {
+                tr: 'C# ve ASP.NET Core ile geliştirilmiş teknik servis yönetim sistemi. Müşteri, cihaz ve servis süreçlerini uçtan uca yönetir.',
+                en: 'Technical service management system built with C# and ASP.NET Core. Manages customer, device and service processes end-to-end.'
+            },
+            'TeknikServisOtomasyonu-Web': {
+                tr: 'Teknik Servis Otomasyonu projesinin web arayüzü. Modern ve kullanıcı dostu bir panel ile servis takibini kolaylaştırır.',
+                en: 'Web interface for the Technical Service Automation project. Simplifies service tracking with a modern and user-friendly panel.'
+            },
+            'elazig-tanitim': {
+                tr: 'Elazığ iline ait tarihi, kültürel ve turistik yerleri tanıtan modern bir web sitesi.',
+                en: 'A modern website showcasing the historical, cultural and tourist attractions of Elazığ province.'
+            },
+            'NLP-ile-Yargitay-karar-tahmini': {
+                tr: 'Python ve NLP teknikleri kullanılarak Yargıtay kararlarını analiz eden ve sonuç tahmini yapan yapay zeka projesi.',
+                en: 'An AI project that analyzes Court of Cassation decisions and predicts outcomes using Python and NLP techniques.'
+            },
+        };
+        return desc[name]
+            ? (desc[name][lang] || desc[name]['tr'])
+            : (lang === 'en' ? 'A professional engineering project.' : 'Modern yazılım mimarisiyle kurgulanmış proje.');
+    }
+
+    function renderRepos(repos) {
+        const c = document.getElementById('github-repos');
+        c.innerHTML = '';
+        if (!repos.length) {
+            c.innerHTML = '<p style="color:rgba(255,255,255,0.3);grid-column:1/-1;text-align:center">Bu kategoride proje yok.</p>';
+            return;
+        }
+        repos = [...repos].sort((a, b) => {
+            const ai = FEATURED.indexOf(a.name), bi = FEATURED.indexOf(b.name);
+            if (ai >= 0 && bi < 0) return -1;
+            if (ai < 0 && bi >= 0) return 1;
+            if (ai >= 0 && bi >= 0) return ai - bi;
+            return 0;
+        });
+        const lbl = currentLang === 'en' ? 'VIEW' : 'İNCELE';
+        repos.forEach(r => {
+            const div = document.createElement('div');
+            div.className = 'repo-card';
+            const stars = r.stargazers_count > 0
+                ? `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.35);"><i class="fas fa-star" style="color:#facc15;font-size:10px;"></i>${r.stargazers_count}</span>` : '';
+            const forks = r.forks_count > 0
+                ? `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.35);"><i class="fas fa-code-branch" style="font-size:10px;"></i>${r.forks_count}</span>` : '';
+            const dateStr = r.updated_at
+                ? new Date(r.updated_at).toLocaleDateString(currentLang === 'en' ? 'en-US' : 'tr-TR', { month: 'short', year: 'numeric' })
+                : '';
+            div.innerHTML = `
+                <div class="bg-icon"><i class="fab fa-github"></i></div>
+                <div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
+                        <span class="repo-lang-tag">${r.language || 'Code'}</span>
+                        <div style="display:flex;gap:10px;">${stars}${forks}</div>
+                    </div>
+                    <div class="repo-name">${repoDisplayName(r.name)}</div>
+                    <p class="repo-desc">${repoDescription(r.name, currentLang)}</p>
+                </div>
+                <div class="repo-footer">
+                    <a href="${r.html_url}" target="_blank" class="repo-link">${lbl} <i class="fas fa-arrow-right-long" style="color:var(--neon)"></i></a>
+                    <span style="font-size:10px;color:rgba(255,255,255,0.2);">${dateStr}</span>
+                </div>`;
+            c.appendChild(div);
+        });
+    }
+
+    // ── GitHub stats ──
+    async function fetchGithubStats() {
+        try {
+            const [ur, rr] = await Promise.all([
+                fetch('https://api.github.com/users/firatysrgl'),
+                fetch('https://api.github.com/users/firatysrgl/repos?per_page=100')
+            ]);
+            const user  = await ur.json();
+            const repos = await rr.json();
+            const stars    = repos.reduce((a, r) => a + (r.stargazers_count || 0), 0);
+            const filtered = repos.filter(r => !r.fork && !HIDDEN.includes(r.name));
+            let commits = 0;
+            await Promise.all(filtered.map(async r => {
+                try {
+                    const res = await fetch(`https://api.github.com/repos/firatysrgl/${r.name}/contributors`);
+                    if (!res.ok) return;
+                    const contributors = await res.json();
+                    if (!Array.isArray(contributors)) return;
+                    const me = contributors.find(x => x.login === 'firatysrgl');
+                    if (me) commits += me.contributions;
+                } catch {}
+            }));
+            const anim = (el, target) => {
+                if (!el) return;
+                let count = 0;
+                const step = Math.max(1, Math.ceil(target / 40));
+                const timer = setInterval(() => {
+                    count = Math.min(count + step, target);
+                    el.textContent = count;
+                    if (count >= target) clearInterval(timer);
+                }, 30);
+            };
+            anim(document.getElementById('stat-commits'), commits);
+            anim(document.getElementById('stat-stars'), stars);
+            anim(document.getElementById('stat-repos'), user.public_repos || 0);
+            anim(document.getElementById('stat-followers'), user.followers || 0);
+        } catch {
+            ['stat-commits', 'stat-stars', 'stat-repos', 'stat-followers'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = '—';
             });
         }
+    }
 
-
-        // ── Language bars ──
-        const LANG_COLORS = {
-            'C#':         { from:'#00ff41', to:'#39ff14', text:'#00ff41' },
-            'Java':       { from:'#f97316', to:'#ef4444', text:'#fb923c' },
-            'Python':     { from:'#facc15', to:'#ca8a04', text:'#facc15' },
-            'HTML':       { from:'#f87171', to:'#fb923c', text:'#f87171' },
-            'CSS':        { from:'#60a5fa', to:'#818cf8', text:'#60a5fa' },
-            'JavaScript': { from:'#fde047', to:'#f59e0b', text:'#fde047' },
-            'TypeScript': { from:'#00ff41', to:'#39ff14', text:'#86efac' },
-        };
-        const DEF_COL = { from:'#94a3b8', to:'#64748b', text:'#94a3b8' };
-
-        // ── GitHub stats ──
-        async function fetchGithubStats(){
-            try {
-                const [ur,rr]=await Promise.all([fetch('https://api.github.com/users/firatysrgl'),fetch('https://api.github.com/users/firatysrgl/repos?per_page=100')]);
-                const user=await ur.json(), repos=await rr.json();
-                const stars=repos.reduce((a,r)=>a+(r.stargazers_count||0),0);
-                const filtered=repos.filter(r=>!r.fork&&!HIDDEN.includes(r.name));
-                let commits=0;
-                await Promise.all(filtered.map(async r=>{
-                    try{const res=await fetch(`https://api.github.com/repos/firatysrgl/${r.name}/contributors`);if(!res.ok)return;const c=await res.json();if(!Array.isArray(c))return;const me=c.find(x=>x.login==='firatysrgl');if(me)commits+=me.contributions;}catch{}
-                }));
-                const anim=(el,t)=>{if(!el)return;let c=0;const s=Math.max(1,Math.ceil(t/40));const i=setInterval(()=>{c=Math.min(c+s,t);el.textContent=c;if(c>=t)clearInterval(i);},30);};
-                anim(document.getElementById('stat-commits'),commits);
-                anim(document.getElementById('stat-stars'),stars);
-                anim(document.getElementById('stat-repos'),user.public_repos||0);
-                anim(document.getElementById('stat-followers'),user.followers||0);
-            } catch {
-                ['stat-commits','stat-stars','stat-repos','stat-followers'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent='—';});
-            }
-        }
-
-        // ── Init ──
-        printWelcome();
-        fetchRepos();
-        fetchGithubStats();
-    </script>
+    // ── Init ──
+    fetchRepos();
+    fetchGithubStats();
+</script>
 </body>
 </html>
