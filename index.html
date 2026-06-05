@@ -35,11 +35,11 @@
     <style>
         :root {
             --neon: #00ff41;
-            --neon-dim: rgba(0,255,65,0.15);
-            --neon-glow: rgba(0,255,65,0.6);
+            --neon-dim: rgba(0,255,65,0.18);
+            --neon-glow: rgba(0,255,65,0.8);
             --surface: rgba(255,255,255,0.03);
             --border: rgba(255,255,255,0.07);
-            --border-neon: rgba(0,255,65,0.25);
+            --border-neon: rgba(0,255,65,0.4);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -105,9 +105,9 @@
             font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
             text-transform: uppercase; color: #000 !important;
             background: var(--neon); padding: 7px 16px; border-radius: 8px;
-            text-decoration: none;
+            text-decoration: none; box-shadow: 0 0 16px rgba(0,255,65,0.35);
         }
-        .nav-cta:hover { background: #39ff14 !important; }
+        .nav-cta:hover { background: #39ff14 !important; box-shadow: 0 0 24px rgba(0,255,65,0.6); }
         @media(max-width:700px){
             .nav-links { display: none; }
         }
@@ -222,7 +222,7 @@
             padding: 14px 28px; border-radius: 14px; border: none; cursor: pointer;
             text-decoration: none;
         }
-        .btn-neon:hover { background: #39ff14; box-shadow: 0 0 30px rgba(0,255,65,0.7), 0 0 60px rgba(0,255,65,0.2); }
+        .btn-neon:hover { background: #39ff14; box-shadow: 0 0 20px rgba(0,255,65,0.8); }
 
         .btn-ghost {
             display: inline-flex; align-items: center; gap: 10px;
@@ -247,7 +247,7 @@
         .lang-bar-fill { height: 100%; border-radius: 99px; width: 0; transition: width 1s cubic-bezier(0.4,0,0.2,1); }
 
         /* ── Stats grid ── */
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .stat-card {
             background: #0a0a0a;
             border: 1px solid var(--border);
@@ -256,7 +256,7 @@
             text-align: center; transition: border-color 0.3s, box-shadow 0.3s;
         }
         .stat-card:hover { border-color: var(--border-neon); box-shadow: 0 0 30px rgba(0,255,65,0.05); }
-        .stat-card .stat-num { font-size: 2rem; font-weight: 800; color: #fff; line-height: 1; }
+        .stat-card .stat-num { font-size: 1.6rem; font-weight: 800; color: #fff; line-height: 1; }
         .stat-card .stat-label { font-size: 9px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.15em; margin-top: 6px; }
 
         /* ── Filter buttons ── */
@@ -268,7 +268,7 @@
             transition: all 0.2s;
         }
         .filter-btn:hover { color: #fff; }
-        .filter-btn.active { background: var(--neon); color: #000; box-shadow: 0 0 16px rgba(0,255,65,0.4); }
+        .filter-btn.active { background: var(--neon); color: #000; box-shadow: 0 0 20px rgba(0,255,65,0.5); }
 
         /* ── Repo cards ── */
         .repo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
@@ -306,7 +306,7 @@
         textarea.form-input { resize: none; }
 
         /* ── Footer ── */
-        footer { padding: 3rem 0; border-top: 1px solid var(--border); display: flex; justify-content: center; align-items: center; text-align: center; width: 100%; }
+        footer { padding: 4rem 0 3rem; border-top: 1px solid var(--border); display: flex; justify-content: center; align-items: center; text-align: center; width: 100%; }
         footer p { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45); letter-spacing: 0.15em; text-transform: uppercase; width: 100%; text-align: center; }
         .footer-accent { color: rgba(255,255,255,0.45) !important; }
 
@@ -324,9 +324,14 @@
         .streak-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--neon); margin-bottom: 0.75rem; }
 
         /* ── GitHub stats row ── */
-        .github-row { display: grid; grid-template-columns: 1fr 300px; gap: 1.5rem; align-items: start; }
+        .github-row { display: grid; grid-template-columns: 1fr 280px; gap: 1.25rem; align-items: start; }
         @media(max-width:900px){ .github-row { grid-template-columns: 1fr; } }
 
+
+        @media(max-width:768px) {
+            #hamburger { display:flex !important; }
+            .nav-cta-desktop { display:none !important; }
+        }
         /* ══════════════════════════════════════
            MOBİL RESPONSIVE
         ══════════════════════════════════════ */
@@ -459,7 +464,7 @@
                         <span class="hero-name-green" style="margin-top:0.08em;display:block;">YAŞAROĞLU</span>
                     </h1>
 
-                    <p data-tr="Backend, Frontend, Full Stack ve AI alanlarında projeler geliştiriyorum." data-en="Building projects in Backend, Frontend, Full Stack and AI." class="hero-tagline fade-up fade-up-2">
+                    <p id="hero-tagline" class="hero-tagline fade-up fade-up-2">
                         <strong>Backend</strong>, <strong>Frontend</strong>, <strong>Full Stack</strong> ve <strong>AI</strong> alanlarında projeler geliştiriyorum.
                     </p>
 
@@ -476,22 +481,6 @@
                         </p>
                     </div>
 
-                    <div style="display:flex;justify-content:center;gap:2.5rem;margin-top:2rem;margin-bottom:0.5rem;" class="fade-up fade-up-3">
-                        <div style="text-align:center;min-width:60px;">
-                            <div style="font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-0.03em;line-height:1;">2+</div>
-                            <div class="stat-label-hero" style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.1em;margin-top:5px;white-space:nowrap;">Yıl Deneyim</div>
-                        </div>
-                        <div style="width:1px;background:var(--border);align-self:stretch;"></div>
-                        <div style="text-align:center;min-width:60px;">
-                            <div style="font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-0.03em;line-height:1;">10+</div>
-                            <div class="stat-label-hero" style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.1em;margin-top:5px;white-space:nowrap;">Proje</div>
-                        </div>
-                        <div style="width:1px;background:var(--border);align-self:stretch;"></div>
-                        <div style="text-align:center;min-width:60px;">
-                            <div style="font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-0.03em;line-height:1;">3</div>
-                            <div class="stat-label-hero" style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.1em;margin-top:5px;white-space:nowrap;">Topluluk</div>
-                        </div>
-                    </div>
                     <div class="flex flex-wrap items-center gap-4 mt-10 fade-up fade-up-4" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem;margin-top:2rem;">
                         <a href="FIRAT_YUNUS_CV.pdf" download class="btn-neon">
                             <i class="fas fa-file-pdf"></i>
@@ -705,18 +694,9 @@
             <div class="section-label">
                 <span data-tr="Projeler" data-en="Projects">Projeler</span>
             </div>
-            <div class="project-header" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1.5rem;">
-                <div>
-                    <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:0.5rem;" data-tr="Proje Arşivi" data-en="Project Archive">Proje Arşivi</h2>
-                    <p data-tr="Gerçek zamanlı GitHub README analizi." data-en="Real-time GitHub README analysis." style="font-size:0.95rem;color:rgba(255,255,255,0.55);">Gerçek zamanlı GitHub README analizi.</p>
-                </div>
-                <div class="filter-group">
-                    <button onclick="filterProjects('all')" class="filter-btn active" data-tr="Hepsi" data-en="All">Hepsi</button>
-                    <button onclick="filterProjects('C#')"     class="filter-btn">C#</button>
-                    <button onclick="filterProjects('Java')"   class="filter-btn">Java</button>
-                    <button onclick="filterProjects('HTML')"   class="filter-btn">HTML</button>
-                    <button onclick="filterProjects('Python')" class="filter-btn">Python</button>
-                </div>
+            <div style="margin-bottom:2.5rem;">
+                <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:0.4rem;" data-tr="Projeler" data-en="Projects">Projeler</h2>
+                <p style="font-size:0.9rem;color:rgba(255,255,255,0.4);" data-tr="Seçili GitHub projelerim." data-en="Selected GitHub projects.">Seçili GitHub projelerim.</p>
             </div>
             <div id="github-repos" class="repo-grid"></div>
         </div>
@@ -820,6 +800,20 @@
             });
         }, { passive: true });
 
+
+        // ── Mobil menü ──
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('hamburger-icon');
+            const open = menu.style.display === 'block';
+            menu.style.display = open ? 'none' : 'block';
+            icon.className = open ? 'fas fa-bars' : 'fas fa-times';
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').style.display = 'none';
+            document.getElementById('hamburger-icon').className = 'fas fa-bars';
+        }
+        // setLang içinde mobil menü çevirisi
         // ── Footer year ──
         document.getElementById('footer-year').textContent = new Date().getFullYear();
 
@@ -841,6 +835,13 @@
             document.querySelectorAll('[data-tr]').forEach(el => {
                 const t = el.getAttribute('data-'+lang); if(t) el.textContent = t;
             });
+            // Tagline - innerHTML ile güncelle (strong tagları korumak için)
+            const taglineEl = document.getElementById('hero-tagline');
+            if(taglineEl) {
+                taglineEl.innerHTML = lang==='en'
+                    ? '<strong>Backend</strong>, <strong>Frontend</strong>, <strong>Full Stack</strong> and <strong>AI</strong> projects.'
+                    : '<strong>Backend</strong>, <strong>Frontend</strong>, <strong>Full Stack</strong> ve <strong>AI</strong> alanlarında projeler geliştiriyorum.';
+            }
             document.querySelectorAll('[data-tr-placeholder]').forEach(el => {
                 const p = el.getAttribute('data-'+lang+'-placeholder'); if(p) el.placeholder = p;
             });
@@ -848,8 +849,8 @@
             const bio = document.querySelector('.bio-para');
             if(bio) {
                 bio.innerHTML = lang==='en'
-                    ? "<p style='margin-bottom:1rem;'>2nd year Software Engineering student at Fırat University. Alongside my academic studies, I build projects that solve real-world problems and continuously strive to improve myself.</p><p>I contribute to research and project development at <strong style='color:rgba(255,255,255,0.8)'>SiberAy</strong> and <strong style='color:rgba(255,255,255,0.8)'>FUTURE</strong> communities, and participate as a software team member in the <strong style='color:rgba(255,255,255,0.8)'>Teknofest UAV</strong> competition.</p>"
-                    : "Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisiyim (2024→). <span class='keyword'>Full Stack</span> geliştirme ve <span class='keyword'>AI & NLP</span> entegrasyonları üzerine aktif projeler yürütüyor, SiberAy ve FUTURE topluluklarında araştırma ve proje geliştirme süreçlerinde görev alıyorum.";
+                    ? `<p style='margin-bottom:1rem;'>2nd year Software Engineering student at Fırat University. Alongside my academic education, I build projects that solve real-world problems and continuously strive to improve myself.</p><p>I contribute to research and project development at <strong style='color:rgba(255,255,255,0.8);'>SiberAy</strong> and <strong style='color:rgba(255,255,255,0.8);'>FUTURE</strong> communities, and serve as a software team member in the <strong style='color:rgba(255,255,255,0.8);'>Teknofest UAV</strong> competition.</p>`
+                    : `<p style='margin-bottom:1rem;'>Fırat Üniversitesi Yazılım Mühendisliği 2. sınıf öğrencisiyim. Akademik eğitimimin yanı sıra gerçek dünya problemlerine çözüm üreten projeler geliştiriyor, kendimi sürekli geliştirmeye çalışıyorum.</p><p><strong style='color:rgba(255,255,255,0.8);'>SiberAy</strong> ve <strong style='color:rgba(255,255,255,0.8);'>FUTURE</strong> topluluklarında araştırma ve proje geliştirme süreçlerinde, <strong style='color:rgba(255,255,255,0.8);'>Teknofest İHA</strong> yarışmasında yazılım ekibinde görev alıyorum.</p>`;
             }
             const ti = document.getElementById('terminal-input');
             if(ti) ti.placeholder = lang==='en' ? 'type a command...' : 'komut gir...';
@@ -860,6 +861,10 @@
             // Nav link çevirileri
             document.querySelectorAll('.nav-links a[data-tr]').forEach(el => {
                 const t = el.getAttribute('data-'+lang); if(t) el.textContent = t;
+            });
+            // Mobil menü çevirisi
+            document.querySelectorAll('[data-mob-tr]').forEach(el => {
+                const t = el.getAttribute('data-mob-'+lang); if(t) el.textContent = t;
             });
             // Hero stats çevirisi
             const statLabels = document.querySelectorAll('.stat-label-hero');
@@ -889,6 +894,7 @@
         // ── Repos ──
         let allRepos = [];
         const HIDDEN = ['firatysrgl','sitem'];
+        const SHOW_ONLY = ['TeknikServisOtomasyonu','TeknikServisOtomasyonu-Web','elazig-tanitim','NLP-ile-Yargitay-karar-tahmini'];
 
         async function fetchRepos() {
             const c = document.getElementById('github-repos');
@@ -896,7 +902,7 @@
                 const res = await fetch('https://api.github.com/users/firatysrgl/repos?sort=updated');
                 const repos = await res.json();
                 allRepos = await Promise.all(
-                    repos.filter(r => !r.fork && !HIDDEN.includes(r.name)).slice(0,12).map(async repo => {
+                    repos.filter(r => !r.fork && !HIDDEN.includes(r.name) && SHOW_ONLY.includes(r.name)).map(async repo => {
                         const txt = await fetchReadme(repo.name);
                         return { ...repo, summary: summarize(txt) };
                     })
@@ -912,8 +918,41 @@
             const c = txt.replace(/[#*`_\[\]()]/g,'').replace(/\n/g,' ').trim();
             return c.length>130 ? c.slice(0,127)+'...' : c;
         }
+
+        function repoDisplayName(name) {
+            const names = {
+                'TeknikServisOtomasyonu':     'Teknik Servis Otomasyonu',
+                'TeknikServisOtomasyonu-Web': 'Teknik Servis Otomasyonu — Web',
+                'elazig-tanitim':             'Elazığ Tanıtım Sitesi',
+                'NLP-ile-Yargitay-karar-tahmini': 'NLP ile Yargıtay Karar Tahmini',
+            };
+            return names[name] || name;
+        }
+
+        function repoDescription(name, lang) {
+            const desc = {
+                'TeknikServisOtomasyonu': {
+                    tr: 'C# ve ASP.NET Core ile geliştirilmiş teknik servis yönetim sistemi. Müşteri, cihaz ve servis süreçlerini uçtan uca yönetir.',
+                    en: 'Technical service management system built with C# and ASP.NET Core. Manages customer, device and service processes end-to-end.'
+                },
+                'TeknikServisOtomasyonu-Web': {
+                    tr: 'Teknik Servis Otomasyonu projesinin web arayüzü. Modern ve kullanıcı dostu bir panel ile servis takibini kolaylaştırır.',
+                    en: 'Web interface for the Technical Service Automation project. Simplifies service tracking with a modern and user-friendly panel.'
+                },
+                'elazig-tanitim': {
+                    tr: 'Elazığ iline ait tarihi, kültürel ve turistik yerleri tanıtan modern bir web sitesi.',
+                    en: 'A modern website showcasing the historical, cultural and tourist attractions of Elazığ province.'
+                },
+                'NLP-ile-Yargitay-karar-tahmini': {
+                    tr: 'Python ve NLP teknikleri kullanılarak Yargıtay kararlarını analiz eden ve sonuç tahmini yapan yapay zeka projesi.',
+                    en: 'An AI project that analyzes Court of Cassation decisions and predicts outcomes using Python and NLP techniques.'
+                },
+            };
+            return desc[name] ? desc[name][lang] || desc[name]['tr'] : (lang==='en' ? 'A professional engineering project.' : 'Modern yazılım mimarisiyle kurgulanmış proje.');
+        }
+
         // Manuel featured proje listesi - bunlar her zaman üstte gösterilir
-        const FEATURED = ['NLP-Sentiment-Analyzer', 'AspNet-Eticaret', 'JavaSpring-Blog'];
+        const FEATURED = ['TeknikServisOtomasyonu','TeknikServisOtomasyonu-Web','elazig-tanitim','NLP-ile-Yargitay-karar-tahmini'];
 
         function renderRepos(repos) {
             const c = document.getElementById('github-repos');
@@ -932,34 +971,26 @@
                 const div = document.createElement('div');
                 div.className = 'repo-card';
                 const isFeatured = FEATURED.includes(r.name);
-                const featuredBadge = isFeatured ? `<span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:4px;background:rgba(0,255,65,0.1);color:var(--neon);border:1px solid var(--border-neon);letter-spacing:0.1em;text-transform:uppercase;">${currentLang==='en'?'★ Featured':'★ Öne Çıkan'}</span>` : '';
-                const stars = r.stargazers_count > 0 ? `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.35);"><i class="fas fa-star" style="color:#facc15;font-size:10px;"></i>${r.stargazers_count}</span>` : '';
+                                const stars = r.stargazers_count > 0 ? `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.35);"><i class="fas fa-star" style="color:#facc15;font-size:10px;"></i>${r.stargazers_count}</span>` : '';
                 const forks = r.forks_count > 0 ? `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.35);"><i class="fas fa-code-branch" style="font-size:10px;"></i>${r.forks_count}</span>` : '';
                 div.innerHTML = `
                     <div class="bg-icon"><i class="fab fa-github"></i></div>
                     <div>
                         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
-                            <div style="display:flex;gap:6px;align-items:center;"><span class="repo-lang-tag">${r.language||'Code'}</span>${featuredBadge}</div>
+                            <div style="display:flex;gap:6px;align-items:center;"><span class="repo-lang-tag">${r.language||'Code'}</span></div>
                             <div style="display:flex;gap:10px;">${stars}${forks}</div>
                         </div>
-                        <div class="repo-name">${r.name}</div>
-                        <p class="repo-desc">${r.summary}</p>
+                        <div class="repo-name">${repoDisplayName(r.name)}</div>
+                        <p class="repo-desc">${repoDescription(r.name, currentLang)}</p>
                     </div>
                     <div class="repo-footer">
                         <a href="${r.html_url}" target="_blank" data-repo-link class="repo-link">${lbl} <i class="fas fa-arrow-right-long" style="color:var(--neon)"></i></a>
-                        <span style="font-size:10px;color:rgba(255,255,255,0.2);">${r.updated_at ? new Date(r.updated_at).toLocaleDateString('tr-TR',{month:'short',year:'numeric'}) : ''}</span>
+                        <span style="font-size:10px;color:rgba(255,255,255,0.2);">${r.updated_at ? new Date(r.updated_at).toLocaleDateString(currentLang==='en'?'en-US':'tr-TR',{month:'short',year:'numeric'}) : ''}</span>
                     </div>`;
                 c.appendChild(div);
             });
         }
-        function filterProjects(lang) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-            if(lang==='all') renderRepos(allRepos);
-            else if(lang==='HTML') renderRepos(allRepos.filter(r=>r.language==='HTML'||r.language==='CSS'));
-            else if(lang==='Python') renderRepos(allRepos.filter(r=>r.language==='Python'||r.language==='Jupyter Notebook'));
-            else renderRepos(allRepos.filter(r=>r.language===lang));
-        }
+
 
         // ── Language bars ──
         const LANG_COLORS = {
